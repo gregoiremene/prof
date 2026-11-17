@@ -1,0 +1,215 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{tkz-tab}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% --------------------
+% En-tête / pied
+% --------------------
+\header{}{Corrigé – DS de mathématiques}{1ère STMG}
+\footer{}{\thepage}{}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Corrigé du devoir surveillé\\Fonctions polynômes de degré 2}
+\end{center}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Étude d’une fonction \ (/5 points)}
+
+\vspace{5pt}
+
+\begin{questions}
+
+\question \textbf{Valeurs de $f(0)$ et $f(1)$}
+
+\begin{itemize}
+    \item $f(0)$ correspond à l’ordonnée à l’origine : on lit sur le graphique  
+    \[
+    f(0) = -3
+    \]
+    \item Pour $x=1$, on lit graphiquement :
+    \[
+    f(1) = 0
+    \]
+\end{itemize}
+
+\question \textbf{Détermination de $a$ et $c$}
+
+On sait que :
+\[
+f(x) = ax^2 + c
+\]
+
+\begin{itemize}
+    \item Comme $f(0) = c$ (la valeur sur les ordonnées où passe la 
+    courbe), on obtient :
+    \[
+    c = -3
+    \]
+    \item Comme $f(1) = a \times 1^2 + c = a - 3$ et que $f(1) = 0$ (graphiquement), on a :
+    \[
+    a - 3 = 0 \quad \Rightarrow \quad a = 3
+    \]
+\end{itemize}
+
+\[
+\boxed{f(x)=3x^2-3}
+\]
+
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 2 : Étudier et tracer \ (/8 points)}
+
+\vspace{0.3cm}
+On considère la fonction :
+\[
+f(x) = -2(x+1)(x-5)
+\]
+
+\begin{questions}
+
+\question \textbf{Caractéristiques du polynôme}
+
+\begin{parts}
+
+\part \textbf{Racines}
+
+\[
+x_1=-1 \quad \text{et} \quad x_2=5
+\]
+
+\part \textbf{Axe de symétrie}
+
+L’axe est la moyenne des racines :
+\[
+x=\dfrac{x_1 + x_2}{2} = \frac{-1+5}{2}=2
+\]
+
+\part \textbf{Sommet}
+
+Coordonnées du sommet : $\left(\dfrac{x_1+x_2}{2}\  ; \ f(\dfrac{x_1+x_2}{2})\right) = (2, f(2))$
+
+Avec :
+
+\[
+f(2)=-2(3)(-3)=18
+\]
+Donc :
+\[
+S(2;18)
+\]
+
+\part \textbf{Nature du sommet}
+
+Le coefficient directeur $a$ est négatif ($a = -2<0$), donc la parabole est tournée vers le bas.
+\[
+\boxed{\text{Le sommet est un maximum}}
+\]
+
+\end{parts}
+
+\question \textbf{Allure de la courbe}
+
+La courbe est une parabole :
+\begin{itemize}
+    \item tournée vers le bas,
+    \item coupant l’axe des abscisses en $-1$ et $5$,
+    \item de sommet $S(2;18)$.
+\end{itemize}
+
+\vspace{10pt}
+
+\question \textbf{Tableau de variations}
+
+\[
+\begin{tikzpicture}
+   \tkzTabInit{$x$ / 1 , $f(x)$ / 1.5}{$-\infty$, $2$, $+\infty$}
+   \tkzTabVar{-/ , +/ 18, -/}
+\end{tikzpicture}
+\]
+
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 3 : Problème \ (/7 points)}
+
+\vspace{0.3cm}
+On considère la fonction :
+\[
+f(x) = -2x^2 + 2x + 4
+\]
+
+\begin{questions}
+
+\question \textbf{Montrer que 2 est une racine}
+
+\[
+f(2) = -2 \times 2^2 + 2 \times 2 + 4 = -2 \times 4 + 4 + 4 = -8 + 8 = 0
+\]
+Donc $2$ est bien une racine.
+
+\question \textbf{Calcul de $f(-1)$}
+
+\[
+f(-1) = -2 \times (-1)^2 + 2 \times (-1) + 4 = - 2 - 2 + 4 = 0
+\]
+Donc $-1$ est également une racine.
+
+\question \textbf{Forme factorisée}
+
+Les racines sont $-1$ et $2$ :
+\[
+\boxed{f(x) = -2(x+1)(x-2)}
+\]
+
+\question \textbf{Tableau de signes}
+
+\[
+\begin{tikzpicture}
+   \tkzTabInit{$x$ / 1 , $f(x)$ / 1}{$-\infty$, $-1$, $2$, $+\infty$}
+   \tkzTabLine{, -, z, +, z, -, }
+\end{tikzpicture}
+\]
+
+\question \textbf{Résolution de l’inéquation}
+
+\[
+f(x) \leq 0 \iff x \leq -1 \quad \text{ou} \quad x \geq 2
+\]
+
+\[
+\boxed{S = \ \left]-\infty;-1\right] \cup \left[2;+\infty\right[}
+\]
+
+\end{questions}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textit{Fin du corrigé}
+\end{center}
+
+\end{document}

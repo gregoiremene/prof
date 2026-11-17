@@ -1,0 +1,479 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+% \usepackage[draft]{graphicx}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{array}
+\usepackage[thinlines]{easytable}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\begin{document}
+
+% ============================
+%   Probabilités
+% ============================
+
+\newpage
+
+\begin{center}
+    {\LARGE \textbf{Arithmétique}}\\[4mm]
+    {\large -- 2\up{nde} --}
+\end{center}
+
+\vspace{10pt}
+\hrule
+\vspace{0pt}
+
+% ============================
+%   Partie 1 : Rappels sur les probabilités
+% ============================
+
+\section*{\textcolor{red}{I/ Multiples et diviseurs}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}
+\textbf{\underline{Définition :}}}
+Soit $a$ et $b$ deux entiers naturels.
+
+\vspace{5pt}
+On dit que $a$ est un multiple de $b$ s’il existe un entier $k$ tel que $\bm{a = kb}$.
+
+\end{mdframed}
+
+\vspace{5pt}
+\underline{Remarque : } On dit que $b$ est un \_\_\_\_\_\_\_\_\_\_\_\_ de $a$.
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°1:} Montrer qu'un nombre est un multiple ou un diviseur.}}
+
+\vspace{5pt}
+Les affirmations suivantes sont-elles vraies ou fausses : 
+
+\vspace{5pt}
+\hspace{1cm}a) 36 est un multiple de 12 \hspace{2cm}b) 28 est un multiple de 8
+
+\vspace{5pt}
+\hspace{1cm}c) 6 est un diviseur de 54 \hspace{2.3cm}d) 7 est un diviseur de 24
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+La somme de deux multiples d’un entier $a$ est un multiple de $a$.
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Plum,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Plum}
+\textbf{\underline{Démonstration :}}}
+
+\vspace{5pt}
+Soit $n \in \mathbb{N}$.
+
+\vspace{5pt}
+Soient $b$ et $c$ deux multiples de $n$.
+Démontrons que la somme de deux multiples de $n$ est un multiple de $n$.
+
+\vspace{5pt}
+Comme $b$ est un multiple de $n$, il existe un entier $k_1$ tel que $b = 3k_1$.
+\\Comme $c$ est un multiple de $n$, il existe un entier $k_1$ tel que $c = 3k_2$.
+
+\vspace{5pt}
+Alors : $b+c =$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°2:} Résoudre un problème avec des multiples et des diviseurs.}}
+
+\vspace{5pt}
+Montrer que la somme de trois entiers consécutifs est toujours un multiple de 3.
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+
+\vspace{10pt}
+\section*{\textcolor{red}{II/ Nombres pairs, nombres impairs}}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}
+\textbf{\underline{Définition :}}}
+
+\vspace{5pt}
+Un nombre \textbf{pair} est un multiple de 2.
+
+\vspace{5pt}
+Un nombre \textbf{impair} est un nombre qui n'est pas pair.
+
+\end{mdframed}
+
+\vspace{5pt}
+\textbf{On en déduit la propriété suivante :}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+}
+\end{mdframed}
+
+\underline{Exemples :}
+
+\vspace{5pt}
+\textbullet \ $34 = 2k$ avec $k =$
+
+\vspace{5pt}
+\textbullet \ $57 = 2k + 1$ avec $k = $
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{5pt}
+De manière abrégée (que l'on peut retrouver facilement par le calcul) :
+
+\vspace{-20pt}
+\begin{center}
+    \vspace{20pt}
+    \textbf{pair + pair $\longrightarrow$ \_\_\_\_\_\_\_\_}
+
+    \vspace{20pt}
+    \textbf{pair + pair $\longrightarrow$ \_\_\_\_\_\_\_\_}
+
+    \vspace{20pt}
+    \textbf{pair + pair $\longrightarrow$ \_\_\_\_\_\_\_\_}
+
+    \vspace{20pt}
+    \textbf{pair $\times$ \_\_\_\_\_\_\_\_ $\longrightarrow$ pair}
+
+    \vspace{20pt}
+    \textbf{pair $\times$ \_\_\_\_\_\_\_\_ $\longrightarrow$ impair}
+\end{center}
+
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}} Le carré d'un nombre impair est impair.
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Plum,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Plum}
+\textbf{\underline{Démonstration :}}}
+
+\vspace{5pt}
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°3:} Un problème avec des nombres pairs ou impairs.}}
+
+\vspace{5pt}
+Montrer que le produit de deux entiers consécutifs est un nombre pair.
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{10pt}
+\section*{\textcolor{red}{III/ Nombres premiers}}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}
+\textbf{\underline{Définition :}}}
+
+\vspace{5pt}
+Un nombre est \textbf{premier} s'il possède exactement {\color{black!45}\dotfill}
+
+\end{mdframed}
+
+\vspace{20pt}
+\underline{Remarques :}
+
+\begin{itemize}
+    \item Il existe un nombre \textbf{infini} de nombre premier.
+    Mais nous n'allons pas le démontrer ici, ça serait un peu compliqué. Mais vu que vous êtes forts, ok on va le 
+    faire.
+
+    \begin{mdframed}[
+        linewidth=1pt,
+        roundcorner=5pt,
+        linecolor=Plum,
+        innertopmargin=10pt,
+        innerbottommargin=10pt
+    ]
+    {\color{Plum}
+    \textbf{\underline{Démonstration :}}}
+    NE ME REMERCIEZ PAS JE SAIS QUE ÇA VOUS FAIT PLAISIR
+
+    \vspace{5pt}
+    Nous allons démontrer cela \textbf{par l'absurde} : partir d'une hypothèse, aboutir à une absurdité, donc forcément 
+    notre hypothèse de départ est \textbf{fausse}.
+
+    \vspace{5pt}
+    Supposons donc qu'il existe un nombre \textbf{fini} de nombres premiers.
+    \\Notons-les par exemple 
+    : $p_1, p_2, ... 
+    p_n$, ou $p_n$ est le plus grand nombre premier.
+
+    \vspace{5pt}
+    Construisons un nouveau nombre comme le produit de ces nombres premiers auquel on ajoute 1 : 
+
+    \vspace{-20pt}
+    $$
+    N = p_1 \times p_2 \times ... \times p_n + 1
+    $$
+
+    \textbullet \ $N > 1$ ce qui implique qu'il admet au moins un diviseur premire (théorème fondamental de 
+    l'arithmétique), comme vous l'avez vu dans les décompositions en facteurs premiers.
+
+    \textbullet \ Or, $N$ n'est divisible par \textbf{aucun} des $p_i$ (car le reste de la division serait 1 !) :
+
+    \vspace{0.5cm}
+    {\color{black!45}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!45}\dotfill}
+    
+    \vspace{20pt}
+
+    \textbullet \ Donc $N$ admet un diviseur premier \textbf{différent} de tous les $p_i$.
+
+    \vspace{5pt}
+    Ce qui est \textbf{absurde}.
+    
+    \end{mdframed}
+
+    \vspace{10pt}
+    \item Le nombre 1 n'est pas premier car {\color{black!45}\dotfill}
+    
+\end{itemize}
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Théorème :}}
+
+\vspace{5pt}
+Tout nombre non premier peut se décomposer en produit de facteurs premiers.
+\\L’ordre des facteurs n’a pas d’importance.
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}
+\textbf{\underline{Définition :}}}
+
+\vspace{5pt}
+ On dit qu’une fraction est irréductible, lorsque son numérateur et son
+dénominateur n’ont pas de diviseur commun autre que 1.
+
+\end{mdframed}
+
+
+
+
+\end{document}

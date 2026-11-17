@@ -1,0 +1,208 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+\header{}{DS de mathématiques}{1ère STMG}
+\footer{}{\thepage}{}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{CORRECTION -- Interrogation\\Dérivation}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+
+\vspace{0.5cm}
+
+% ========================================================
+%             Remarques
+% ========================================================
+{\color{red}
+\underline{\textbf{Remarques générales :}}
+
+\vspace{5pt}
+\begin{itemize}
+    \item les éléments donnés dans cette correction sont simplement les méthodes à mettre 
+    en place pour répondre aux questions. À vous de refaire les calculs et la démarche associée
+    \item \underline{Exercice 1 :}
+    \begin{itemize}
+        \item beaucoup de confusions entre $f'(0)$, $f'(3)$ et $f(0)$, $f(3)$. Là on veut f' donc 
+        cela correspond à la pente des tangente aux points donnés. Pour $f'(0)$ c'est la 
+        pente de la tangente au point $x=0$, donc de la tangente en $A$. Il ne s'agit pas du calcul
+        de $f(0)$ qui lui est une simple lecture d'image : $f(0) = 2$.
+        \item ici beaucoup m'ont mis le calcul de la pente pour $T_A$ et $T_B$. Or, il s'agit de trouver 
+        l'équation de la tangente qui est d'après le cours : $y = f'(a)x + p$ et il faut alors déterminer $f'(a)$
+        (fait à la question d'avant) et $p$.
+    \end{itemize}
+    \item \underline{Exercice 2 :}
+    \begin{itemize}
+        \item il faut absolument retravailler les tableaux de signes des fonctions affines, 
+        réussis par très peu d'entre vous
+        \item le tableau de variations découle directement de ce tableau de signes
+    \end{itemize}
+\end{itemize}
+}
+
+\vspace{10pt}
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Dérivées et tangentes (\ \ \ \  / 5 points )}
+\vspace{10pt}
+\noindent\\On considère la fonction $f$ représentée ci-dessous ainsi que deux tangentes à $f$.
+
+\vspace{-5pt}
+\begin{center}
+    \begin{tikzpicture}[scale=1, xscale=1.5]
+
+    % Grille
+    \draw[step=1cm, gray, very thin] (-3,-2) grid (6,7);
+
+    % Axes
+    \draw[->] (-3.2,0) -- (6.2,0) node[right] {$x$};
+    \draw[->] (0,-2.2) -- (0,7.2) node[above] {$y$};
+
+    % Graduations x
+    \foreach \x in {-3,-2,-1,1,2,3,4,5,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\small $\x$};
+
+    % Graduations y
+    \foreach \y in {-1,1,2,3,4,5,6}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\small $\y$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=-1.5:3.5, samples=200, smooth, thick, black]
+        plot (\x, {\x*\x - 2*\x + 2});
+
+    \node at (-1,6.2) {$\mathcal{C}_f$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=-2.5:2, samples=200, smooth, very thick, black]
+        plot (\x, {-2*\x + 2});
+
+    \node at (-1.5,4.5) {$\mathcal{T}_A$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=1.25:3.5, samples=200, smooth, very thick, black]
+        plot (\x, {4*\x -7});
+
+    \node at (2.5,1.75) {$\mathcal{T}_B$};
+
+    \filldraw (0, 2) circle (2pt) node[above right] {A};
+
+    \filldraw (3, 5) circle (2pt) node[below right] {B};
+
+    \end{tikzpicture}
+\end{center}
+
+
+\begin{questions}
+
+\question[2] Déterminer graphiquement $f'(0)$ et $f'(3)$.
+
+{\color{red}Ici, il s'agit de $f'$ donc on calcule les pentes des tangentes aux point donnés : $x=0$ et $x=3$
+
+On trouve : $f'(0)=-2$ et $f'(3) = 4$.
+
+Je compte sur vous pour refaire le calculs si vous n'avez pas les bonnes réponses (avec l'aide du cours si besoin).}
+
+\question[3] En déduire les équations des tangentes $\mathcal{T}_A$ et $\mathcal{T}_B$ à 
+la courbe $\mathcal{C}_f$.
+
+{\color{red}D'après le cours une équation de tangente est : $y = f'(a)x + p$
+
+Nous avons déjà calculé $f'(a)$ pour nos deux tangentes : $f'(0)=-2$ et $f'(3) = 4$.
+
+On a donc $T_A : y = -2x+p$ et $T_B : y = 4x + p$.
+
+Il nous reste plus qu'à calculer $p$ : c'est l'ordonnée à l'origine (évident pour $T_A$ qui vaut $2$). Pour 
+$T_B$ il faut utiliser la méthode du point qui appartient à la droite comme vu dans le cours.
+
+On trouve $T_A : y = -x+2$ et $T_B : y = 3x - 7$.
+}
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exercice 2
+% ========================================================
+\noindent
+\textbf{Exercice 2 : Calculs de dérivées ( \ \ \ / 5 points )}
+
+\vspace{10pt}
+\noindent
+
+\begin{questions}
+
+\question[2] Déterminer l'expression de la fonction dérivée de chacune des fonctions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $f(x) = 3x^3 - 7x$ \hspace{1cm}b) $g(x) = 3x^2 - x + 5$
+
+{\color{red}a) $f'(x) = 9x^2 - 7$
+
+b) $f'(x) = 6x-1$}
+
+\vspace{10pt}
+
+\question On considère la fonction : $f(x) = 2x^2 + 4x - 2$.
+
+\vspace{5pt}
+\hspace{1cm}a) (1 point) Calculer la dérivée $f'(x)$.
+
+{\color{red}$f'(x)=4x + 4$}
+
+\vspace{5pt}
+\hspace{1cm}b) (1 point) Étudier le signe de cette dérivée.
+
+{\color{red}
+Il faut revoir cette question pour la majorité de la classe.
+
+Je rappelle la méthode : on cherche la valeur ou ça change de signe en résolvant l'équation : 
+$4x + 4 = 0$.
+
+Ensuite on construit le tableau de signes.
+
+Pour remplire les bons signes aux bons endroits il suffit de regarder le signe du coefficient directeur : ici $4$.
+
+Comme $4$ est positif alors ce sera d'abord un signe $-$ puis un signe $+$ dans le tableau. Sinon c'est l'inverse.
+
+REFAITES CET EXERCICE.
+}
+
+\vspace{5pt}
+\hspace{1cm}c) (1 point) Dresser le tableau de variation de la fonction $f$.
+
+{\color{red}
+Le tableau de variations découle directement du tableau de signe. Revoir le cours de dérivées si besoin.
+}
+
+\end{questions}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textit{Fin du devoir}
+\end{center}
+
+\end{document}

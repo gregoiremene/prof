@@ -1,0 +1,151 @@
+% !TEX program = pdflatex
+% Fiche diagnostique - Terminale, Mathématiques complémentaires
+% Compilation : pdflatex fiche-diagnostique-terminale.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{array}
+
+%------------------------------------------------------------
+% Mise en forme
+%------------------------------------------------------------
+\definecolor{bleu}{RGB}{30,80,140}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Mathématiques complémentaires}
+\rhead{\small Terminale}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Environnement "exercice" numéroté avec titre
+\newcounter{exo}
+\newcommand{\exo}[1]{%
+  \refstepcounter{exo}%
+  \medskip
+  \noindent{\color{bleu}\large\bfseries Exercice \theexo\ -- #1}\par
+  \nopagebreak\smallskip
+}
+
+% Petite étiquette de niveau / thème
+\newcommand{\niv}[1]{\hfill{\small\itshape(#1)}}
+
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=4pt,topsep=4pt}
+
+%------------------------------------------------------------
+\begin{document}
+
+%------------------- En-tête -------------------
+\begin{center}
+  {\color{bleu}\LARGE\bfseries Fiche de reprise -- Diagnostic}\\[4pt]
+  {\large Terminale -- Mathématiques complémentaires}\\[6pt]
+  {\itshape Des bases de Première aux premiers outils de Terminale}
+\end{center}
+
+\vspace{4pt}
+\noindent\begin{tabular}{@{}p{0.6\textwidth}p{0.35\textwidth}@{}}
+  \textbf{Nom :} \dotfill & \textbf{Date :} \dotfill
+\end{tabular}
+
+\vspace{6pt}
+\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+  \small \textbf{Consignes.} Cette fiche n'est pas une évaluation notée : elle me sert à voir où
+  vous en êtes. Traitez ce que vous savez faire, et indiquez \emph{« je ne sais pas »}
+  plutôt que de laisser blanc sans rien tenter. La calculatrice est autorisée, mais détaillez
+  vos calculs. Soignez la rédaction.}}
+
+\vspace{2pt}
+\begin{center}\small\itshape Analyse\end{center}
+\hrule
+\smallskip
+
+%================= ANALYSE =================
+
+\exo{Calcul algébrique et second degré}\niv{Première}
+\begin{enumerate}
+  \item Développer puis réduire : $A = (2x-3)^2 - (x+1)(x-4)$.
+  \item Factoriser : $B = 9x^2 - 25$ \quad puis \quad $C = x^2 - 7x + 12$.
+  \item Résoudre dans $\mathbb{R}$ l'équation $x^2 - 7x + 12 = 0$.
+  \item Étudier le signe du trinôme $f(x) = x^2 - 7x + 12$ selon les valeurs de $x$.
+  \item En déduire l'ensemble des solutions de l'inéquation $x^2 - 7x + 12 \leqslant 0$.
+\end{enumerate}
+
+\exo{Dérivation et tangente}\niv{Première $\rightarrow$ Terminale}
+On considère la fonction $f$ définie sur $\mathbb{R}$ par
+$$ f(x) = x^3 - 3x^2 + 2. $$
+\begin{enumerate}
+  \item Calculer $f'(x)$.
+  \item Déterminer l'équation de la tangente à la courbe de $f$ au point d'abscisse $x = 1$.
+  \item Résoudre $f'(x) = 0$, puis étudier le signe de $f'$ sur $\mathbb{R}$.
+  \item Dresser le tableau de variations de $f$.
+\end{enumerate}
+
+\exo{Suites}\niv{Première}
+\begin{enumerate}
+  \item Soit $(u_n)$ la suite arithmétique de premier terme $u_0 = 5$ et de raison $r = 3$.
+        Donner l'expression de $u_n$ en fonction de $n$, puis calculer $u_{10}$.
+  \item Soit $(v_n)$ la suite géométrique de premier terme $v_0 = 2$ et de raison $q = 1{,}5$.
+        Donner l'expression de $v_n$, puis préciser si la suite est croissante ou décroissante (justifier).
+  \item \emph{Ouverture.} On définit $(w_n)$ par $w_0 = 1$ et $w_{n+1} = 0{,}5\, w_n + 2$.
+        Calculer $w_1$, $w_2$ et $w_3$. Vers quelle valeur semblent se rapprocher les termes ?
+\end{enumerate}
+
+\exo{Fonction exponentielle}\niv{Première}
+\begin{enumerate}
+  \item Simplifier les expressions suivantes : $\dfrac{e^{3x}\times e^{-x}}{e^{x}}$ \quad et \quad $\left(e^{2}\right)^{3} \times e^{-4}$.
+  \item Résoudre dans $\mathbb{R}$ l'équation $e^{2x-1} = 1$.
+  \item On pose $g(x) = (x+1)\,e^{x}$. Calculer $g'(x)$.
+\end{enumerate}
+
+\exo{Pourcentages et évolutions}\niv{Première -- utile en Terminale}
+\begin{enumerate}
+  \item Un article coûte $80$~€. Son prix augmente de $15\,\%$. Quel est le nouveau prix ?
+  \item Après cette hausse, le commerçant applique une remise de $15\,\%$.
+        Le prix revient-il à $80$~€ ? Justifier par un calcul.
+  \item Une population passe de $12\,000$ à $13\,200$ habitants. Déterminer le taux d'évolution (en \%).
+  \item Un capital augmente de $4\,\%$ par an pendant $3$ ans. Par quel coefficient est-il multiplié au total ?
+\end{enumerate}
+
+\vspace{6pt}
+\begin{center}\small\itshape Probabilités et statistique\end{center}
+\hrule
+\smallskip
+
+%================= PROBABILITÉS =================
+
+\exo{Probabilités conditionnelles}\niv{Première}
+Dans un lycée, $60\,\%$ des élèves sont des filles. Parmi les filles, $30\,\%$ sont demi-pensionnaires ;
+parmi les garçons, $50\,\%$ le sont. On choisit un élève au hasard.
+\begin{enumerate}
+  \item Représenter la situation par un arbre pondéré.
+  \item Calculer la probabilité que l'élève soit une fille demi-pensionnaire.
+  \item Calculer la probabilité que l'élève soit demi-pensionnaire.
+  \item L'élève choisi est demi-pensionnaire. Quelle est la probabilité que ce soit une fille ?
+\end{enumerate}
+
+\exo{Variable aléatoire et moyenne}\niv{Première / statistique}
+On lance un dé équilibré à six faces. Un jeu rapporte le gain $X$ suivant :
+on gagne $5$~€ si l'on obtient un $6$, on gagne $1$~€ si l'on obtient un $1$ ou un $2$,
+et l'on perd $2$~€ sinon.
+\begin{enumerate}
+  \item Déterminer la loi de probabilité de $X$ (dresser le tableau des valeurs et probabilités).
+  \item Calculer l'espérance $E(X)$. Le jeu est-il favorable au joueur ?
+  \item Pour la série de notes $\;8 \;;\; 11 \;;\; 11 \;;\; 13 \;;\; 17$, calculer la moyenne et préciser la médiane.
+\end{enumerate}
+
+\vfill
+\begin{center}\small\itshape
+  Bon courage ! Rendez la fiche même incomplète : chaque réponse m'aide à préparer la suite.
+\end{center}
+
+\end{document}

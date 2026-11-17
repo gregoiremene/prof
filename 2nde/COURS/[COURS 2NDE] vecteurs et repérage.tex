@@ -1,0 +1,1067 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usetikzlibrary{calc}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+% Pour les coordonnées de vecteurs :
+\newcommand*{\Coord}[2]{% 
+  \ensuremath{
+    \begin{pmatrix} 
+      #1\\ 
+      #2 
+    \end{pmatrix}}}
+
+\newcommand*{\Det}[4]{% 
+  \ensuremath{
+    \begin{vmatrix} 
+      #1 & #2 \\
+      #3 & #4 
+    \end{vmatrix}}}
+
+% % Pour les coordonnées de points :
+% \newcommand*{\Coord}[3]{% 
+%   \ensuremath{#1\,
+%     \begin{pmatrix}
+%       #2\\ 
+%       #3 
+%     \end{pmatrix}}}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+% \subsectionfont{\color{red}\normalsize\bfseries} % pour \subsection*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Vecteurs dans un repère}}\\[2mm]
+    {\large Classe de 2nde}
+\end{center}
+
+% ============================
+%   PARTIE 1 : REPÈRES
+% ============================
+
+\section*{\textcolor{red}{Partie 1 : Repères}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{\underline{Définition :} Repère du plan}}
+
+\vspace{5pt}
+Un \textbf{repère du plan} est défini par :
+\begin{itemize}
+    \item un point $O$, appelé \textbf{origine du repère} ;
+    \item deux vecteurs non colinéaires $\overrightarrow{i}$ et $\overrightarrow{j}$.
+\end{itemize}
+\vspace{5pt}
+On note alors le repère :
+\[
+(O \,;\, \overrightarrow{i}, \overrightarrow{j})
+\]
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{\textbf{Les 3 types de repères :}}
+
+\vspace{10pt}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+% =======================
+% Repère quelconque
+% =======================
+
+% Axes (supports de i et j)
+\draw[->] (-1,0) -- (4,0) node[right] {$x$};
+\draw[->] (-0.33,-1) -- (1.33,4) node[above] {$y$};
+
+% Vecteurs du repère
+\draw[->, very thick, blue] (0,0) -- (3,0);
+\draw[->, very thick, red] (0,0) -- (1,3);
+
+\node at (0,-0.4) {$O$};
+\node[blue] at (1.5,0.4) {$\overrightarrow{i}$};
+\node[red] at (0,1.5) {$\overrightarrow{j}$};
+\node at (1.2,-1.6) {\textbf{Repère quelconque}};
+
+
+% =======================
+% Repère orthogonal
+% =======================
+
+\begin{scope}[xshift=6cm]
+
+% Axes
+\draw[->] (-1,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,4) node[above] {$y$};
+
+% Vecteurs du repère
+\draw[->, very thick, blue] (0,0) -- (2.2,0);
+\draw[->, very thick, red] (0,0) -- (0,3);
+
+\node at (0,-0.4) {$O$};
+\node[blue] at (1,0.4) {$\overrightarrow{i}$};
+\node[red] at (-0.3,1.5) {$\overrightarrow{j}$};
+\node at (1.2,-1.4) {\textbf{Repère orthogonal}};
+
+\end{scope}
+
+% =======================
+% Repère orthonormé
+% =======================
+
+\begin{scope}[xshift=12cm]
+
+% Axes
+\draw[->] (-1,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,4) node[above] {$y$};
+
+% Vecteurs du repère
+\draw[->, very thick, blue] (0,0) -- (3,0);
+\draw[->, very thick, red] (0,0) -- (0,3);
+
+% Carré unité (optionnel mais pédagogique)
+\draw[dashed] (3,0) -- (3,3);
+\draw[dashed] (0,3) -- (3,3);
+
+\node at (0,-0.4) {$O$};
+\node[blue] at (1.5,0.4) {$\overrightarrow{i}$};
+\node[red] at (-0.4,1.5) {$\overrightarrow{j}$};
+\node at (1.2,-1.4) {\textbf{Repère orthonormé}};
+
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{\underline{Définitions :} types de repères}}
+
+\vspace{5pt}
+\begin{itemize}
+    \item Un repère est \textbf{orthogonal} lorsque les vecteurs $\overrightarrow{i}$ et 
+    $\overrightarrow{j}$ sont \  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+    \vspace{5pt}
+    \item Un repère est \textbf{orthonormé} lorsque les vecteurs $\overrightarrow{i}$ et 
+    $\overrightarrow{j}$ sont perpendiculaires \textbf{et de 
+    \vspace{10pt}\\même} \_\_\_\_\_\_\_\_\_\_\_\_.
+\end{itemize}
+\end{mdframed}
+
+\vspace{15pt}
+
+\underline{\textbf{Exemple : coordonnées d’un point}}
+
+\vspace{10pt}
+
+\begin{minipage}{.45\textwidth}
+On considère un repère orthonormé $(O \,;\, \overrightarrow{i}, \overrightarrow{j})$.
+
+\vspace{5pt}
+Le point $M$ a pour coordonnées $(2\,;3)$.
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+
+% Grille
+\draw[step=1cm, gray, very thin] (-1,-1) grid (4,4);
+
+% Axes
+\draw[->] (-1,0) -- (4.2,0);
+\draw[->] (0,-1) -- (0,4.2);
+% Vecteurs du repère
+\draw[->, very thick, blue] (0,0) -- (1,0);
+\draw[->, very thick, red] (0,0) -- (0,1);
+
+% Point M
+\fill (2,3) circle (3pt) node[above right] {$M\ (2\,;3)$};
+\node at (-0.4,-0.4) {$O$};
+\node[blue] at (1,-0.6) {$\overrightarrow{i}$};
+\node[red] at (-0.4,1) {$\overrightarrow{j}$};
+
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\vspace{10pt}
+
+% ============================
+%   PARTIE 2 : Coordonnées d’un vecteur
+% ============================
+
+\section*{\textcolor{red}{Partie 2 : Coordonnées d’un vecteur}}
+
+\vspace{5pt}
+
+\underline{\textbf{Exemple 1 :}}
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{5pt}
+    On considère le repère orthonormé $(O,\overrightarrow{i},\overrightarrow{j})$ ci-contre.
+    \vspace{5pt}\\
+    On a :
+    \[
+    \overrightarrow{u} = \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+    \]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+\vspace{0pt}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+\draw[step=1cm, gray, thin] (-1,-1) grid (5,4);
+\draw[->] (-1,0) -- (5,0);
+\draw[->] (0,-1) -- (0,4);
+
+% Vecteurs du repère
+\draw[->, very thick, blue] (0,0) -- (1,0);
+\draw[->, very thick, red] (0,0) -- (0,1);
+\draw[->, very thick, blue] (1,1) -- (2,1);
+\draw[->, very thick, blue] (2,1) -- (3,1);
+\draw[->, very thick, blue] (3,1) -- (4,1);
+\draw[->, very thick, red] (4,1) -- (4,2);
+\draw[->, very thick, red] (4,2) -- (4,3);
+
+\draw[->, very thick, ForestGreen] (1,1) -- (4,3);
+\node[ForestGreen, above left] at (3,2) {$\overrightarrow{u}$};
+\node at (-0.4,-0.4) {$O$};
+\node[blue] at (1,-0.6) {$\overrightarrow{i}$};
+\node[red] at (-0.4,1) {$\overrightarrow{j}$};
+
+\end{tikzpicture}
+\end{center}
+\end{minipage}%
+
+\vspace{10pt}
+
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item On part de l’origine du vecteur.
+    \item On se déplace de 3 unités sur l'axe des $x$ et de 2 unités sur l'axe des $y$.
+    \vspace{15pt}
+    \item \textbf{Les coordonnées du vecteur sont donc \_\_\_\_\_\_\_\_\_.}
+    \vspace{5pt}
+    \item On note généralement les coordonnées d'un vecteur verticalement :
+    \Coord{$x$}{$y$}
+\end{itemize}
+
+\vspace{20pt}
+
+\underline{\textbf{Exemple 2 :}}
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{5pt}
+    À nouveau, on se place dans un repère $(O,\overrightarrow{i},\overrightarrow{j})$.
+    \vspace{5pt}
+    \\On a :
+    \[
+    \overrightarrow{u} = \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+    \]
+    Les coordonnées de $\overrightarrow{u}$ sont donc :
+    \[
+    \Coord{\ \ \ \ \ \ \ }{\ \ \ \ \ \ \ }
+    \]
+    \begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+    ]
+    {\color{Red}\textbf{\underline{À RETENIR :}}}
+        Les coordonnées d'un vecteur ne dépendent pas de sa position
+        dans le repère, uniquement de sont point de départ et point d'arrivée.
+    \end{mdframed}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+\begin{center}
+\vspace{50pt}
+\begin{tikzpicture}[scale=0.8]
+
+\draw[step=1cm, gray, thin] (-1,-2) grid (6,4);
+\draw[->] (-1,0) -- (6,0);
+\draw[->] (0,-2) -- (0,4);
+
+% Vecteurs du repère
+\draw[->, very thick, blue] (0,0) -- (1,0);
+\draw[->, very thick, red] (0,0) -- (0,1);
+\draw[->, very thick, blue] (1,2) -- (2,2);
+\draw[->, very thick, blue] (2,2) -- (3,2);
+\draw[->, very thick, blue] (3,2) -- (4,2);
+\draw[<-, very thick, red] (4,-1) -- (4,0);
+\draw[<-, very thick, red] (4,0) -- (4,1);
+\draw[<-, very thick, red] (4,1) -- (4,2);
+
+\draw[->, very thick, ForestGreen] (1,2) -- (4,-1);
+\node[ForestGreen, above left] at (3.2,0.5) {$\overrightarrow{u}$};
+\node at (-0.4,-0.4) {$O$};
+\node[blue] at (1,-0.6) {$\overrightarrow{i}$};
+\node[red] at (-0.4,1) {$\overrightarrow{j}$};
+
+\end{tikzpicture}
+\end{center}
+\end{minipage}%
+
+\vspace{10pt}
+\newpage
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{\underline{Définition :}}}
+Dans un repère, les \textbf{coordonnées d’un vecteur} $\overrightarrow{u}$ sont les nombres 
+$x$ et $y$ tels que $\Coord{x}{y}$ avec :
+\[
+\overrightarrow{u} = x\overrightarrow{i} + y\overrightarrow{j}
+\]
+\end{mdframed}
+
+\vspace{10pt}
+% =============================================
+% ========== EXERCICE D'APPLICATION ============
+% =============================================
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :} Lecture graphique de coordonnées.}}
+\vspace{10pt}
+
+\begin{minipage}{.45\textwidth}%
+\begin{tikzpicture}[scale=0.7]
+
+\draw[step=1cm, gray, thin] (-5,-5) grid (5,5);
+\draw[->, thick] (-5,0) -- (5,0);
+\draw[->, thick] (0,-5) -- (0,5);
+
+\node at (-0.4,-0.4) {$O$};
+
+% \fill (1,1) circle (2pt) node[below left] {$A$};
+% \fill (5,3) circle (2pt) node[above right] {$B$};
+% \fill (2,4) circle (2pt) node[above] {$C$};
+
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.55\textwidth}%
+    \begin{itemize}
+        \item Dans le repère, placer les points $C\Coord{-1}{-2}$, $D\Coord{-2}{3}$,
+        $E\Coord{1}{-4}$ et $F\Coord{4}{-2}$
+        \vspace{5pt}
+        \item Déterminer les coordonnées des vecteurs 
+        $\overrightarrow{CD}$ et $\overrightarrow{EF}$ par lecture graphique.
+    \end{itemize}
+\end{minipage}%
+
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+Deux vecteurs sont \textbf{égaux} si et seulement si ils ont les \textbf{mêmes coordonnées}.
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+Soient $A\Coord{x_A}{y_A}$ et $B\Coord{x_B}{y_B}$ deux points. 
+\vspace{5pt}
+\\Les coordonnées du vecteur $\overrightarrow{AB}$ sont alors :
+\[
+\overrightarrow{AB}\Coord{x_B - x_A}{y_B - y_A}
+\]
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{\textbf{Exemple :}}
+
+\vspace{10pt}
+On considère deux points $A\Coord{2}{1}$ et $B\Coord{5}{4}$.
+
+\vspace{5pt}
+On a alors : 
+\[
+\overrightarrow{AB}\Coord{x_B - x_A}{y_B - y_A} \ = \ \overrightarrow{AB} \Coord{5-2}{4-1} \  = \  \overrightarrow{AB}\Coord{3}{3}
+\]
+
+
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item On soustrait les coordonnées du point de départ à celles du point d’arrivée.
+\end{itemize}
+
+
+\newpage
+% =============================================
+% ========== EXERCICE D'APPLICATION ============
+% =============================================
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :} Déterminer les coordonnées d'un 
+vecteur par le calcul.}}
+
+\vspace{5pt}
+
+Soient les points : 
+
+$A\Coord{2}{1}$, $B\Coord{5}{3}$, $C\Coord{-1}{-2}$, $D\Coord{-2}{3}$, $E\Coord{1}{-4}$ et $F\Coord{4}{-2}$.
+\vspace{5pt}
+
+Calculer les coordonnées des vecteurs $\overrightarrow{AB}$, $\overrightarrow{CD}$ 
+et $\overrightarrow{EF}$.
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item appliquer la propriété sur les coordonnées de vecteurs
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+
+Soient deux vecteurs $\overrightarrow{u}\Coord{x}{y}$ et $\overrightarrow{v}\Coord{x'}{y'}$ et un réel 
+$k$.
+
+On a :
+\begin{itemize} 
+\renewcommand{\labelitemi}{$\bullet$}
+    \item $\overrightarrow{u} + \overrightarrow{v} \Coord{x+x'}{y+y'}$ \hspace{2cm} $\bullet$
+    $\overrightarrow{u} - \overrightarrow{v} \Coord{x-x'}{y-y'}$
+    \vspace{10pt}
+    \item $k \overrightarrow{u} \Coord{kx}{ky}$ \hspace{3.3cm} $\bullet$ $-\overrightarrow{u}\Coord{-x}{-y}$
+\end{itemize}
+
+\end{mdframed}
+
+% =============================================
+% ========== EXERCICE D'APPLICATION ============
+% =============================================
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :}
+Appliquer les formules sur les coordonnées de vecteurs.}}
+\vspace{10pt}
+
+Soient les points : 
+
+\vspace{5pt}
+
+$A\Coord{2}{1}$, $B\Coord{5}{3}$, $C\Coord{-1}{-2}$ et $D\Coord{-2}{3}$
+
+\vspace{10pt}
+
+Calculer les coordonnées des vecteurs :
+\vspace{5pt}
+
+\hspace{1cm} $\bullet \  3 \overrightarrow{AB}$ \hspace{2cm} $\bullet \ 4 \overrightarrow{CD}$ \hspace{2cm} 
+$\bullet \ 3 \overrightarrow{AB} - 4 \overrightarrow{CD}$
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item calculer d'abord le vecteur
+    $\overrightarrow{AB} \Coord{x_B-x_A}{y_B-y_A}$
+    \item appliquer la propriété pour calculer le vecteur final 
+    $3 \overrightarrow{AB}$
+    \item faire de même avec les autres calculs de vecteurs
+\end{itemize}
+\end{mdframed}
+
+\vspace{1cm}
+\newpage
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°4 :}
+Calculer les coordonnées d'un point défini par une égalité 
+vectorielle.}}
+\vspace{10pt}
+
+Soient les points : 
+
+\vspace{5pt}
+
+$A\Coord{1}{2}$, $B\Coord{-4}{3}$ et $C\Coord{1}{-2}$.
+
+\vspace{10pt}
+
+Déterminer les coordonnées du point $D$ tel que $ABCD$ soit un 
+parallélogramme.
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item $ABCD$ est un parallélogramme si et seulement si 
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+    \vspace{5pt}
+    \item en posant $\Coord{x_D}{y_D}$ les coordonnées du point $D$, on peut calculer 
+    les coordonnées de ces 2 vecteurs.
+    \vspace{5pt}
+    \item on écrit alors \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+    
+    \vspace{5pt}
+    Soit $1 - x_D = -5$ et $-2 -y_D = 1$.
+    \vspace{5pt}
+    \item on résout alors pour trouver les coordonnées de $D$.
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+\vspace{20pt}
+
+% ============================
+%   PARTIE 3 : Colinéarité de deux vecteurs
+% ============================
+
+\section*{\textcolor{red}{Partie 3 : Colinéarité de deux vecteurs}}
+
+\subsection*{\textcolor{red}{1. Critère de colinéarité}}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=5pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+Soit deux vecteurs $\overrightarrow{u}\Coord{x}{y}$ et $\overrightarrow{v}\Coord{x'}{y'}$.
+\\Dire que $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires revient à dire 
+que :
+\[
+xy'-yx' = 0
+\]
+\end{mdframed}
+
+% \vspace{20pt}
+
+\underline{Remarque :} Dire que $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires 
+revient à dire que les coordonnées des deux vecteurs sont proportionnelles soit :
+$xy' = yx'$.
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Démonstration au programme :}}}
+\vspace{10pt}
+
+Supposons $\overrightarrow{u}$ et $\overrightarrow{v}$ non nuls (égalité évidente 
+si l'un des deux est nul).
+\vspace{5pt}
+
+\underline{1\up{er} sens :} Si $\overrightarrow{u}$ et $\overrightarrow{v}$ colinéaires 
+alors $xy'-yx' = 0$.
+
+% \vspace{5pt}
+
+Si $\overrightarrow{u}$ et $\overrightarrow{v}$ colinéaires alors il existe un réel 
+$k$ tel que $\overrightarrow{u} = k \overrightarrow{v}$.
+
+Les coordonnées des vecteurs sont donc proportionnelles et le tableau ci-dessous est 
+un tableau de proportionnalité :
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        x & x' \\
+        \hline
+        y & y' \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Donc (produit en croix) : $xy' = yx'$ ou encore $xy' - yx' = 0$.
+
+\vspace{5pt}
+\underline{2\up{ème} sens :} Si $xy'-yx' = 0$  
+alors $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires.
+
+\vspace{5pt}
+
+Le vecteur $\overrightarrow{v}$ étant non nul alors au moins l'une de ses coordonnées 
+est non nulle. Supposons $x'$ non nul.
+
+On pose alors $k = \dfrac{x}{x'}$. L'égalité $xy'-yx' = 0$ devient :
+\begin{align*}
+yx' &= xy' \\
+y &= \dfrac{xy'}{x'} \\
+y &= ky'
+\end{align*}
+
+Comme on a déjà $x = kx'$, on en déduit que $\overrightarrow{u} = k \overrightarrow{v}$.
+
+
+\end{mdframed}
+
+\vspace{10pt}
+
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°5 :} 
+Vérifier si deux vecteurs sont colinéaires.}}
+\vspace{10pt}
+
+Dans chaque cas, vérifier si les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ 
+sont colinéaires.
+
+a) $\overrightarrow{u}\Coord{4}{-7}$ et $\overrightarrow{v}\Coord{-12}{21}$
+\hspace{1cm} b) $\overrightarrow{u}\Coord{5}{-2}$ et $\overrightarrow{v}\Coord{15}{-7}$
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item appliquer directement la propriété aux coordonnées des vecteurs
+    \item on peut parfois remarquer directement une relation de proportionnalité 
+    entre les vecteurs
+    \item avec la propriété, on trouve :\\a) les vecteurs sont bien colinéaires (on 
+    remarque d'ailleurs  
+    $\overrightarrow{v} = $\_\_\_\_\_\_\_\_\_\_)
+    \\b) les vecteurs ne sont pas colinéaires.
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+\vspace{20pt}
+
+\subsection*{\textcolor{red}{2. Déterminant de deux vecteurs}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{\underline{Définition :} Déterminant de deux vecteurs}}
+
+\vspace{5pt}
+Soit $\overrightarrow{u}\Coord{x}{y}$ et $\overrightarrow{v}\Coord{x'}{y'}$.
+
+\vspace{5pt}
+Le nombre $xy' - yx'$ est appelé \textbf{déterminant} des vecteurs $\overrightarrow{u}$ 
+et $\overrightarrow{v}$.
+
+\vspace{5pt}
+On note :
+\[
+det(\overrightarrow{u} ; \overrightarrow{v}) = \Det{x}{x'}{y}{y'} = xy' - yx'
+\]
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+Dire que $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires revient à dire que 
+$det(\overrightarrow{u};\overrightarrow{v}) = 0$.
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°6 :} 
+Vérifier si deux vecteurs sont colinéaires à l'aide du déterminant.}}
+\vspace{10pt}
+
+Dans chaque cas, vérifier si les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ 
+sont colinéaires.
+
+a) $\overrightarrow{u}\Coord{-6}{10}$ et $\overrightarrow{v}\Coord{9}{-15}$
+\hspace{1cm} b) $\overrightarrow{u}\Coord{4}{9}$ et $\overrightarrow{v}\Coord{11}{23}$
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item on écrit le déterminant en mettant les coordonnées aux bons endroits
+    \item on résout le calcul du déterminant
+    \item on conclut
+    \item \underline{Résultats (comparer après calcul) :}\\
+    a) $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires.
+    \\b) $\overrightarrow{u}$ et $\overrightarrow{v}$ ne sont pas colinéaires.
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+\vspace{20pt}
+
+\subsection*{\textcolor{red}{3. Applications à la géométrie}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+
+\vspace{5pt}
+1) Dire que les droites $(AB)$ et $(CD)$ sont \textbf{parallèles} revient à dire que les 
+vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont colinéaires.
+
+\vspace{5pt}
+2) Dire que les points $A$, $B$ et $C$ sont \textbf{alignés} revient à dire que les vecteurs 
+$\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires.
+\end{mdframed}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°7 :} 
+Appliquer la colinéarité à des question de géométrie.}}
+\vspace{10pt}
+
+On considère les points $A\Coord{-1}{1}$, $B\Coord{3}{2}$, $C\Coord{-2}{-3}$, 
+$D\Coord{6}{-1}$ et $E\Coord{5}{0}$.
+
+\vspace{5pt}
+a) Démontrer que les droites $(AB)$ et $(CD)$ sont parallèles.
+\\b) Démontrer que les points $E$, $B$ et $D$ sont alignés.
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\vspace{5pt}
+\\a) 
+\begin{itemize}
+    \item on utilise la propriété : il faut prouver que \_\_\_\_\_\_ et \_\_\_\_\_\_ 
+    sont colinéaires (ou non)
+
+    \vspace{10pt}
+    \item pour cela on utilise le calcul du \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+    
+    \vspace{10pt}
+    \item on peut remarquer aussi que les coordonnées de $\overrightarrow{AB}$ et $\overrightarrow{CD}$ 
+    sont proportionnelles et donc les vecteurs sont colinéaires.
+    
+    \vspace{10pt}
+    On a en effet : $\overrightarrow{CD} =$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\vspace{5pt}
+b) 
+\begin{itemize}
+    \item idem on utilise la propriété
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+
+\vspace{10pt}
+
+% ============================
+%   PARTIE 4 : Coordonnées du milieu d'un segment
+% ============================
+
+\section*{\textcolor{red}{Partie 4 : Coordonnées du milieu d'un segment}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+
+\vspace{5pt}
+Soit $A\Coord{x_A}{y_A}$ et $B\Coord{x_B}{y_B}$.
+\\Le milieu $M$ du segment $\left[AB\right]$ a pour 
+coordonnées : $\renewcommand*{\arraystretch}{2}\begin{pmatrix} 
+      \dfrac{x_A+x_B}{2}\\
+      \dfrac{y_A+y_B}{2}
+    \end{pmatrix}$
+\end{mdframed}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°8 :} 
+Calculer les coordonnées d'un milieu.}}
+\vspace{5pt}
+
+On considère les points $A\Coord{2}{3}$, $B\Coord{-2}{1}$ et $C\Coord{3}{-1}$.
+
+\vspace{5pt}
+Calculer les coordonnées de $M$, $N$ et $P$ milieux respectifs de 
+$\left[AB\right]$, $\left[AC\right]$ et $\left[BC\right]$.
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item on applique la propriété aux coordonnées des points
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+
+\vspace{10pt}
+\newpage
+% ============================
+%   PARTIE 5 : Distance dans un repère orthonormé
+% ============================
+
+\section*{\textcolor{red}{Partie 5 : Distance dans un repère orthonormé}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété :}}}
+
+\vspace{5pt}
+Soit deux points $A\Coord{x_A}{y_A}$ et $B\Coord{x_B}{y_B}$ dans un 
+repère \textbf{orthonormé}.
+
+\vspace{5pt}
+La distance $AB$ (ou la norme $\norme{AB}$) est :
+\[
+AB = \norme{AB} = \sqrt{(x_B - x_A)^2 + (y_B-y_A)^2}
+\]
+\end{mdframed}
+
+\underline{Remarque :} Cette propriété est une conséquence 
+du théorème de Pythagore.
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°9 :} 
+Calculer.}}
+\vspace{5pt}
+
+On considère les points $A\Coord{3}{2}$ et $B\Coord{2}{-2}$ dans un repère orthonormé.
+
+\vspace{5pt}
+Calculer la distance $AB$.
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=gray!15
+]
+\underline{\textbf{Méthode :}}
+\begin{itemize}
+    \item on applique la propriété aux coordonnées des points
+\end{itemize}
+\end{mdframed}
+
+\end{mdframed}
+
+
+\end{document}

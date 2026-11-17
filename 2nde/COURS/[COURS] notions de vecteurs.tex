@@ -1,0 +1,1651 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+% \subsectionfont{\color{red}\normalsize\bfseries} % pour \subsection*
+
+\begin{document}
+
+% ============================
+%   VECTEURS
+% ============================
+
+\begin{center}
+    {\LARGE \textbf{Vecteurs}}\\[4mm]
+    {\large 2nde générale}
+\end{center}
+
+\hrule
+\vspace{0.4cm}
+
+% ============================
+%   PARTIE 1 : Notions de vecteurs
+% ============================
+
+\section*{\textcolor{red}{Partie 1 : Notions de vecteurs}}
+
+\subsection*{\textcolor{red}{1.1 Translation}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Une \textbf{translation} fait « glisser » un point ou une figure selon une \underline{direction}, 
+un \underline{sens} et une \underline{longueur} donnée, schématisé par \textbf{une flèche}.
+\end{mdframed}
+
+\vspace{5pt}
+
+\underline{Exemples :}
+% \vspace{5pt}
+% \\
+\begin{center}
+\begin{tikzpicture}[scale=1]
+
+% Axes (facultatif)
+% \draw[->] (-0.5,0) -- (4,0) node[right] {$x$};
+% \draw[->] (0,-0.5) -- (0,3) node[above] {$y$};
+
+% Points
+\coordinate (A) at (1,1);
+\coordinate (B) at (3,2);
+\coordinate (M) at (-1,2);
+\coordinate (M') at (1,3);
+
+% Vecteur AB
+\draw[->, ultra thick] (A) -- (B) node[midway, above] {};
+\draw[->, ultra thick] (M) -- (M') node[midway, above] {};
+
+% Points visibles
+\fill (B) circle (1pt) node[right] {$B$};
+\fill (A) circle (1pt) node[left] {$A$};
+\fill (M) circle (1pt) node[left] {$M$};
+\fill (M') circle (1pt) node[right] {$M'$};
+
+\end{tikzpicture}
+\end{center}
+
+\underline{Vocabulaire :} On dit alors que $M'$ est l'image de $M$ par la translation de vecteur
+$\overrightarrow{AB}$.
+
+\vspace{10pt}
+
+% ------------------------
+% Définition et propriétés
+% ------------------------
+
+\subsection*{\textcolor{red}{1.2 Définition et propriétés des vecteurs}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Soient $A$ et $B$ deux points distincts. Le vecteur $\overrightarrow{AB}$ se définit par :
+\begin{itemize}
+    \item une direction : la droite $(AB)$,
+    \item un sens : du point $A$ vers le point $B$,
+    \item une longueur : la \textbf{norme} du vecteur $\overrightarrow{AB}$ notée $\norme{AB}$
+\end{itemize}
+\end{mdframed}
+
+\vspace{5pt}
+
+{\color{red}\underline{Attention :} } Ne pas confondre \textbf{direction} et \textbf{sens} !
+\vspace{10pt}
+\\La droite $(AB)$ définit \_\_\_\_\_\_\_\_\_\_\_\_ , tandis que la flèche définit 
+\_\_\_\_\_\_\_\_\_\_\_\_ : \textbf{de $\bm{A}$ vers $\bm{B}$} ($\overrightarrow{AB}$)
+
+\vspace{10pt}
+
+\underline{Remarques :}
+\vspace{5pt}
+\begin{itemize}
+    \item Si les points $A$ et $B$ sont confondus, alors le vecteur $\overrightarrow{AB}$ devient le
+    vecteur $\overrightarrow{AA}$ qui est le 
+    \vspace{5pt}
+    \\\textbf{vecteur nul}. $\overrightarrow{AA} = $ 
+    \_\_\_\_.
+\end{itemize}
+
+% \vspace{10pt}
+\newpage
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :} Construire l'image d'une figure par une 
+translation.}}
+\vspace{10pt}
+
+\begin{minipage}{.55\textwidth}%
+    \begin{tikzpicture}[scale=0.5]
+
+    % Grille seule
+    \draw[step=1cm, black, black, thin] (0,0) grid (17,10);
+
+    % Points
+    \coordinate (A) at (1,7);
+    \coordinate (B) at (5,8);
+    \coordinate (C) at (3,6);
+    \coordinate (D) at (6,2);
+    \coordinate (F) at (9,4);
+    \coordinate (E) at (9,1);
+
+    % Vecteur
+    \draw[->, ultra thick] (A) -- (B);
+    \draw[-, thick] (C) -- (D);
+    \draw[-, thick] (D) -- (E);
+    \draw[-, thick] (E) -- (F);
+    \draw[-, thick] (C) -- (F);
+
+    \fill (A) circle (1pt) node[left] {};
+    \fill (B) circle (1pt) node[left] {};
+    \fill (C) circle (1pt) node[left] {};
+    \fill (D) circle (1pt) node[left] {};
+    \fill (E) circle (1pt) node[left] {};
+    \fill (F) circle (1pt) node[left] {};
+
+    % Noms des points
+    \node[below left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below left] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+    \node[below left] at (E) {$E$};
+    \node[below left] at (F) {$F$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.45\textwidth}%
+    Soit la translation définie par le vecteur $\overrightarrow{AB}$. Construire l'image 
+    $C'$, $D'$, $E'$ et $F'$ du quadrilatère $CDEF$ par cette translation.
+\end{minipage}%
+
+\vspace{20pt}
+
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :} Construire l'image d'un point par une 
+translation.}}
+
+\vspace{10pt}
+
+\begin{minipage}{.35\textwidth}%
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+
+        % Grille seule
+        \draw[step=1cm, black, black, thin] (0,0) grid (3,2);
+
+        % Points
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \coordinate (D) at (3,0);
+        \coordinate (E) at (3,1);
+        \coordinate (F) at (2,1);
+        \coordinate (G) at (1,1);
+        \coordinate (H) at (0,1);
+        \coordinate (I) at (0,2);
+        \coordinate (J) at (1,2);
+        \coordinate (K) at (2,2);
+        \coordinate (L) at (3,2);
+
+        \fill (A) circle (1pt) node[left] {};
+        \fill (B) circle (1pt) node[left] {};
+        \fill (C) circle (1pt) node[left] {};
+        \fill (D) circle (1pt) node[left] {};
+        \fill (E) circle (1pt) node[left] {};
+        \fill (F) circle (1pt) node[left] {};
+        \fill (G) circle (1pt) node[left] {};
+        \fill (H) circle (1pt) node[left] {};
+        \fill (I) circle (1pt) node[left] {};
+        \fill (J) circle (1pt) node[left] {};
+        \fill (K) circle (1pt) node[left] {};
+        \fill (L) circle (1pt) node[left] {};
+
+        % Noms des points
+        \node[below left] at (A) {$A$};
+        \node[below left] at (B) {$B$};
+        \node[below left] at (C) {$C$};
+        \node[below left] at (D) {$D$};
+        \node[below left] at (E) {$E$};
+        \node[below left] at (F) {$F$};
+        \node[below left] at (G) {$G$};
+        \node[below left] at (H) {$H$};
+        \node[below left] at (I) {$I$};
+        \node[below left] at (J) {$J$};
+        \node[below left] at (K) {$K$};
+        \node[below left] at (L) {$L$};
+
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}%
+\hfill
+\begin{minipage}{.65\textwidth}%
+    6 carrés sont juxtaposés.
+    \\Donner l'image : 
+    \begin{enumerate}
+        \item de $B$ par la translation de vecteur $\overrightarrow{GF}$
+        \item de $D$ par la translation de vecteur $\overrightarrow{KI}$
+        \item de $G$ par la translation de vecteur $\overrightarrow{CE}$
+        \item de $E$ par la translation de vecteur $\overrightarrow{KH}$
+    \end{enumerate}
+\end{minipage}%
+
+\vspace{20pt}
+
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :} Placer un point par une translation.}}
+
+\vspace{10pt}
+
+\begin{minipage}{.30\textwidth}%
+    \begin{center}
+        \begin{tikzpicture}[scale=0.7]
+
+        % Grille seule
+        \draw[step=1cm, black, black, thin] (0,0) grid (6,4);
+
+        % Points
+        \coordinate (F) at (1,2);
+        \coordinate (G) at (4,3);
+        \coordinate (E) at (2,1);
+
+        \fill (F) circle (2pt) node[left] {};
+        \fill (G) circle (2pt) node[left] {};
+        \fill (E) circle (2pt) node[left] {};
+
+        % Noms des points
+        \node[below left] at (F) {$F$};
+        \node[below left] at (G) {$G$};
+        \node[below left] at (E) {$E$};
+
+        \end{tikzpicture}
+        \\$T$ est l'image de $E$ par la translation qui à $F$ associe $G$.
+    \end{center}
+\end{minipage}%
+\hfill
+\begin{minipage}{.30\textwidth}%
+    \begin{center}
+        \begin{tikzpicture}[scale=0.7]
+
+        % Grille seule
+        \draw[step=1cm, black, black, thin] (0,0) grid (6,4);
+
+        % Points
+        \coordinate (D) at (3,3);
+        \coordinate (B) at (6,2);
+        \coordinate (C) at (2,1);
+
+        \fill (D) circle (2pt) node[left] {};
+        \fill (B) circle (2pt) node[left] {};
+        \fill (C) circle (2pt) node[left] {};
+
+        % Noms des points
+        \node[below left] at (D) {$D$};
+        \node[below left] at (B) {$B$};
+        \node[below left] at (C) {$C$};
+
+        \end{tikzpicture}
+        \\$K$ est l'image de $C$ par la translation de vecteur $\overrightarrow{DB}$.
+    \end{center}
+\end{minipage}%
+\hfill
+\begin{minipage}{.30\textwidth}%
+    \begin{center}
+        \begin{tikzpicture}[scale=0.7]
+
+        % Grille seule
+        \draw[step=1cm, black, black, thin] (0,0) grid (6,4);
+
+        % Points
+        \coordinate (A) at (3,3);
+        \coordinate (B) at (1,2);
+        \coordinate (C) at (4,1);
+
+        \fill (A) circle (2pt) node[left] {};
+        \fill (B) circle (2pt) node[left] {};
+        \fill (C) circle (2pt) node[left] {};
+
+        % Noms des points
+        \node[below left] at (A) {$A$};
+        \node[below left] at (B) {$B$};
+        \node[below left] at (C) {$C$};
+
+        \end{tikzpicture}
+        \\$P$ est l'image de $A$ par la translation de vecteur $\overrightarrow{BC}$.
+    \end{center}
+\end{minipage}%
+
+\end{mdframed}
+
+\vspace{10pt}
+
+% ------------------------
+% Vecteurs égaux
+% ------------------------
+
+\subsection*{\textcolor{red}{1.3 Vecteurs égaux}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Des vecteurs sont \textbf{égaux} lorsqu'ils ont même direction, même sens et même longueur. Ils définissent 
+alors la même translation.
+\end{mdframed}
+
+% \vspace{5pt}
+\newpage
+
+\underline{Exemple :}
+\vspace{5pt}
+\\
+\begin{minipage}{.45\textwidth}%
+Les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux.
+\\On note : $\overrightarrow{AB} = \overrightarrow{CD}$.
+\end{minipage}%
+\hfill
+\begin{minipage}{.55\textwidth}%
+\begin{center}
+\begin{tikzpicture}[scale=1]
+
+% Axes (facultatif)
+% \draw[->] (-0.5,0) -- (4,0) node[right] {$x$};
+% \draw[->] (0,-0.5) -- (0,3) node[above] {$y$};
+
+\draw[step=1cm, black, thin] (-2.5,-0.5) grid (4.5,4.5);
+
+% Points
+\coordinate (A) at (1,1);
+\coordinate (B) at (3,2);
+\coordinate (C) at (-1,2);
+\coordinate (D) at (1,3);
+
+% Vecteur AB
+\draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{AB}$};
+\draw[->, ultra thick] (C) -- (D) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{CD}$};
+
+% Points visibles
+\fill (B) circle (1pt) node[right] {$B$};
+\fill (A) circle (1pt) node[left] {$A$};
+\fill (C) circle (1pt) node[left] {$C$};
+\fill (D) circle (1pt) node[right] {$D$};
+
+\end{tikzpicture}
+\end{center}
+\end{minipage}%
+
+\vspace{20pt}
+
+\underline{Vocabulaire :}
+\vspace{5pt}
+\\Comme tous les vecteurs qui définissent une même translation sont égaux, le vecteur choisi pour définir la
+translation est un \textbf{représentant} de tous les vecteurs égaux.
+\vspace{5pt}
+\\Il est souvent noté \_\_\_\_\_\_\_.
+
+
+\vspace{20pt}
+
+\underline{Exemples :}
+\vspace{5pt}
+\\
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=1]
+
+    % Grille seule
+    \draw[step=1cm, black, black, thin] (0.5,0.5) grid (8.5,7.5);
+
+    % Points
+    \coordinate (A) at (2,4);
+    \coordinate (B) at (3,2);
+    \coordinate (H) at (1,3);
+    \coordinate (F) at (5,2);
+    \coordinate (G) at (6,4);
+    \coordinate (E) at (3,6);
+    \coordinate (I) at (6,6);
+    \coordinate (J) at (7,4);
+    % \coordinate (G) at (6,4);
+
+    % Vecteur AB
+    \draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {};
+    \draw[->, ultra thick] (I) -- (J) node[midway, above, xshift=5pt, yshift=0pt] {$\overrightarrow{u}$};
+
+    \fill (A) circle (1pt) node[left] {};
+    \fill (B) circle (1pt) node[left] {};
+    \fill (H) circle (2pt) node[left] {};
+    \fill (F) circle (2pt) node[left] {};
+    \fill (G) circle (2pt) node[left] {};
+    \fill (E) circle (2pt) node[left] {};
+
+    % Noms des points
+    \node[below left] at (A) {$A$};
+    \node[below left] at (B) {$B$};
+    \node[below left] at (H) {$H$};
+    \node[below left] at (G) {$G$};
+    \node[below left] at (F) {$F$};
+    \node[below left] at (E) {$E$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.50\textwidth}%
+    \vspace{10pt}
+    \underline{Sur la figure ci-contre :}
+    \vspace{5pt}
+    \\Le vecteur $\overrightarrow{AB}$ est le représentant d'origine A du vecteur $\overrightarrow{u}$.
+    \vspace{5pt}
+    \begin{enumerate}
+        \item Construire le vecteur représentant de $\overrightarrow{u}$ d'extrémité $G$.
+        \item Construire le point $E'$ tel que $\overrightarrow{EE'} = \overrightarrow{u}$.
+        \item Construire le point $H'$ tel que $\overrightarrow{H'H} = \overrightarrow{u}$.
+        \item Construire le point $F'$ tel que $\overrightarrow{F'F}$ soit égal à l'opposé de 
+        $\overrightarrow{u}$.
+    \end{enumerate}
+\end{minipage}%
+
+\vspace{20pt}
+
+
+% --------------------------
+% ------ GRAPHIQUE 1 -------
+% --------------------------
+\begin{center}
+    \begin{minipage}[t]{.5\textwidth}%
+        \centering
+        \vspace{0pt}
+        \begin{tikzpicture}[scale=1]
+
+        % Grille seule
+        \draw[step=1cm, black, black, thin] (0.5,0.5) grid (4.5,3.5);
+
+        % Points
+        \coordinate (A) at (1,1);
+        \coordinate (B) at (2,3);
+        \coordinate (H) at (2,1);
+        \coordinate (F) at (4,1);
+        % \coordinate (G) at (6,4);
+
+        % Vecteur AB
+        \draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{u}$};
+        \draw[->, ultra thick] (H) -- (F) node[midway, above, xshift=5pt, yshift=0pt] {$\overrightarrow{v}$};
+
+        % \fill (A) circle (1pt) node[left] {};
+        % \fill (B) circle (1pt) node[left] {};
+        % \fill (H) circle (2pt) node[left] {};
+        % \fill (F) circle (2pt) node[left] {};
+
+        % Noms des points
+        % \node[below left] at (A) {$A$};
+        % \node[below left] at (B) {$B$};
+        % \node[below left] at (H) {$H$};
+        % \node[below left] at (F) {$F$};
+
+        \end{tikzpicture}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{.5\textwidth}%
+        \vspace{5pt}
+        \begin{mdframed}
+            Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ n'ont :
+            \begin{itemize}
+                \item pas le même sens
+                \item pas la même direction
+                \item pas la même norme
+            \end{itemize}
+        \end{mdframed}
+    \end{minipage}%
+\end{center}
+
+\vspace{20pt}
+
+% --------------------------
+% ------ GRAPHIQUE 2 -------
+% --------------------------
+\begin{minipage}[t]{.35\textwidth}%
+    \centering
+    \vspace{10pt}
+    \begin{tikzpicture}[scale=0.8]
+
+    % Grille seule
+    \draw[step=1cm, black, black, thin] (0.5,-0.5) grid (4.5,3.5);
+
+    % Points
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (2,3);
+    \coordinate (H) at (2,1);
+    \coordinate (F) at (4,0);
+    % \coordinate (G) at (6,4);
+
+    % Vecteur AB
+    \draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{u}$};
+    \draw[->, ultra thick] (H) -- (F) node[midway, above, xshift=5pt, yshift=0pt] {$\overrightarrow{v}$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.6\textwidth}%
+    \vspace{5pt}
+    \begin{mdframed}
+        Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ n'ont :
+        \begin{itemize}
+            \vspace{7pt}
+            \item pas \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+            \vspace{7pt}
+            \item pas \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \end{itemize}
+        \vspace{7pt}
+        En revanche, les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont 
+        \vspace{7pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+    \end{mdframed}
+\end{minipage}%
+
+\vspace{30pt}
+
+% --------------------------
+% ------ GRAPHIQUE 3 -------
+% --------------------------
+\begin{minipage}[t]{.35\textwidth}%
+    \centering
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=0.8]
+
+    % Grille seule
+    \draw[step=1cm, black, black, thin] (0.5,-1.5) grid (4.5,3.5);
+
+    % Points
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (2,3);
+    \coordinate (H) at (4,3);
+    \coordinate (F) at (2,-1);
+    % \coordinate (G) at (6,4);
+
+    % Vecteur AB
+    \draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{u}$};
+    \draw[->, ultra thick] (H) -- (F) node[midway, above, xshift=-5pt, yshift=0pt] {$\overrightarrow{v}$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.6\textwidth}%
+    \vspace{0pt}
+    \begin{mdframed}
+        Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ n'ont pas 
+        \vspace{7pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+        \vspace{7pt}
+        \\
+        Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont 
+        \vspace{7pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \vspace{10pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+    \end{mdframed}
+\end{minipage}%
+
+\vspace{30pt}
+
+% --------------------------
+% ------ GRAPHIQUE 4 -------
+% --------------------------
+\begin{minipage}[t]{.35\textwidth}%
+    \centering
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=0.8]
+
+    % Grille seule
+    \draw[step=1cm, black, black, thin] (0.5,-1.5) grid (4.5,3.5);
+
+    % Points
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (2,2);
+    \coordinate (H) at (4,3);
+    \coordinate (F) at (2,-1);
+    % \coordinate (G) at (6,4);
+
+    % Vecteur AB
+    \draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{u}$};
+    \draw[->, ultra thick] (F) -- (H) node[midway, above, xshift=-5pt, yshift=0pt] {$\overrightarrow{v}$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.6\textwidth}%
+    \vspace{0pt}
+    \begin{mdframed}
+        Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ n'ont pas 
+        \vspace{7pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+        \vspace{7pt}
+        \\
+        Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont 
+        \vspace{7pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \vspace{10pt}
+        \\
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+    \end{mdframed}
+\end{minipage}%
+
+\vspace{30pt}
+
+% --------------------------
+% ------ GRAPHIQUE 5 -------
+% --------------------------
+\begin{minipage}[t]{.35\textwidth}%
+    \centering
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=0.8]
+
+    % Grille seule
+    \draw[step=1cm, black, black, thin] (0.5,-1.5) grid (4.5,3.5);
+
+    % Points
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (2,2);
+    \coordinate (H) at (3,1);
+    \coordinate (F) at (2,-1);
+    % \coordinate (G) at (6,4);
+
+    % Vecteur AB
+    \draw[->, ultra thick] (A) -- (B) node[midway, above, xshift=-3pt, yshift=1pt] {$\overrightarrow{u}$};
+    \draw[->, ultra thick] (F) -- (H) node[midway, above, xshift=-5pt, yshift=0pt] {$\overrightarrow{v}$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.6\textwidth}%
+    \vspace{0pt}
+    \begin{mdframed}
+        \vspace{20pt}
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \vspace{10pt}
+        \\\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \vspace{10pt}
+        \\\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \vspace{10pt}
+        \\\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \vspace{10pt}
+        \\\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+    \end{mdframed}
+\end{minipage}%
+
+\newpage
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété du parallélogramme:}
+\vspace{5pt}
+\\Dire que $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux revient à dire que le quadrilatère
+$AB\bm{DC}$ est un parallélogramme, éventuellement aplati.
+}
+\\
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+
+    % Grille (optionnelle, pédagogique)
+    \draw[step=1cm, black, thin] (-0.5,-0.5) grid (6.5,4.5);
+
+    % Points
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (4,2);
+    \coordinate (C) at (2,3);
+    \coordinate (D) at (5,4);
+
+    % Parallélogramme (côtés)
+    % \draw[thick] (A) -- (B) -- (D) -- (C) -- cycle;
+    \draw[dashed, thick] (A) -- (C);
+    \draw[dashed, thick] (D) -- (B);
+
+    % Vecteurs égaux
+    \draw[->, ultra thick, blue] (A) -- (B)
+        node[midway, below] {$\overrightarrow{AB}$};
+    \draw[->, ultra thick, blue] (C) -- (D)
+        node[midway, above] {$\overrightarrow{CD}$};
+
+    % Diagonales en pointillés
+    % \draw[dashed, thick] (A) -- (D);
+    % \draw[dashed, thick] (B) -- (C);
+
+    % Points visibles
+    \fill (A) circle (1pt) node[below left] {$A$};
+    \fill (B) circle (1pt) node[below right] {$B$};
+    \fill (C) circle (1pt) node[above left] {$C$};
+    \fill (D) circle (1pt) node[above right] {$D$};
+
+    \end{tikzpicture}
+\end{center}
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété du milieu :}
+\vspace{5pt}
+\\Dire que $B$ est le milieu du segment $\left[AC\right]$ revient à dire que $\overrightarrow{AB}$ et 
+$\overrightarrow{BC}$ sont égaux.
+}
+\\
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+
+    % Grille (optionnelle, pédagogique)
+    % \draw[step=1cm, black, thin] (-0.5,0.5) grid (5.5,2.5);
+
+    % Points
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (2.5,1);
+    \coordinate (C) at (4,1);
+
+    % Vecteurs égaux
+    \draw[->, ultra thick, blue] (A) -- (B)
+        node[midway, below] {$\overrightarrow{AB}$};
+    \draw[->, ultra thick, blue] (B) -- (C)
+        node[midway, below] {$\overrightarrow{BC}$};
+
+    % Points visibles
+    \fill (A) circle (1pt) node[above] {$A$};
+    \fill (B) circle (1pt) node[above] {$B$};
+    \fill (C) circle (1pt) node[above] {$C$};
+
+    \end{tikzpicture}
+\end{center}
+\end{mdframed}
+
+\vspace{10pt}
+
+% EXERCICE D'APPLICATION
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°4 :}}
+\vspace{5pt}
+$ABCD$ et $ABDE$ sont deux parallélogramme.
+\begin{enumerate}
+    \item Réaliser une figure.
+    \item Démontrer que $D$ est le milieu de $\left[EC\right]$.
+    \item $F$ est le symétrique de $B$ par rapport à $D$.
+    \\Démontrer que $DFEA$ est un parallélogramme.
+\end{enumerate}
+}
+
+\newpage
+
+% EXERCICE N°5
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°5 :}}
+\vspace{5pt}
+Dire si les égalités suivantes sont vraies ou fausses.
+}
+
+\begin{center}
+\begin{minipage}{.24\textwidth}%
+\centering
+\textbf{1}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.8]
+\draw[step=1cm, black] (0,0) grid (4,4);
+
+\coordinate (A) at (1,0);
+\coordinate (B) at (3,1);
+\coordinate (M) at (1,3);
+\coordinate (N) at (3,2);
+
+\draw[->, very thick] (A)--(B) node[midway, below right] {};
+\draw[->, very thick] (M)--(N) node[midway, below left] {};
+
+\fill (A) circle (1pt) node[below left] {$A$};
+\fill (B) circle (1pt) node[above right] {$B$};
+\fill (M) circle (1pt) node[below left] {$M$};
+\fill (N) circle (1pt) node[below left] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\hfill
+\begin{minipage}{.24\textwidth}%
+\centering
+\textbf{2}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.8]
+\draw[step=1cm, black] (0,0) grid (4,4);
+
+\coordinate (A) at (1,2);
+\coordinate (B) at (3,2);
+\coordinate (M) at (3,3);
+\coordinate (N) at (1,3);
+
+\draw[->, very thick] (A)--(B) node[midway, below] {};
+\draw[->, very thick] (M)--(N) node[midway, above] {};
+
+\fill (A) circle (1pt) node[below left] {$A$};
+\fill (B) circle (1pt) node[above right] {$B$};
+\fill (M) circle (1pt) node[above right] {$M$};
+\fill (N) circle (1pt) node[below left] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\hfill
+\begin{minipage}{.24\textwidth}%
+\centering
+\textbf{3}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.8]
+\draw[step=1cm, black] (0,0) grid (4,4);
+
+\coordinate (A) at (1,1);
+\coordinate (B) at (3,2);
+\coordinate (M) at (1,3);
+\coordinate (N) at (3,4);
+
+\draw[->, very thick] (A)--(B) node[midway, below] {};
+\draw[->, very thick] (M)--(N) node[midway, above] {};
+
+\fill (A) circle (1pt) node[below left] {$A$};
+\fill (B) circle (1pt) node[above right] {$B$};
+\fill (M) circle (1pt) node[below left] {$M$};
+\fill (N) circle (1pt) node[above right] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\hfill
+\begin{minipage}{.24\textwidth}%
+\centering
+\textbf{4}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.8]
+\draw[step=1cm, black] (0,0) grid (4,4);
+
+\coordinate (A) at (2,2);
+\coordinate (B) at (4,2);
+\coordinate (M) at (2,2);
+\coordinate (N) at (0,2);
+
+\draw[->, very thick] (A)--(B) node[midway, below] {};
+\draw[->, very thick] (M)--(N) node[midway, above] {};
+
+\fill (A) circle (2pt) node[above right] {$A$};
+\fill (B) circle (1pt) node[below left] {$B$};
+\fill (M) circle (1pt) node[below left] {$M$};
+\fill (N) circle (1pt) node[below left] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\end{center}
+
+\vspace{10pt}
+
+% ------ EXERCICE N°6 -------
+
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°6 :}}
+\vspace{5pt}
+Placer les points pour respecter les égalités.
+}
+
+\begin{center}
+\begin{minipage}{.24\textwidth}%
+\centering
+\textbf{1}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.7]
+\draw[step=1cm, black] (0,0) grid (5,4);
+
+\coordinate (A) at (1,3);
+\coordinate (B) at (4,2);
+\coordinate (M) at (2,1);
+% \coordinate (N) at (3,2);
+
+% \draw[->, very thick] (A)--(B) node[midway, below right] {};
+% \draw[->, very thick] (M)--(N) node[midway, below left] {};
+
+\fill (A) circle (2pt) node[below left] {$A$};
+\fill (B) circle (2pt) node[above right] {$B$};
+\fill (M) circle (2pt) node[below left] {$M$};
+% \fill (N) circle (1pt) node[below left] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$N$ tel que $\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\hfill
+\begin{minipage}{.31\textwidth}%
+\centering
+\textbf{2}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.7]
+\draw[step=1cm, black] (0,0) grid (6,4);
+
+\coordinate (C) at (1,3);
+\coordinate (D) at (3,3);
+\coordinate (E) at (5,1);
+% \coordinate (N) at (1,3);
+
+% \draw[->, very thick] (A)--(B) node[midway, below] {};
+% \draw[->, very thick] (M)--(N) node[midway, above] {};
+
+\fill (C) circle (2pt) node[below left] {$C$};
+\fill (D) circle (2pt) node[above right] {$D$};
+\fill (E) circle (2pt) node[above right] {$E$};
+% \fill (N) circle (1pt) node[below left] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$F$ tel que $\overrightarrow{DF} = \overrightarrow{CE}$
+\end{minipage}%
+\hfill
+\begin{minipage}{.17\textwidth}%
+\centering
+\textbf{3}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.7]
+\draw[step=1cm, black] (0,0) grid (4,4);
+
+\coordinate (A) at (1,1);
+\coordinate (B) at (3,2);
+\coordinate (M) at (1,3);
+\coordinate (N) at (3,4);
+
+\draw[->, very thick] (A)--(B) node[midway, below] {};
+\draw[->, very thick] (M)--(N) node[midway, above] {};
+
+\fill (A) circle (1pt) node[below left] {$A$};
+\fill (B) circle (1pt) node[above right] {$B$};
+\fill (M) circle (1pt) node[below left] {$M$};
+\fill (N) circle (1pt) node[above right] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\hfill
+\begin{minipage}{.24\textwidth}%
+\centering
+\textbf{4}
+
+\vspace{10pt}
+
+\begin{tikzpicture}[scale=0.7]
+\draw[step=1cm, black] (0,0) grid (4,4);
+
+\coordinate (A) at (2,2);
+\coordinate (B) at (4,2);
+\coordinate (M) at (2,2);
+\coordinate (N) at (0,2);
+
+\draw[->, very thick] (A)--(B) node[midway, below] {};
+\draw[->, very thick] (M)--(N) node[midway, above] {};
+
+\fill (A) circle (2pt) node[above right] {$A$};
+\fill (B) circle (1pt) node[below left] {$B$};
+\fill (M) circle (1pt) node[below] {$M$};
+\fill (N) circle (1pt) node[below left] {$N$};
+\end{tikzpicture}
+
+\vspace{10pt}
+
+$\overrightarrow{AB} = \overrightarrow{MN}$
+\end{minipage}%
+\end{center}
+
+% -------- Exercice n°7 ---------- %
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°7 :}}
+\vspace{10pt}
+\\On considère la figure ci-dessous :
+}
+\\
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=0.8]
+
+    % Grille
+    \draw[step=1cm, black, thin] (0,0) grid (10,5);
+
+    % Axes
+    % \draw[->] (0,0) -- (10.5,0) node[right] {$x$};
+    % \draw[->] (0,0) -- (0,5.5) node[above] {$y$};
+
+    % Points
+    \coordinate (A) at (1,2);
+    \coordinate (B) at (7,4);
+    \coordinate (C) at (5,1);
+    \coordinate (D) at (9,1);
+
+    \fill (A) circle (2pt) node[above left] {$A$};
+    \fill (B) circle (2pt) node[above left] {$B$};
+    \fill (C) circle (2pt) node[below] {$C$};
+    \fill (D) circle (2pt) node[below] {$D$};
+
+    % Vecteur v
+    \draw[->, ultra thick, blue]
+    (3,1) -- (4,4)
+    node[midway, right] {$\overrightarrow{v}$};
+
+    \fill (3,1) circle (1pt);
+    \fill (4,4) circle (1pt);
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.55\textwidth}%
+    % \vspace{Opt}
+    % \\
+    \vspace{5pt}
+    \begin{enumerate}
+        \item Reproduire la figure.
+        \item Contruire l'image $E$ du point $A$ par la translation de vecteur $\overrightarrow{CD}$.
+        \item Construire le point $F$ tel que $\overrightarrow{BF} = \overrightarrow{CA}$.
+        \item Construire le représentant d'origine $A$ du vecteur $\overrightarrow{v}$.
+        \item Construire le représentant d'origine $B$ du vecteur $\overrightarrow{v}$.
+    \end{enumerate}
+\end{minipage}
+
+\end{mdframed}
+
+% ============================================
+%   PARTIE 2 : Somme et différence de vecteurs
+% ============================================
+\newpage
+\section*{\textcolor{red}{Partie 2 : Somme et différence de vecteurs}}
+
+\subsection*{\textcolor{red}{2.1 Exemple avec des translations}}
+
+\begin{minipage}[t]{.45\textwidth}%
+    Soit {\color{ForestGreen}$t_1$ la translation de vecteur $\overrightarrow{u}$} et {\color{red}
+    $t_2$ la translation de vecteur $\overrightarrow{v}$}.
+    \vspace{5pt}
+    \\Appliquer la translation $t_1$ puis la translation $t_2$ :
+    \begin{center}
+        $M \quad {\color{ForestGreen} \longmapsto} \quad M_1 \quad {\color{red} \longmapsto} 
+        \quad M_2$
+    \end{center}
+    \vspace{0pt}
+    Revient à appliquer la {\color{ForestGreen}translation $t$ de vecteur $\overrightarrow{w}$} :
+    \begin{center}
+        $\_\_\_ \quad {\color{blue} \longmapsto} \quad \_\_\_$
+    \end{center}
+    L'enchaînement de deux translations de vecteurs $\color{ForestGreen}\overrightarrow{u}$ et 
+    $\color{red}\overrightarrow{v}$ est 
+    la translation de vecteur 
+    \vspace{10pt}
+    \\$\color{blue}\overrightarrow{w} = \_\_\_\_\_\_\_\_\_\_\_\_$.
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=1]
+
+    % Grille
+    % \draw[step=1cm, black, thin] (-1,-1) grid (6,4);
+
+    % Vecteur u
+    \draw[->, ultra thick, ForestGreen]
+    (0,3) -- (3,4)
+    node[midway, above] {$\overrightarrow{u}$};
+
+    % Vecteur v
+    \draw[->, ultra thick, red]
+    (5,3) -- (6,5)
+    node[midway, above left] {$\overrightarrow{v}$};
+
+    \end{tikzpicture}
+
+    \vspace{10pt}
+
+    \begin{tikzpicture}[scale=1]
+
+    % Grille (facultative)
+    % \draw[step=1cm, black, thin] (-1,-1) grid (6,4);
+
+    % Points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3,1);
+    \coordinate (C) at (4,3);
+
+    % Vecteur u
+    \draw[->, ultra thick, ForestGreen]
+    (A) -- (B)
+    node[midway, below] {$\overrightarrow{u}$};
+
+    % Vecteur v (bout à bout)
+    \draw[->, ultra thick, red]
+    (B) -- (C)
+    node[midway, right] {$\overrightarrow{v}$};
+
+    % Vecteur w = u + v (ferme le triangle)
+    \draw[->, ultra thick, blue]
+    (A) -- (C)
+    node[midway, above left] {$\overrightarrow{w}$};
+
+    % Triangle en pointillés (optionnel mais très lisible)
+    \draw[dashed] (A) -- (B) -- (C) -- cycle;
+
+    % Points
+    \fill (A) circle (1pt) node[left] {$M$};
+    \fill (B) circle (1pt) node[below right] {$M_1$};
+    \fill (C) circle (1pt) node[above] {$M_2$};
+
+    \end{tikzpicture}
+
+\end{minipage}%
+
+\vspace{20pt}
+
+
+% =========================
+% Addition de deux vecteurs
+% =========================
+
+\subsection*{\textcolor{red}{2.2 Addition de deux vecteurs}}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{Définition :}}
+    \vspace{5pt}
+    \\En enchaînant la translation de vecteur $\overrightarrow{u}$ et la translation de vecteur 
+    $\overrightarrow{v}$ on obtient une nouvelle translation.
+    \vspace{5pt}
+    \\Le vecteur associé à cette translation est la somme des vecteurs $\overrightarrow{u}$ et 
+    $\overrightarrow{v}$.
+    \vspace{5pt}
+    \\Il est noté $\bm{\overrightarrow{u} + \overrightarrow{v}}$.
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=15pt,
+    % innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :} \textbf{Relation de Chasles}
+\vspace{5pt}
+\\Pour tous points du plan : 
+\[
+\bm{
+\overrightarrow{A\color{blue}B} + \overrightarrow{{\color{blue}B}C} = \overrightarrow{AC}
+}
+\]
+}
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{Remarques :}
+\vspace{5pt}
+\begin{itemize}
+    \item $\overrightarrow{AB} + \overrightarrow{BA} = \overrightarrow{AA} = \overrightarrow{0}$.
+    \vspace{5pt}
+    \item Soustraire un vecteur c'est \textbf{additionner son } \_\_\_\_\_\_\_\_\_\_\_\_.
+    \vspace{5pt}
+    \\\underline{Exemple :} En utilisant la relation de Chasles
+    \vspace{10pt}
+    \\$\overrightarrow{AB} - \overrightarrow{AC} = \_\_\_\_\_\_\_\_\_\_\_$ = $\_\_\_\_\_\_\_\_\_\_\_$ = $\_\_\_\_$
+\end{itemize}
+
+\vspace{20pt}
+
+% =========================
+% Soustraction de deux vecteurs
+% =========================
+
+\subsection*{\textcolor{red}{2.3 Soustraction de deux vecteurs}}
+
+\vspace{5pt}
+Pour effectuer la différence des vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$, on passe à la somme :
+\[
+    \overrightarrow{u} - \overrightarrow{v} = \overrightarrow{u} + (\overrightarrow{-v})
+\]
+Pour obtenir la somme des vecteurs $\overrightarrow{u}$ et $-\overrightarrow{v}$, on construit les vecteurs 
+$\overrightarrow{u}$ et $\overrightarrow{-v}$ \underline{bout à bout}.
+
+\vspace{10pt}
+
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+
+        % Grille
+        % \draw[step=1cm, black, thin] (-1,-1) grid (6,4);
+
+        % Vecteur u
+        \draw[->, ultra thick, ForestGreen]
+        (0,0) -- (2,2)
+        node[midway, above left] {$\overrightarrow{u}$};
+
+        % Vecteur v
+        \draw[->, ultra thick, red]
+        (3,3) -- (6,2)
+        node[midway, above] {$\overrightarrow{v}$};
+
+        % Vecteur v
+        \draw[->, ultra thick, red]
+        (6,0) -- (3,1)
+        node[midway, above] {$\overrightarrow{-v}$};
+
+    \end{tikzpicture}
+
+    \vspace{10pt}
+
+    \begin{tikzpicture}[scale=1]
+        
+        % Grille (facultative)
+        % \draw[step=1cm, black, thin] (-1,-1) grid (6,4);
+
+        % Points
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (2,2);
+        \coordinate (C) at (-1,3);
+
+        % Vecteur u
+        \draw[->, ultra thick, ForestGreen]
+        (A) -- (B)
+        node[midway, right] {$\overrightarrow{u}$};
+
+        % Vecteur v (bout à bout)
+        \draw[->, ultra thick, red]
+        (B) -- (C)
+        node[midway, above] {$\overrightarrow{-v}$};
+
+        % Vecteur w = u + v (ferme le triangle)
+        \draw[->, ultra thick, blue]
+        (A) -- (C)
+        node[midway, left] {$\overrightarrow{w}$};
+
+        % Triangle en pointillés (optionnel mais très lisible)
+        \draw[dashed] (A) -- (B) -- (C) -- cycle;
+
+        % Points
+        \fill (A) circle (0pt) node[left] {};
+        \fill (B) circle (0pt) node[below right] {};
+        \fill (C) circle (0pt) node[above] {};
+
+    \end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+% ==========================
+% Exercice d'application n°8
+% ==========================
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°8 :} Construire une somme de vecteurs}
+\vspace{5pt}
+}
+\\Reproduire les figures suivantes puis placer le point $M$ tel que $\overrightarrow{AM} = \overrightarrow{u}
++ \overrightarrow{v}$.
+\\
+\begin{minipage}[t]{.24\textwidth}%
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=0.65]
+
+    % Grille
+    \draw[step=1cm, black, thin] (-1,-1) grid (5,4);
+
+    % Points
+    \coordinate (A) at (0,0);
+
+    % Vecteur u
+    \draw[->, ultra thick, ForestGreen]
+    (0,0) -- (2,3)
+    node[midway, above left] {$\overrightarrow{u}$};
+
+    % Vecteur v
+    \draw[->, ultra thick, red]
+    (2,3) -- (4,1)
+    node[midway, above right] {$\overrightarrow{v}$};
+
+    \fill (A) circle (2pt) node[left] {$A$};
+
+    \node[below] at (0,3.5) {\textbf{(a)}};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.24\textwidth}%
+\vspace{0pt}
+    \begin{tikzpicture}[scale=0.65]
+
+    % Grille
+    \draw[step=1cm, black, thin] (-1,-1) grid (5,4);
+
+    % Points
+    \coordinate (A) at (0,2);
+
+    % Vecteur u
+    \draw[->, ultra thick, ForestGreen]
+    (1,1) -- (1,3)
+    node[midway, right] {$\overrightarrow{u}$};
+
+    % Vecteur v
+    \draw[->, ultra thick, red]
+    (0,0) -- (4,0)
+    node[midway, above right] {$\overrightarrow{v}$};
+
+    \fill (A) circle (2pt) node[left] {$A$};
+
+    \node[below] at (0,3.5) {\textbf{(b)}};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.24\textwidth}%
+\vspace{0pt}
+    \begin{tikzpicture}[scale=0.65]
+
+    % Grille
+    \draw[step=1cm, black, thin] (-1,-1) grid (5,4);
+
+    % Points
+    \coordinate (A) at (2,1);
+
+    % Vecteur u
+    \draw[->, ultra thick, ForestGreen]
+    (1,0) -- (0,2)
+    node[midway, below left] {$\overrightarrow{u}$};
+
+    % Vecteur v
+    \draw[->, ultra thick, red]
+    (2,2) -- (5,1)
+    node[midway, above right] {$\overrightarrow{v}$};
+
+    \fill (A) circle (2pt) node[left] {$A$};
+
+    \node[below] at (0,3.5) {\textbf{(c)}};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.24\textwidth}%
+\vspace{0pt}
+    \begin{tikzpicture}[scale=0.65]
+
+    % Grille
+    \draw[step=1cm, black, thin] (-1,-1) grid (5,4);
+
+    % Points
+    \coordinate (A) at (1,2);
+
+    % Vecteur u
+    \draw[->, ultra thick, ForestGreen]
+    (1,0) -- (0,2)
+    node[midway, below left] {$\overrightarrow{u}$};
+
+    % Vecteur v
+    \draw[->, ultra thick, red]
+    (2,1) -- (5,4)
+    node[midway, above left] {$\overrightarrow{v}$};
+
+    \fill (A) circle (2pt) node[above] {$A$};
+
+    \node[below] at (0,3.5) {\textbf{(d)}};
+
+    \end{tikzpicture}
+\end{minipage}%
+
+\vspace{20pt}
+
+
+% ==========================
+% Exercice d'application n°9
+% ==========================
+
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°9 :} Travailler avec des vecteurs}
+\vspace{5pt}
+}
+\\$ADCG$ et $AGFE$ sont deux carrés.
+\\
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{enumerate}
+        \item 
+            \begin{enumerate}
+                \item Déterminer l'image du point $D$ par la translation de vecteur $\overrightarrow{DA}$ suivie de la 
+                tranlsation de vecteur $\overrightarrow{AF}$.
+                \item En déduire $\overrightarrow{DA} + \overrightarrow{AF}$.
+            \end{enumerate}
+        \item Déterminer :
+        \begin{enumerate}
+            \item $\overrightarrow{DA} + \overrightarrow{AG}$
+            \item $\overrightarrow{DA} + \overrightarrow{DG}$
+            \item $\overrightarrow{CA} + \overrightarrow{EF}$
+            \item $\overrightarrow{EG} + \overrightarrow{DA}$
+            \item $\overrightarrow{EG} + \overrightarrow{CA}$
+            \item $\overrightarrow{DE} + \overrightarrow{FC}$
+        \end{enumerate}
+    \end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{20pt}
+    \begin{tikzpicture}[scale=1]
+
+    % Grille (facultative)
+    % \draw[step=1cm, black, thin] (-1,-1) grid (4,6);
+
+    % Points
+    \coordinate (A) at (1,3);
+    \coordinate (G) at (3,3);
+    \coordinate (C) at (3,5);
+    \coordinate (D) at (1,5);
+
+    \coordinate (E) at (1,1);
+    \coordinate (F) at (3,1);
+
+    % Carré du haut DCGA
+    \draw[thick, red] (D) -- (C) -- (G) -- (A) -- cycle;
+
+    % Carré du bas AGFE
+    \draw[thick, red] (A) -- (G) -- (F) -- (E) -- cycle;
+
+    % Noms des points
+    \node[left]  at (D) {$D$};
+    \node[right] at (C) {$C$};
+    \node[right] at (G) {$G$};
+    \node[left]  at (A) {$A$};
+    \node[left]  at (E) {$E$};
+    \node[right] at (F) {$F$};
+
+    \end{tikzpicture}
+
+\end{minipage}%
+
+\vspace{20pt}
+
+% ==========================
+% Exercice d'application n°10
+% ==========================
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°10 :} Simplifier des égalités de vecteurs}
+\vspace{5pt}
+}
+\\À l'aide de la relation de Chasles, écrire sous forme d'un seul vecteur (si c'est possible !) :
+\\
+\begin{minipage}[t]{.25\textwidth}%
+    \begin{enumerate}
+        \item $\overrightarrow{AD} + \overrightarrow{DF}$
+        \item $\overrightarrow{CB} + \overrightarrow{CA}$
+        \item $\overrightarrow{DF} - \overrightarrow{DG}$
+        \item $\overrightarrow{AB} - \overrightarrow{AC}$
+    \end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.75\textwidth}%
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item $\overrightarrow{RS} + \overrightarrow{AR}$
+        \item $\overrightarrow{EG} + \overrightarrow{GT}$
+        \item $\overrightarrow{AL} - \overrightarrow{LA}$
+        \item $- \overrightarrow{AD} - \overrightarrow{DB}$
+    \end{enumerate}
+\end{minipage}%
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :} \textbf{Caractéristique du parallélogramme}
+\vspace{5pt}
+\\Dire que $ABCD$ est un parallélogramme revient à dire que $\overrightarrow{AC} = \overrightarrow{AB} + 
+\overrightarrow{AD}$.
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+
+    % Points
+    \coordinate (A) at (1,1);
+    \coordinate (B) at (4,1);
+    \coordinate (D) at (2,3);
+    \coordinate (C) at (5,3);
+
+    % Parallélogramme
+    \draw[->, very thick] (A) -- (B) node[midway, below] {$\overrightarrow{AB}$};
+    \draw[->, very thick] (A) -- (D) node[midway, above left] {$\overrightarrow{AD}$};
+    \draw[->, very thick] (A) -- (C) node[midway, above] {$\overrightarrow{AC}$};
+
+    \draw[dashed] (B) -- (C);
+    \draw[dashed] (C) -- (D);
+
+    % Points
+    \fill (A) circle (1pt) node[below left] {$A$};
+    \fill (B) circle (1pt) node[below right] {$B$};
+    \fill (C) circle (1pt) node[above right] {$C$};
+    \fill (D) circle (1pt) node[above left] {$D$};
+
+    \end{tikzpicture}
+\end{center}
+}
+\end{mdframed}
+
+\underline{Démonstration :}
+\vspace{5pt}
+\\D'après la relation de Chasles, l'égalité ${\color{red}\overrightarrow{AC}} = \overrightarrow{AB} + \overrightarrow{AD}$ peut 
+s'écrire :
+\\${\color{red}\overrightarrow{AD} + \overrightarrow{DC}} = \overrightarrow{AB} + \overrightarrow{AD}$
+\\Soit $\overrightarrow{DC} = \overrightarrow{AB}$,
+\\Soit encore : $ABCD$ est un parallélogramme.
+
+\end{document}

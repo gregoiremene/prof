@@ -1,0 +1,245 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{tkz-tab}
+\usepackage{array}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+\header{}{DS de mathématiques}{1\up{ère}STMG}
+\footer{}{\thepage}{}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Devoir surveillé\\Dérivation et polynômes}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+
+\vspace{0.5cm}
+
+% ========================================================
+%             PARTIE 1 : Automatismes
+% ========================================================
+\noindent
+\textbf{\large{PARTIE 1 : AUTOMATISMES (4 points)}}
+
+\vspace{10pt}
+
+\textbf{Question 1 :}
+\vspace{5pt}
+Un article coûte 400€. Son prix augmente de 20\%. Le nouveau prix est : 
+
+\begin{center}
+    \renewcommand{\arraystretch}{3}
+    \begin{tabular}{|m{3.4cm}|m{3.4cm}|m{3.4cm}|m{3.4cm}|}
+    \hline
+    \centering \vspace{-0.3cm} \textbf{A.} 480 € & 
+    \centering \vspace{-0.3cm} \textbf{B.} 420 € & 
+    \centering \vspace{-0.3cm} \textbf{C.} 500 € & 
+    \centering \vspace{-0.3cm} \textbf{D.} 320 € \tabularnewline
+    \hline
+    \end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+\textbf{Question 2 :}
+\vspace{5pt}
+
+Le prix d'un article est noté $P$. Il connaît deux augmentation successives de 20\%.
+
+Le prix après ces augmentations est :
+
+\noindent
+\begin{center}
+    \renewcommand{\arraystretch}{3}
+    \begin{tabular}{|m{3.2cm}|m{3.4cm}|m{4.5cm}|m{3.4cm}|}
+    \hline
+    \centering \vspace{-0.3cm} \textbf{A.} $\dfrac{P}{1,44}$ & 
+    \centering \vspace{-0.3cm} \textbf{B.} $P \times 1,4$ & 
+    \centering \vspace{-0.3cm} \textbf{C.} $P \times \left(1+\left(\dfrac{20}{100}\right)^2\right)$ & 
+    \centering \vspace{-0.3cm} \textbf{D.} $P \times 1,2^2$ \tabularnewline
+    \hline
+    \end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+\textbf{Question 3 :}
+\vspace{5pt}
+
+On considère $A = \dfrac{2}{1 - \dfrac{2}{3}}$. On a :
+
+\begin{center}
+    \renewcommand{\arraystretch}{3}
+    \begin{tabular}{|m{3.4cm}|m{3.4cm}|m{3.9cm}|m{3.4cm}|}
+    \hline
+    \centering \vspace{-0.3cm} \textbf{A.} $A = \dfrac{2}{3}$ & 
+    \centering \vspace{-0.3cm} \textbf{B.} $A = 6$ & 
+    \centering \vspace{-0.3cm} \textbf{C.} $A = -1$ & 
+    \centering \vspace{-0.3cm} \textbf{D.} $A = 9$ \tabularnewline
+    \hline
+    \end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+\textbf{Question 4 :}
+\vspace{5pt}
+
+On considère $f(x) = (2 + x)(3 - 2x)$.
+
+\begin{center}
+    \renewcommand{\arraystretch}{3}
+    \begin{tabular}{|m{3.4cm}|m{3.4cm}|m{3.9cm}|m{3.8cm}|}
+    \hline
+    \centering \vspace{-0.3cm} \textbf{A.} $f(x) = -2x^2 +7x + 6$& 
+    \centering \vspace{-0.3cm} \textbf{B.} $f(x) = -2x^2 -x + 6$& 
+    \centering \vspace{-0.3cm} \textbf{C.} $f(x) = 2x^2 -x + 6$& 
+    \centering \vspace{-0.3cm} \textbf{D.} $f(x) = 2x^2 +7x + 6$ \tabularnewline
+    \hline
+    \end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+
+\noindent
+\textbf{\large{PARTIE 2 : EXERCICES (16 points)}}
+
+\vspace{10pt}
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Étude d’une fonction (\ \ \ \  / 9 points )}
+
+\vspace{5pt}
+On considère une fonction $f$ définie et dérivable sur l’intervalle $\left[-2;6\right]$.
+
+Sa courbe représentative, notée $\mathcal{C}_f$ est donnée ci-dessous.
+
+\vspace{5pt}
+\begin{itemize}
+    \item On note $\mathcal{T}$ la tangente à la courbe $\mathcal{C}_f$ au point d’abscisse $x = 2$.
+    \item On sait que la tangente $\mathcal{T}$ coupe l’axe des ordonnées en $y = 12$.
+\end{itemize}
+
+\vspace{5pt}
+On note $f'$ la fonction dérivée de $f$.
+
+\vspace{-5pt}
+\begin{center}
+    \begin{tikzpicture}[scale=0.5, xscale=2, yscale=0.5]
+        % Grille personnalisée : lignes verticales (tous les 1 en x) + lignes horizontales (tous les 5 en y)
+        \foreach \x in {-2,-1,...,6}
+            \draw[gray, thin] (\x,-15) -- (\x,15);
+        \foreach \y in {-15,-10,...,15}
+            \draw[gray, thin] (-2,\y) -- (6,\y);
+
+        % Axes
+        \draw[->, thick] (-2.2,0) -- (6.2,0) node[right]{$x$};
+        \draw[->, thick] (0,-15.2) -- (0,15.2) node[above]{$y$};
+
+        % Graduations sur l'axe x
+        \foreach \x in {-2,-1,1,2,3,4,5,6}
+            \draw (\x,0.1) -- (\x,-0.1) node[below]{\x};
+
+        % Graduations sur l'axe y
+        \foreach \y in {-15,-10,-5,5,10,12,15}
+            \draw (0.1,\y) -- (-0.1,\y) node[left]{\y};
+
+        % Origine
+        \node at (0,0) [below left]{$O$};
+
+        % Tracé de la courbe
+        \draw[domain=-2:6, samples=200, smooth, thick, black]
+            plot (\x, {0.5*\x*\x*\x - 3*\x*\x + 8});
+
+
+        \node at (-1.5,2.4) {$\mathcal{C}_f$};
+
+        % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+        \draw[domain=-0.5:4.5, samples=200, smooth, very thick, black]
+            plot (\x, {-6*\x + 12});
+
+        \node at (0.5,10.6) {$\mathcal{T}$};
+
+        \filldraw (2, 0) circle (2pt) node[above right] {};
+        \end{tikzpicture}
+\end{center}
+
+\begin{questions}
+
+\question[2] Déterminer les valeurs de $f(2)$ et $f'(2)$.
+
+\question[2] Donner une équation de la tangente $\mathcal{T}$.
+
+\question[2] \underline{\textbf{Recopier et compléter}} le tableau de variation ci-dessous en utilisant 
+le graphique.
+$$
+\begin{tikzpicture}
+    \tkzTabInit[lgt = 2.5]{$x$ / 1 , Variations de $f$ / 2}{$-2$, $0$, $4$, $6$}
+    \tkzTabLine{, , , , }
+\end{tikzpicture}
+$$
+
+\question On admet que la fonction $f$ et définie par $f(x) = 0,5x^3-3x^2 + 8$.
+\begin{parts}
+    \part[1] Déterminer, pour tout $x$ de l'intervalle $\left[-2;6\right]$, l'expression de $f'(x)$.
+    \part[1] Montrer que $f'(x) = 1,5x(x - 4)$.
+    \part[1] En étudiant le signe de chaque facteur, dresser le tableau de signes de $f$. Est-il cohérent avec 
+    le tableau de variations trouvé plus haut ?
+\end{parts}
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 2 : Un peu de second degré ( \ \ \ / 7 points )}
+
+\vspace{5pt}
+\noindent
+On considère la fonction définie sur $\mathbb{R}$ suivante :
+\[
+f(x) = -x^2 + 6x - 5
+\]
+
+\begin{questions}
+
+\question[2] Calculer l'image de 0 et de 3 par la fonction $f$.
+
+\question[2] Montrer que, pour tout réel $x$, on a : $(x-1)(5 - x) = -x^2 + 6x - 5$
+
+\question[1] En déduire les antécédents de 0 par la fonction $f$. Comment sont appelés ces antécédents ?
+
+\question[1] Donner l'équation de l'axe de symétrie de la fonction $f$.
+
+\question[1] Quelle sont les coordonnées du sommet de la parabole ?
+
+\end{questions}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textit{Fin du devoir}
+\end{center}
+
+\end{document}

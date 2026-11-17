@@ -1,0 +1,509 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=2cm}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{csquotes}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+% \usepackage[draft]{graphicx}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{array}
+\usepackage[thinlines]{easytable}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+% Configuration pour le code Python
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    captionpos=b,
+    xleftmargin=15pt,
+    framesep=5pt
+}
+
+% \title{Fiche Recapitulative - Python (Seconde)}
+% \author{}
+% \date{}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Python -- Algorithmique}}\\[4mm]
+    {\large - 2\up{nde} -}
+\end{center}
+
+\vspace{10pt}
+\hrule
+\vspace{0pt}
+
+\vspace{10pt}
+\section*{\textcolor{red}{I/ Les fonctions}}
+Une \textbf{fonction} est un bloc de code reutilisable, defini avec le mot-cle \texttt{def}.
+
+\subsection*{\hspace{1cm} 1) Définition et appel}
+\vspace{5pt}
+
+\begin{lstlisting}[caption={Definition et utilisation}]
+# Definition
+def dire_bonjour(nom):
+    print(f"Bonjour, {nom}!")
+
+# Appel
+dire_bonjour("Alice")  # Affiche "Bonjour, Alice!"
+\end{lstlisting}
+
+\subsection*{\hspace{1cm} 2) Valeur de retour}
+\vspace{5pt}
+\begin{lstlisting}[caption={Fonction avec retour}]
+def carre(x):
+    return x * x
+
+resultat = carre(4)  # resultat = 16
+print(resultat)
+\end{lstlisting}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°1:} Utiliser des fonctions.}}
+
+\vspace{5pt}
+Pour définir avec Python la fonction $f$ telle que $f(x) = 2x+3$, il faut saisir :
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{lstlisting}
+    def f(x):
+        return 2*x+3
+    \end{lstlisting}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    
+\end{minipage}%
+
+\hspace{1cm}1) Modifier le programme pour que la fonction retourne le résultat de 
+
+\hspace{1.4cm} $g(x) = -2x^2+3x-7$.
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+
+\newpage
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°2:}}}
+
+\vspace{5pt}
+Écrire un programme affichant le prix réduit en fonction du
+prix de départ et de la réduction accordée en \%.
+
+\begin{lstlisting}
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+
+\end{lstlisting}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+
+\section*{\textcolor{red}{II/ L'affectation}}
+L'\textbf{affectation} permet de stocker une valeur dans une variable a l'aide du symbole \texttt{=}.
+
+\vspace{5pt}
+\begin{lstlisting}[caption={Exemples d'affectation}]
+# Affectation simple
+x = 5
+nom = "Alice"
+est_majeure = False # ce type de variable est appelee "booleen"
+
+# Affectation multiple
+a, b = 10, 20
+
+# Echange de valeurs
+a, b = b, a
+\end{lstlisting}
+
+\vspace{10pt}
+\section*{\textcolor{red}{III/ Conditions}}
+Les conditions permettent d'executer du code en fonction de tests logiques.
+
+\subsection*{1) Structure de base}
+\vspace{5pt}
+
+\begin{lstlisting}[caption={Structure \texttt{if-elif-else}}]
+if condition1: # la condition est de type booleen
+    # Code execute si condition1 est vraie
+elif condition2:
+    # Code execute si condition2 est vraie
+else:
+    # Code execute si aucune condition n'est vraie
+\end{lstlisting}
+
+\subsection*{2) Operateurs de comparaison}
+\vspace{5pt}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    \textbf{Operateur} & \textbf{Signification} \\
+    \hline
+    \texttt{==} & egal a \\
+    \hline
+    \texttt{!=} & different de \\
+    \hline
+    \texttt{>} & superieur a \\
+    \hline
+    \texttt{>=} & superieur ou egal a \\
+    \hline
+    \texttt{<} & inferieur a \\
+    \hline
+    \texttt{<=} & inferieur ou egal a \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsection*{3) Operateurs logiques}
+\begin{lstlisting}[caption={Combinaison de conditions}]
+if (age >= 18) and (age <= 60):
+    print("Adulte")
+if (note < 10) or (absences > 5):
+    print("Attention !")
+\end{lstlisting}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°3:} Tester des conditions en Python.}}
+
+\vspace{5pt}
+Dans le programme ci-dessous, les affichages en sortie de l'algorithme ont été supprimées.
+
+\begin{lstlisting}
+def signe(a,b):
+    if a>0:
+        if b>0:
+            print("le produit axb est .....................")
+        else:
+            print("le produit axb est .....................")
+    else:
+        if b>0:
+            print("le produit axb est .....................")
+        else:
+            print("le produit axb est .....................")
+\end{lstlisting}
+
+\vspace{5pt}
+\hspace{1cm}1) Quel problème permet de résoudre cet
+algorithme ?
+
+\hspace{1cm}2) Compléter le programme par les
+affichages en sortie manquants.
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+
+\vspace{20pt}
+
+\newpage
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°4:} Tester des conditions en Python.}}
+
+\vspace{5pt}
+Écrire et tester un programme qui demande en entrée à un client le montant total de
+ses achats.
+
+\vspace{5pt}
+En fonction de la somme dépensée, le programme affiche en sortie le prix à payer :
+\begin{itemize}
+    \item Si la somme dépensée est strictement inférieure à 75 €, il obtient 5\% de remise.
+    \item Si la somme dépensée est supérieure à 75 €, il obtient 8\% de remise.
+\end{itemize}
+
+\begin{lstlisting}
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+
+\end{lstlisting}
+
+\end{mdframed}
+
+\vspace{10pt}
+\section*{\textcolor{red}{IV/ Boucles}}
+\subsection*{1) Boucle \texttt{for}}
+La boucle \texttt{for} permet de repeter une action pour chaque element d'une sequence.
+\begin{lstlisting}[caption={Exemples avec \texttt{for}}]
+# Parcourir une liste
+for element in [1, 2, 3]:
+    print(element)
+
+# Utilisation de range()
+for i in range(5):  # 0 a 4
+    print(i)
+
+for i in range(2, 6):  # 2 a 5
+    print(i)
+
+for i in range(0, 10, 2):  # 0, 2, 4, 6, 8
+    print(i)
+\end{lstlisting}
+
+\subsection*{2) Boucle \texttt{while}}
+La boucle \texttt{while} repete une action \textbf{tant qu'}une condition est vraie.
+\begin{lstlisting}[caption={Exemple avec \texttt{while}}]
+compteur = 0
+while compteur < 5:
+    print(compteur)
+    compteur += 1  # Incrementation
+\end{lstlisting}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°5:} Tester les boucles en Python.}}
+
+\vspace{5pt}
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    1) Tester le programme ci-contre. Qu’affiche-t-il en sortie ?
+
+    \vspace{0.5cm}
+    {\color{black!45}\dotfill}
+    
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+\begin{lstlisting}
+n=0
+while n<10:
+    print(n)
+    n=n+2
+\end{lstlisting}
+\end{minipage}%
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+2) Écrire un programme qui affiche tous les entiers pairs
+compris entre 18 et 45.
+
+\begin{lstlisting}
+.
+
+
+
+
+
+
+
+
+
+.
+\end{lstlisting}
+
+\vspace{5pt}
+3) Ecrire et tester un programme qui affiche tous les entiers
+impairs
+compris entre 50 et 150.
+
+\begin{lstlisting}
+.
+
+
+
+
+
+
+
+
+
+.
+\end{lstlisting}
+
+\newpage
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°5:} Tester les boucles en Python.}}
+
+\vspace{5pt}
+On place un capital de 500€ sur un compte rémunéré
+à 3\% par an.
+
+L’algorithme ci-contre, écrit en langage naturel,
+permet de calculer le nombre d'années au bout
+desquelles le capital sera doublé.
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \hspace{1cm} 1) Le programme ci-contre traduisant l'algorithme précédent
+    comprend une erreur. Corriger le programme et le tester.
+
+    \vspace{5pt}
+    \hspace{1cm} 2) Modifier le programme précédent de telle sorte que le capital et
+    le taux de rémunération soient saisis en entrée.
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+\begin{lstlisting}
+def capital():
+    s = 500
+    a = 0
+    while s<1000:
+        s = 1.03*s
+    a=a+1
+    print(a)
+\end{lstlisting}
+\end{minipage}%
+\vspace{5pt}
+
+
+\begin{lstlisting}
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+\end{lstlisting}
+
+\end{mdframed}
+
+\end{document}

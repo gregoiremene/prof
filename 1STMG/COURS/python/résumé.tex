@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{listings} % Pour afficher du code Python proprement
+\geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+
+% Configuration de listings pour Python
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    xleftmargin=15pt
+}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries\underline}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\title{Fiche Résumé : Algorithmique et Programmation en Python}
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Python -- Algorithmique - Fiche résumée}}\\[4mm]
+    {\large -- 1\up{ère} STMG --}
+\end{center}
+
+\vspace{20pt}
+
+\section*{I/ Les bases du langage Python}
+\subsection*{1) Affectation}
+\begin{itemize}[leftmargin=*]
+    \item L'\textbf{affectation} permet de stocker une valeur dans une variable.
+    \item Syntaxe : \lstinline|variable = valeur|
+    \item Exemple : \lstinline|x = 5| ou \lstinline|nom = "Alice"|
+\end{itemize}
+
+\subsection*{2) Conditions}
+\begin{itemize}[leftmargin=*]
+    \item Les conditions permettent d'exécuter du code en fonction d'une condition.
+    \item Syntaxe :
+    \begin{lstlisting}
+if condition:
+    # Code execute si la condition est vraie
+elif autre_condition:
+    # Code execute si la premiere condition est fausse
+else:
+    # Code execute si aucune condition n'est vraie
+    \end{lstlisting}
+    \item Opérateurs de comparaison : \lstinline|==|, \lstinline|!=|, \lstinline|>|, \lstinline|<|, \lstinline|>=|, \lstinline|<=|
+    \item Opérateurs logiques : \lstinline|and|, \lstinline|or|, \lstinline|not|
+\end{itemize}
+
+\section*{II. Les boucles}
+\subsection*{1) Boucle \texttt{while}}
+\begin{itemize}[leftmargin=*]
+    \item La boucle \texttt{while} exécute un bloc de code \textbf{tant qu'une condition est vraie}.
+    \item Syntaxe :
+    \begin{lstlisting}
+while condition:
+    # Code execute tant que la condition est vraie
+    \end{lstlisting}
+\end{itemize}
+
+\subsection*{2) Boucle \texttt{for}}
+\begin{itemize}[leftmargin=*]
+    \item La boucle \texttt{for} permet d'itérer sur une séquence (liste, plage de nombres, etc.).
+    \item Syntaxe :
+    \begin{lstlisting}
+for variable in sequence:
+    # Code execute pour chaque element
+    \end{lstlisting}
+    \item Exemple : \lstinline|for i in range(5):| (itère de 0 à 4).
+    \item \lstinline|for i in range(2, 13, 2)| : (itère de 2 à 12 de 2 en 2).
+\end{itemize}
+
+
+\section*{III/ Les fonctions}
+\subsection*{1) Définition et appel}
+\begin{itemize}[leftmargin=*]
+    \item Une \textbf{fonction} est un bloc de code réutilisable.
+    \item Syntaxe :
+    \begin{lstlisting}
+def nom_fonction(arguments):
+    # Code de la fonction
+    return valeur  # Optionnel
+    \end{lstlisting}
+    \item Exemple :
+    \begin{lstlisting}
+def carre(x):
+    return x ** 2
+    \end{lstlisting}
+    \item Appel : \lstinline|carre(5)| retourne 25.
+\end{itemize}
+
+\subsection*{2) Arguments}
+\begin{itemize}[leftmargin=*]
+    \item Les \textbf{arguments} sont les valeurs passées à une fonction.
+    \item Exemple : Dans \lstinline|def somme(a, b):|, \lstinline|a| et \lstinline|b| sont des arguments.
+\end{itemize}
+
+
+\section*{IV/ Génération de nombres aléatoires}
+\subsection*{1) Nombres entiers aléatoires}
+\begin{itemize}[leftmargin=*]
+    \item \lstinline|randint(a, b)| : Génère un entier aléatoire entre \texttt{a} et \texttt{b} (inclus).
+    \item Exemple : \lstinline|randint(1, 6)| simule un lancer de dé.
+\end{itemize}
+
+\subsection*{2) Nombres entre 0 et 1}
+\begin{itemize}[leftmargin=*]
+    \item \lstinline|random()| : Génère un nombre flottant aléatoire entre 0 et 1.
+\end{itemize}
+
+\section*{V/ Les listes}
+\subsection*{1) Création et manipulation}
+\begin{itemize}[leftmargin=*]
+    \item Une \textbf{liste} est une collection ordonnée d'éléments.
+    \item Syntaxe : \lstinline|ma_liste = [1, 2, 3, "quatre"]|
+    \item Accès aux éléments : \lstinline|ma_liste[0]| (premier élément), 
+    \lstinline|ma_liste[1]| (deuxième élément), etc.
+\end{itemize}
+
+\subsection*{2) Ajout et suppression}
+\begin{itemize}[leftmargin=*]
+    \item \lstinline|ma_liste.append(x)| : Ajoute \texttt{x} à la fin de la liste.
+    \item \lstinline|ma_liste.remove(x)| : Supprime la première occurrence de \texttt{x}.
+    \item \lstinline|del ma_liste[i]| : Supprime l'élément à l'indice \texttt{i}.
+\end{itemize}
+
+\subsection*{3) Itérer sur une liste}
+\begin{itemize}[leftmargin=*]
+    \item Utiliser une boucle \texttt{for} :
+    \begin{lstlisting}
+for element in ma_liste:
+    print(element)
+    \end{lstlisting}
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,126 @@
+\documentclass[12pt,a4paper]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{- Devoir Surveillé -\\Suites numériques (1\textsuperscript{ère} STMG)}
+\vspace{0.5cm}
+\\\large \underline{\textbf{RÉPONDRE ENTIÈREMENT SUR UNE COPIE SÉPARÉE}}
+\vspace{0.5cm}
+\\ \textit{\underline{1 point bonus} sera accordé pour les copies soignées avec réponses 
+entièrement justifiées.}
+\end{center}
+\vspace{0.4cm}
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 1 – Nombre de « like » (4 points)}
+\vspace{5pt}
+
+On considère le nombre de « likes » obtenus chaque semaine par un groupe de musique
+sur sa page Instagram :
+
+\[
+\begin{array}{c|c|c|c|c|c|c|c|}
+\text{Semaine }n & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
+\hline
+u_n & 120 & 150 & 180 & 210 & 240 & 270 & 300
+\end{array}
+\]
+\vspace{2pt}
+\begin{questions}
+    \question[1] Conjecturer la nature de la suite \((u_n)\). Justifier.
+    \question[1] Justifier par un calcul que \((u_n)\) est de la \textbf{nature} annoncée et déterminer sa 
+    \textbf{raison}.
+    \question[1] Donner l’expression explicite de \(u_n\) en fonction de $n$.
+    \question[1] Représenter graphiquement les points \((n;u_n)\). Que remarque-t-on ?
+    \question[1] Sachant qu'une année comporte 52 semaines, calculer le nombre de « likes »
+     au bout d'un an.
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 2 – Disneyland Paris (6 points)}
+\vspace{5pt}
+
+Un abonnement illimité à Disneyland Paris coûtait 480 € en 2022.  
+Chaque année, son prix augmente de 15 €.  
+On note \(p_n\) le prix \(n\) années après 2022.
+
+\begin{questions}
+    \question[1] Expliquer pourquoi la situation modélise une suite arithmétique.
+    \question[1] Donner \(p_0\) et la raison \(r\).
+    \question[2] Exprimer $p_{n+1}$ en fonction de $p_n$.
+    \begin{parts}
+        \part Quelle est la nature de cette suite ? Justifier.
+        \part Donner son premier terme et sa raison.
+    \end{parts}
+    \question[1] Donner la formule explicite de \(p_n\) et calculer le prix en l'an 2122.
+    \question[1] À partir de quelle année dépassera-t-on 600 € ?
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 3 – Modèle géométrique : remises successives (6 points)}
+\vspace{5pt}
+
+Un produit en solde ne se vend pas. Chaque jour, le vendeur baisse son prix de 5\%.
+Son prix initial est de 40 €.
+
+On note \(u_n\) le prix de l'article le \(n\)-ième jour.
+
+\begin{questions}
+    \question[1] Donner $u_0$ et calculer $u_1$, $u_2$ et $u_3$.
+    \question[1,5] Exprimer $u_{n+1}$ en fonction de $u_n$.
+    \question[1] Exprimer \(u_n\) en fonction de $n$.
+    \question[1] Calculer $u_{30}$. On donnera un arrondi au dixième.
+    \question[1,5] Quand le prix deviendra-t-il inférieur à 5 € ? Justifier.
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 4 – Étude d'une suite (4 points)}
+\vspace{5pt}
+
+On considère la suite $(u_n)$ définie pour tout entier naturel $n$ par :
+\[
+u_n = n + \dfrac{1}{n}.
+\]
+
+\begin{questions}
+    \question[1] Calculer les 4 premiers termes de la suite.
+
+    \question[1] Pour tout entier naturel $n$, exprimer $u_{n+1}$ en fonction de $n$.
+
+    \question[1] Montrer que $(u_n)$ est croissante.
+\end{questions}
+
+\noindent\hrulefill
+
+
+\vspace{0.5cm}
+\begin{center}
+\textbf{Fin du devoir — relire la copie avant de rendre.}
+\end{center}
+
+\end{document}

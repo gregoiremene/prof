@@ -1,0 +1,163 @@
+\documentclass[12pt,a4paper]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{- Interrogation -\\Notions sur les fonctions (2nde)}
+\vspace{0.5cm}
+\\\large \underline{\textbf{RÉPONDRE ENTIÈREMENT SUR UNE COPIE SÉPARÉE}}
+\end{center}
+\vspace{0.4cm}
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% --------------------------- %
+% ------- EXERCICE 1 -------- %
+% --------------------------- %
+
+\textbf{Exercice 1 – Cours et parité (6 points)}
+\vspace{5pt}
+
+\begin{center}
+{\renewcommand{\arraystretch}{2.5}
+\begin{tabular}{|c|p{4cm}|p{4cm}|}
+    \hline
+    \text{Fonction} & \multicolumn{1}{c|}{\text{Expression}} & \text{Ensemble de définition} \\
+    \hline
+    \text{Carrée} & \dotfill & \dotfill \\
+    \hline
+    \text{Cube} & \dotfill & \dotfill \\
+    \hline
+    \text{Racine carrée} & \dotfill & \dotfill \\
+    \hline
+    \text{Inverse} & \dotfill & \dotfill \\
+    \hline
+\end{tabular}
+}
+\end{center}
+\vspace{5pt}
+
+\begin{questions}
+    \question[2] Compléter le tableau.
+    \question[1] \underline{Question de cours :} Donner la définition algébrique et graphique d'une fonction
+    paire.
+    \question[2] On considère la fonction suivante :
+    \[
+    f(x) = x^3 -2x + 4
+    \]
+    \begin{parts}
+        \part Calculer $f(-x)$.
+        \part La fonction est-elle paire ? Impaire ?
+    \end{parts}
+    \question[1] Calculer f(2). Sans le calculer, que vaut alors f(-2) ?
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% --------------------------- %
+% ------- EXERCICE 2 -------- %
+% --------------------------- %
+
+\textbf{Exercice 2 – Résolutions (8 points)}
+\vspace{5pt}
+
+Résoudre algébriquement ou graphiquement les équations et inéquations suivantes. Écrire 
+les résultats sous forme d'\textbf{ensemble de solutions} ($S = ...$).
+
+\vspace{5pt}
+
+\begin{questions}
+    \question Résoudre l'équation : $x^2 = 3$
+    \question Résoudre l'équation : $x^3 = -27$
+    \question Résoudre l'équation : $\sqrt{x} = 2$
+    \question Résoudre l'inéquation : $x^2 \leq 9$
+    \question Résoudre l'inéquation : $\sqrt{x} < 3$
+    \question Résoudre l'inéquation : $\dfrac{1}{x} \geq 2$
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% --------------------------- %
+% ------- EXERCICE 3 -------- %
+% --------------------------- %
+
+\textbf{Exercice 3 – Étude de courbes (6 points)}
+\vspace{5pt}
+\\On donne ci-dessous les courbes suivantes :
+\[
+\begin{array}{ccc}
+    y = x \ \ ;
+    & y = x^2 \ \ ;
+    & y = x^3
+\end{array}
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+
+% Grille
+\draw[step=1, gray!40, thin] (-1,-1) grid (3,3);
+
+% Axes
+\draw[->, thick] (-1,0) -- (3,0) node[right] {$x$};
+\draw[->, thick] (0,-1) -- (0,3) node[above] {$y$};
+
+% Graduations en x
+\foreach \x in {-1,0,1,2,3}
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\small \x};
+
+% Graduations en y
+\foreach \y in {-1,0,1,2,3}
+    \draw (0.1,\y) -- (-0.1,\y) node[left] {\small \y};
+
+% Courbe y = x
+\draw[domain=-1:3, samples=200, thick, blue]
+    plot(\x,{\x});
+\node[blue] at (3.5,3) {$y=x$};
+
+% Courbe y = x^2
+\draw[domain=-1:1.77, samples=200, thick, red]
+    plot(\x,{\x*\x});
+\node[red] at (2.2,3.2) {$y=x^2$};
+
+% Courbe y = x^3
+\draw[domain=-1:1.5, samples=200, thick, olive!70!black]
+    plot(\x,{\x*\x*\x});
+\node[olive!70!black] at (1,2.5) {$y=x^3$};
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{5pt}
+On se place sur l'intervalle $\left[0;3\right]$
+\vspace{5pt}
+\begin{questions}
+    \question[1] Comparer $x$ et $x^2$ sur $\left[0;1\right]$.
+    \question[1] Comparer $x^2$ et $x^3$ sur $\left[1;3\right]$.
+    \question[2] Résoudre \textbf{graphiquement} l'inéquation : $x > x^3$.
+    \question[2] Résoudre \textbf{graphiquement} l'équation : $x = x^3$.
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{Fin de l'interrogation — relire avant de rendre.}    
+\end{center}
+
+\end{document}

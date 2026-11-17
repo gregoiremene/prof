@@ -1,0 +1,172 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{mdframed}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{tkz-tab}
+\usepackage{array}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% Pour les coordonnées de vecteurs :
+\newcommand*{\Coord}[2]{% 
+  \ensuremath{
+    \begin{pmatrix} 
+      #1\\[5pt]
+      #2 
+    \end{pmatrix}}}
+
+% -------------------
+% En-tête / pied (exam)
+% --------------------
+\header{}{}{2\up{nde}8}
+\footer{}{\thepage}{}
+\setlength{\parindent}{0pt}
+
+% --------------------
+\begin{document}
+\begin{mdframed}[
+    linewidth=0.5pt,
+    roundcorner=5pt,
+    % linecolor=ForestGreen
+]
+\begin{center}
+    \Large\textbf{Contrôle sur les vecteurs\\2nde générale}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+\end{mdframed}
+
+\vspace{20pt}
+
+\textbf{\underline{Exercice 1} (9 points)}
+
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+    % Axes du repère
+    \draw[->, thick] (-7,0) -- (7,0) node[right]{$x$};
+    \draw[->, thick] (0,-3) -- (0,4) node[above]{$y$};
+
+    % Origine
+    \node at (0,0) [below left]{$O$};
+
+    % Vecteurs du repère
+    \draw[->, blue, very thick] (0,0) -- (1,0) node[below left]{$\overrightarrow{i}$};
+    \draw[->, red, very thick] (0,0) -- (0,1) node[below left]{$\overrightarrow{j}$};
+
+    % Vecteurs personnalisés
+    \draw[->, black, very thick] (-3,3) -- (-5,-1) node[pos=0.5, above left]{$\overrightarrow{w}$};
+    \draw[->, black, very thick] (1,3) -- (4,3) node[pos=0.5, above]{$\overrightarrow{u}$};
+    \draw[->, black, very thick] (1,-1) -- (4,1) node[pos=0.5, above left]{$\overrightarrow{v}$};
+
+    % Grille (optionnelle)
+    \draw[step=1cm, gray, very thin] (-7,-3) grid (7,4);
+    \end{tikzpicture}
+\end{center}
+
+\vspace{5pt}
+\begin{questions}
+
+\question[0,5] Placer les points $A\Coord{-2}{-1}$ et $B\Coord{1}{3}$ sur le graphique.
+\begin{parts}
+    \part[0,5] Caluler les coordonnées de $\overrightarrow{AB}$.
+    \part[1] Calculer la distance $AB$.
+\end{parts}
+
+\vspace{10pt}
+
+\question
+\begin{parts}
+    \part[2] Lire graphiquement les coordonnées des vecteurs $\overrightarrow{u}$, $\overrightarrow{v}$ et $\overrightarrow{w}$.
+    \part[1] Calculer les coordonnées de $2\overrightarrow{u} - \overrightarrow{v}$.
+\end{parts}
+
+\question[1] Représenter \textbf{sur le graphique} le vecteur : $\overrightarrow{k}\Coord{2}{4}$
+
+\question[2] Les vecteurs $\overrightarrow{w}$ et $\overrightarrow{k}$ sont-ils colinéaires ? 
+\underline{Justifier.}
+
+\question[1] Calculer la norme du vecteur $\overrightarrow{w}$.
+
+
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exercice 2
+% ========================================================
+
+\textbf{\underline{Exercice 2} (9 points)}
+
+On considère les points $A\Coord{-1}{3}$, $B\Coord{0}{6}$ et $C\Coord{2}{6}$.
+
+\begin{questions}
+    \question[2] Déterminer les coordonnées du points $D$ tel que $ABCD$ est un parallélogramme.
+    \question[2] On pose le point $E\Coord{3}{3}$. Montrer que le droites $(CE)$ et $(BD)$ sont parallèles.
+    \question[2] Montrer que $CED$ est un triangle isocèle en $C$.
+    \question[1] Calculer les coordonnées du point $I$ milieu de $[BE]$.
+    \question[2] Les points $D$, $I$ et $C$ sont-ils alignés ? \underline{Justifier}.
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exercice 3
+% ========================================================
+\noindent
+\textbf{\underline{Exercice 3} (2 points)}
+
+\vspace{5pt}
+Soient $\vec{m}$ et $\overrightarrow{n}$ deux vecteurs du plan.
+
+\begin{questions}
+
+\question[2] Les vecteurs $-12\overrightarrow{m}+4\overrightarrow{n}$ et $9\overrightarrow{m}-3\overrightarrow{n}$ sont-ils 
+colinéaires ?
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             BONUS
+% ========================================================
+\textbf{\underline{Exercice BONUS} (2 points)}
+
+$ABCD$ est un parallélogramme de centre $O$. $E$ est le point tel que $\overrightarrow{AE} = 3 
+\overrightarrow{AB}$ et $F$ le point tel que $\overrightarrow{CF} = -2 \overrightarrow{AB} - 
+\dfrac{1}{5}\overrightarrow{AD}$.
+
+\begin{questions}
+    \question[1] Démontrer, en utilisant la relation de Chasles, que $\overrightarrow{FE} = 
+    4 \overrightarrow{AB} - \dfrac{4}{5}\overrightarrow{AD}$.
+
+    \question[1] Démontrer de même que $\overrightarrow{FO} = \dfrac{3}{2}\overrightarrow{AB} - 
+    \dfrac{3}{10}\overrightarrow{AD}$.
+
+    \question[1] En déduire que les points $F$, $O$ et $E$ sont alignés.
+\end{questions}
+
+
+
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textit{Fin de l'épreuve}
+\end{center}
+
+\end{document}

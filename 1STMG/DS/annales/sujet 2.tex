@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{graphicx}
+
+% Couleur pour les réponses
+\newcommand{\reponse}[1]{\textcolor{red}{#1}}
+
+% Mise en page
+\setlength{\parindent}{0pt}
+\geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+
+\title{Corrigé - Épreuve anticipée de mathématiques - Sujet 0 - Voie Technologique}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{PREMIÈRE PARTIE : AUTOMATISMES – QCM (6 pts)}
+
+\begin{enumerate}
+    \item Un article coûte 400 euros. Le prix augmente de 20\%. Le nouveau prix est \\
+    \reponse{b. 480 euros} \\
+    \textit{400 × 1,20 = 480.}
+
+    \item Un sac coûte 130 euros. Le prix baisse de 10\%. Le nouveau prix est \\
+    \reponse{d. $130 \times 0,9$} \\
+    \textit{Une baisse de 10\% correspond à un coefficient multiplicateur de 0,9.}
+
+    \item Le prix d'un article est noté $P$. Il connaît deux augmentations de 20\%. Le prix après ces augmentations est \\
+    \reponse{d. $P \times 1,2^2$} \\
+    \textit{Chaque augmentation de 20\% multiplie le prix par 1,2. Deux augmentations successives donnent $P \times 1,2 \times 1,2 = P \times 1,2^2$.}
+
+    \item Lors d'une élection, le quart des électeurs a voté pour A, 20\% a voté pour B, un tiers a voté pour C, et le reste a voté pour D. Le candidat ayant recueilli le moins de votes est \\
+    \reponse{b. B} \\
+    \textit{Calcul des pourcentages : A = 25\%, B = 20\%, C $\approx$ 33,33\%, D = 100\% - (25\% + 20\% + 33,33\%) $\approx$ 21,67\%. Donc B a le moins de votes.}
+
+    \item On considère $A = \frac{2}{1 - \frac{2}{3}}$. On a \\
+    \reponse{c. $A = 6$} \\
+    \textit{$1 - \frac{2}{3} = \frac{1}{3}$, donc $A = \frac{2}{\frac{1}{3}} = 2 \times 3 = 6$.}
+
+    \item On considère $A = \frac{1}{100} + \frac{1}{1000}$. On a \\
+    \reponse{d. $A = 0,011$} \\
+    \textit{$\frac{1}{100} = 0,01$ et $\frac{1}{1000} = 0,001$, donc $A = 0,01 + 0,001 = 0,011$.}
+
+    \item Une durée de 75 minutes correspond à \\
+    \reponse{b. 1,25 heure} \\
+    \textit{75 minutes = 1 heure et 15 minutes = 1 + $\frac{15}{60}$ = 1,25 heure.}
+
+    \item $10^{30} + 10^{-30}$ est environ égal à \\
+    \reponse{c. $10^{30}$} \\
+    \textit{$10^{-30}$ est négligeable devant $10^{30}$.}
+
+    \item La seule droite pouvant correspondre à l'équation $y = -2x + 5$ est \\
+    \reponse{\textit{Réponse dépend du graphique fourni (ex: c. la droite $D_3$).}} \\
+    \textit{La droite a une pente de -2 et une ordonnée à l'origine de 5.}
+
+    \item La solution de l'équation $3x = 0$ est \\
+    \reponse{d. $x = 0$} \\
+    \textit{Diviser par 3 : $x = 0$.}
+
+    \item La solution de l'équation $\frac{144}{x} = 9$ est \\
+    \reponse{c. $x = \frac{144}{9} = 16$} \\
+    \textit{Multiplier par $x$ : $144 = 9x$, donc $x = \frac{144}{9}$.}
+
+    \item Voici les notes sur vingt obtenues par un élève en mathématiques :
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Note & 10 & 13 & 12 & $x$ \\
+        \hline
+        Coefficient & 1 & 1 & 1 & 2 \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+    On cherche ce que doit valoir $x$ pour que la moyenne de l'élève soit égale à 15. \\
+    \reponse{b. $x = 18$} \\
+    \textit{Moyenne = $\frac{10 + 13 + 12 + 2x}{1 + 1 + 1 + 2} = 15$. Donc $35 + 2x = 60$ et $2x = 25$ → $x = 18$.}
+\end{enumerate}
+
+\section*{DEUXIÈME PARTIE (14 pts)}
+
+\subsection*{Exercice 1}
+Pour chacune des quatre affirmations suivantes, indiquer si elle est VRAIE ou FAUSSE en justifiant la réponse.
+
+\begin{enumerate}
+    \item On considère une suite arithmétique $(u_n)$ de raison $r = \frac{1}{2}$. On sait que $u_{50} = 1000$. \\
+    \textbf{Affirmation 1} : $u_{60} = 1005$. \\
+    \reponse{Vrai.} \\
+    \textit{La suite est arithmétique : $u_{60} = u_{50} + 10r = 1000 + 10 \times \frac{1}{2} = 1000 + 5 = 1005$. \textbf{L'affirmation est vraie !}}
+
+    \item On considère une suite géométrique $(u_n)$ de raison $q$ positive. On sait que $u_{100} = 5$ et que $u_{102} = 20$. \\
+    \textbf{Affirmation 2} : $u_{99} = 2,5$. \\
+    \reponse{Vrai.} \\
+    \textit{La raison $q$ vérifie $u_{102} = u_{100} \times q^2$, donc $20 = 5 \times q^2$ → $q^2 = 4$ → $q = 2$ (car $q > 0$). \\
+    Donc $u_{99} = \frac{u_{100}}{q} = \frac{5}{2} = 2,5$.}
+
+    \item \textbf{Affirmation 3} : Il est possible de trouver au moins un réel $x$ tel que $x + x = x^2$. \\
+    \reponse{Vrai.} \\
+    \textit{Équation : $2x = x^2$ → $x^2 - 2x = 0$ → $x(x - 2) = 0$ → Solutions : $x = 0$ ou $x = 2$.}
+
+    \item On lance deux pièces équilibrées. On gagne si les deux pièces tombent du même côté. \\
+    \textbf{Affirmation 4} : On a une chance sur quatre de gagner. \\
+    \reponse{Faux.} \\
+    \textit{Les issues gagnantes sont (Pile, Pile) et (Face, Face). Il y a 4 issues possibles : (P,P), (P,F), (F,P), (F,F). Donc probabilité de gagner = $\frac{2}{4} = \frac{1}{2}$.}
+\end{enumerate}
+
+\subsection*{Exercice 2}
+On considère la fonction $f$ définie pour tout réel $x$ par $f(x) = -x^2 + 6x - 5$.
+
+\begin{enumerate}
+    \item Calculer l'image de 0 et de 3 par la fonction $f$. \\
+    \reponse{$f(0) = -5$ et $f(3) = -9 + 18 - 5 = 4$.}
+
+    \item Montrer que, pour tout réel $x$, on a : $(x - 1)(5 - x) = -x^2 + 6x - 5$. \\
+    \reponse{$(x - 1)(5 - x) = 5x - x^2 - 5 + x = -x^2 + 6x - 5 = f(x)$.}
+
+    \item En déduire les antécédents de 0 par la fonction $f$. \\
+    \reponse{Les antécédents de 0 sont les solutions de $(x - 1)(5 - x) = 0$, donc $x = 1$ ou $x = 5$.}
+
+    \item Montrer que pour tout réel $x$, on a : $4 - (x - 3)^2 = -x^2 + 6x - 5$. \\
+    \reponse{$4 - (x^2 - 6x + 9) = 4 - x^2 + 6x - 9 = -x^2 + 6x - 5 = f(x)$.}
+
+    \item Est-il possible de trouver un réel $x$ tel que $f(x) > 4$ ? Justifier. \\
+    \reponse{Non.} \\
+    \textit{D'après la question 4, $f(x) = 4 - (x - 3)^2$. Or, $(x - 3)^2 \geq 0$, donc $f(x) \leq 4$.}
+
+    \item Réaliser un schéma donnant l'allure de la courbe de la fonction $f$. \\
+    \reponse{\textit{Schéma à faire : parabole tournée vers le bas, sommet en $(3, 4)$, racines en $x = 1$ et $x = 5$.}}
+\end{enumerate}
+
+\subsection*{Exercice 3}
+Un club d'escalade propose à ses 100 adhérents deux séances par semaine : lundi et jeudi.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Présent le JEUDI & Absent le JEUDI & Total \\
+\hline
+Présent le LUNDI & 45 & $x$ & 75 \\
+\hline
+Absent le LUNDI & 20 & 5 & 25 \\
+\hline
+Total & 65 & 35 & 100 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item Décrire par une phrase ce que représente le nombre $x$ et déterminer sa valeur. \\
+    \reponse{$x$ représente le nombre d'adhérents présents le lundi mais absents le jeudi. $x = 75 - 45 = 30$.}
+
+    \item On choisit un adhérent au hasard.
+    \begin{enumerate}
+        \item Quelle est la probabilité qu'il s'agisse d'un adhérent qui n'est venu ni le lundi ni le jeudi ? \\
+        \reponse{$\frac{5}{100} = 0,05$.}
+
+        \item Quelle est la probabilité qu'il s'agisse d'un adhérent qui n'est venu qu'un seul jour ? \\
+        \reponse{Nombre d'adhérents venus un seul jour = $x + 20 = 30 + 20 = 50$. Probabilité = $\frac{50}{100} = 0,5$.}
+
+        \item On sait que l'adhérent choisi est venu le lundi. Quelle est la probabilité qu'il soit également venu le jeudi ? \\
+        \reponse{Probabilité conditionnelle : $\frac{45}{75} = 0,6$.}
+    \end{enumerate}
+
+    \item Chacun des adhérents verse au club une cotisation annuelle de 100 euros.
+    \begin{enumerate}
+        \item En 2026, le club compte 100 adhérents. Quel est le montant total des cotisations versées au club en 2026 ? \\
+        \reponse{$100 \times 100 = 10\,000$ euros.}
+
+        \item On suppose que, de 2026 à 2041, le nombre d'adhérents augmente de 5 chaque année. Quel sera le montant total des cotisations versées au club entre 2026 et 2041 ? \\
+        \reponse{Nombre d'années = 2041 - 2026 + 1 = 16 ans. \\
+        Cotisations = $100 \times [100 + 105 + 110 + \dots + (100 + 15 \times 5)]$. \\
+        Suite arithmétique : $a = 100$, $r = 5$, $n = 15$. \\
+        Somme = $\frac{2 \times 100 + 15 \times 5}{2} \times 16 = \frac{200 + 75}{2} \times 16 = 137,5 \times 16 = 2\,200$. \\
+        Montant total = $100 \times 2\,200 = 220\,000$ euros.}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{- Devoir Surveillé -\\Suites numériques (1\textsuperscript{ère} STMG)}
+\vspace{0.5cm}
+\\\large \underline{\textbf{RÉPONDRE ENTIÈREMENT SUR UNE COPIE SÉPARÉE}}
+\vspace{0.5cm}
+\\ \textit{\underline{1 point bonus} sera accordé pour les copies soignées avec réponses 
+entièrement justifiées.}
+\end{center}
+\vspace{0.4cm}
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 1 – Nombre de « like » (4 points)}
+\vspace{5pt}
+
+On considère le nombre de « likes » obtenus chaque semaine par un groupe de musique
+sur sa page Instagram :
+
+\[
+\begin{array}{c|c|c|c|c|c|c|c|}
+\text{Semaine }n & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
+\hline
+u_n & 130 & 155 & 180 & 205 & 230 & 255 & 280
+\end{array}
+\]
+\vspace{2pt}
+\begin{questions}
+    \question[1,5] Quelle est la nature de \((u_n)\) ? Donner sa raison.
+    \question[1,5] Donner l’expression explicite de \(u_n\) en fonction de $n$.
+    \question[1] Sachant qu'une année comporte 52 semaines, calculer le nombre de « likes »
+     au bout d'un an.
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 2 – Disneyland Paris (6 points)}
+\vspace{5pt}
+
+Un abonnement illimité à Disneyland Paris coûtait 470 € en 2023.  
+Chaque année, son prix augmente de 20 €.  
+On note \(p_n\) le prix \(n\) années après 2023.
+
+\begin{questions}
+    \question[1] Expliquer pourquoi la situation modélise une suite arithmétique.
+    \question[1] Donner \(p_0\) et la raison \(r\).
+    \question[1] Exprimer $p_{n+1}$ en fonction de $p_n$.
+    \question[2] Donner la formule explicite de \(p_n\) et calculer le prix en l'an 2033.
+    \question[1] À partir de quelle année dépassera-t-on 800 € ?
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 3 – Modèle géométrique : remises successives (6 points)}
+\vspace{5pt}
+
+Un produit en solde ne se vend pas. Chaque jour, le vendeur baisse son prix de 10\%.
+Son prix initial est de 30 €.
+
+On note \(u_n\) le prix de l'article le \(n\)-ième jour.
+
+\begin{questions}
+    \question[1] Donner $u_0$ et calculer $u_1$, $u_2$ et $u_3$.
+    \question[1,5] Exprimer $u_{n+1}$ en fonction de $u_n$.
+    \question[1] Exprimer \(u_n\) en fonction de $n$.
+    \question[1] Calculer $u_{30}$. On donnera un arrondi au dixième.
+    \question[1,5] Le prix sera-t-il inférieur à 10€ au bout de 10 jours ? Justifier.
+\end{questions}
+
+\noindent\hrulefill
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+\textbf{Exercice 4 – Étude d'une suite (4 points)}
+\vspace{5pt}
+
+On considère la suite $(u_n)$ définie pour tout entier naturel $n$ par :
+\[
+u_n = n(n+2) + 1.
+\]
+
+\begin{questions}
+    \question[1] Calculer les 3 premiers termes de la suite.
+
+    \question[1] Exprimer $u_{n+1}$ en fonction de $n$.
+
+    \question[2] Montrer que $(u_n)$ est croissante. Justifier.
+\end{questions}
+
+\noindent\hrulefill
+
+
+\vspace{0.5cm}
+\begin{center}
+\textbf{Fin du devoir — relire la copie avant de rendre.}
+\end{center}
+
+\end{document}

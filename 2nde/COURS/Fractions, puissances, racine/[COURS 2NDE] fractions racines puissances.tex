@@ -1,0 +1,869 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\begin{document}
+
+% ============================
+%   Fractions, puissances, racines carrées
+% ============================
+
+\newpage
+
+\begin{center}
+    {\LARGE \textbf{Fractions, puissances, racines carrées}}\\[4mm]
+    {\large Seconde}
+\end{center}
+
+\hrule
+\vspace{0pt}
+
+% ============================
+%   Partie 1 : Fractions
+% ============================
+
+\section*{\textcolor{red}{Partie 1 : Fractions}}
+
+\subsection*{\hspace{1cm} 1) Calculs avec des fractions (rappels)}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :}
+
+\begin{center}
+    $\dfrac{a}{D} + \dfrac{b}{D} = \dfrac{a+b}{D}$
+    \hspace{1cm}$\dfrac{a}{D} - \dfrac{b}{D} = \dfrac{a-b}{D}$
+    \hspace{1cm}$\dfrac{a}{b} \times \dfrac{c}{d} = \dfrac{a \times b}{c \times d}$
+    \hspace{1cm}$\dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a}{b} \times \dfrac{d}{c}$
+\end{center}
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :} Effectuer des 
+calculs de fractions}}
+
+\begin{center}
+    $A = \dfrac{5}{4}+\dfrac{6}{16}$
+    \hspace{1cm}$B = \dfrac{5}{3}-\dfrac{6}{5}$
+    \hspace{1cm}$C = \dfrac{2}{-3}\times\dfrac{-5}{11}$
+    \hspace{1cm}$D = \genfrac{}{}{1pt}{0}{\phantom{\dfrac{1}{1}}\dfrac{3}{4}\phantom{\dfrac{1}{1}}}{\dfrac{-5}{8}}$
+    \hspace{1cm}$E = \dfrac{8}{7}-\dfrac{4}{7} \times \dfrac{5}{3}$
+\end{center}
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\end{mdframed}
+
+\vspace{10pt}
+
+% ========================================================
+%             2) Réduire des expressions au même dénominateur
+% ========================================================
+\subsection*{\hspace{1cm} 2) Réduire des expressions au même dénominateur}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :}
+
+\begin{center}
+    $\dfrac{a}{{\color{blue}b}} + \dfrac{c}{{\color{ForestGreen}d}} = \dfrac{a{\color{ForestGreen}d}}{b{\color{ForestGreen}d}} + \dfrac{c{\color{blue}b}}{d{\color{blue}b}} = \dfrac{ad+cb}{bd}$
+\end{center}
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :} Réduire au même dénominateur}}
+
+\begin{center}
+    $A = \dfrac{7}{x-2} - \dfrac{5}{3}$ \hspace{2cm} $B = 3 + \dfrac{5x}{2x+1}$
+\end{center}
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+\end{mdframed}
+
+
+\vspace{10pt}
+% ========================================================
+%             Partie 2 : Puissances
+% ========================================================
+\section*{\textcolor{red}{Partie 2 : Puissances}}
+
+% ========================================================
+%             1) Rappels
+% ========================================================
+\subsection*{\hspace{1cm} 1) Rappels}
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{mdframed}[
+        linewidth=1pt,
+        roundcorner=5pt,
+        linecolor=Red,
+        innertopmargin=10pt,
+        innerbottommargin=10pt
+    ]
+    {\color{red}
+    \underline{Propriété :}
+
+    \vspace{5pt}
+    $a^4 = a \times a \times a \times a$
+
+    \vspace{5pt}
+    De façon générale : 
+
+    \vspace{5pt}
+    $a^n = \underbrace{a \times a \times a \times a \times a \times \text{\ ...\ } \times a}_{n \text{\ fois}}$
+    }
+    \end{mdframed}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \underline{Exemples :}
+
+    \vspace{10pt}
+    $2^3 =$
+
+    \vspace{20pt}
+    $11^5 = $
+
+    \vspace{2cm}
+\end{minipage}%
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{mdframed}[
+        linewidth=1pt,
+        roundcorner=5pt,
+        linecolor=Red,
+        innertopmargin=10pt,
+        innerbottommargin=10pt
+    ]
+    {\color{red}
+    \underline{Propriété :}
+
+    \vspace{5pt}
+    $a$ est un nombre non nul et $n$ un entier non nul.
+    
+    \vspace{5pt}
+    \hspace{1cm}$a^1 = a$
+
+    \hspace{1cm}$a^0 = 1$
+
+    \hspace{1cm}$0^n = 0$
+
+    \hspace{1cm}$1^n = 1$
+    }
+    \end{mdframed}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \underline{Exemples :}
+
+    \vspace{20pt}
+    $15^1 =$
+
+    \vspace{20pt}
+    $103^0 = $
+
+    \vspace{20pt}
+    $0^4 = $
+
+    \vspace{20pt}
+    $1^{12} = $
+\end{minipage}%
+
+\vspace{1cm}
+
+{\color{red} \textbf{ATTENTION aux signes !}}
+
+\vspace{10pt}
+Ne pas confondre : 
+
+\vspace{10pt}
+$(-2)^4 = $ \hspace{6cm} et $-2^2 = $
+
+\vspace{2cm}
+
+% ========================================================
+%             2) Opérations sur les puissances
+% ========================================================
+\subsection*{\hspace{1cm} 2) Opérations sur les puissances}
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :}
+
+\vspace{5pt}
+Avec $n$ et $p$ entiers relatifs :
+
+\vspace{5pt}
+\hspace{3cm} $a^n \times a^p = a^{n+p}$ \hspace{2cm} $\dfrac{a^n}{a^p} = a^{n-p}$ 
+\hspace{2cm} $(a^n)^p = a^{n \times p}$
+
+\vspace{10pt}
+\hspace{3cm} $(a \times b)^n = a^n \times b^n$ \hspace{1.4cm} $a^{-1} = \dfrac{1}{a}$ 
+\hspace{2.5cm} $a^{-n} = \dfrac{1}{a^n}$    
+}
+\end{mdframed}
+
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :} Effectuer des 
+calculs sur les puissances}}
+
+\begin{center}
+    $A = \dfrac{1}{4^2}$
+    \hspace{1cm}$B = 4^5 \times 4^7$
+    \hspace{1cm}$C = \dfrac{5^4}{5^6}$
+    \hspace{1cm}$D = 7^3 \times (7^2)^6$
+    \hspace{1cm}$E = 6^7 \times 9^7$
+\end{center}
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{0.5cm}
+\dotfill
+
+\vspace{20pt}
+
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :} Appliquer aux 
+puissances de 10.}}
+
+\vspace{5pt}
+\hspace{1cm}a) Écrire sous la forme $10^n$ ou $10^{-n}$ :
+
+\begin{center}
+    $A = 10^4 \times 10^7$
+    \hspace{1cm}$B = \dfrac{10^{-4}}{10^5}$
+    \hspace{1cm}$C = (10^2)^{-6}$
+    \hspace{1cm}$D = 10^{-4} \times (10^3)^{-1}$
+\end{center}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\newpage
+\hspace{1cm}b) Écrire en notation scientifique :
+
+\begin{center}
+    $A = 4 \times 7 \times 10^{-5} \times 10^{-8}$
+    \hspace{1cm}$B = \dfrac{7 \times 10^{-4} \times 5 \times 10^8}{56 \times 10^{-9}}$
+    \hspace{1cm}$C = \dfrac{32 \times 10^{-4} + 6 \times 10^{-3}}{2 \times 10^{-5}}$
+\end{center}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{20pt}
+
+
+\end{mdframed}
+
+\vspace{20pt}
+
+% ========================================================
+%             PARTIE 3 : Racines carrées
+% ========================================================
+
+
+\section*{\textcolor{red}{Partie 3 : Racines carrées}}
+
+% ========================================================
+%             1) Définition
+% ========================================================
+\subsection*{\hspace{1cm} 1) Définition}
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{\underline{Définition :}}}  
+
+La racine carrée de $a$ est le nombre (\textbf{toujours positif}) dont le carré est $a$.
+
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=0pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{-15pt}
+\begin{multicols}{3}
+    $\sqrt{0} = 0$ \\
+    $\sqrt{25} = 5$ \\
+    $\sqrt{100} = 10$ 
+\end{multicols}
+\vspace{-25pt}
+\begin{multicols}{3}
+    $\sqrt{1} = 1$ \\
+    $\sqrt{36} = 6$ \\
+    $\sqrt{121} = 11$ 
+\end{multicols}
+\vspace{-25pt}
+\begin{multicols}{3}
+    $\sqrt{4} = 2$ \\
+    $\sqrt{49} = 7$ \\
+    $\sqrt{144} = 12$ 
+\end{multicols}
+\vspace{-25pt}
+\begin{multicols}{3}
+    $\sqrt{9} = 3$ \\
+    $\sqrt{64} = 8$ \\
+    $\sqrt{169} = 13$ 
+\end{multicols}
+\vspace{-25pt}
+\begin{multicols}{3}
+    $\sqrt{16} = 4$ \\
+    $\sqrt{81} = 9$ \\
+\end{multicols}
+
+}
+\end{mdframed}
+
+\underline{Remarque :}
+
+\vspace{5pt}
+$\sqrt{-5} = $? \hspace{1cm} {\color{red}\fontencoding{U}\fontfamily{futs}\selectfont\char 49\relax} 
+{\color{black!30}\dotfill}
+
+\vspace{10pt}
+
+\subsection*{\hspace{1cm} 2) Propriétés sur les racines}
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=0pt
+]
+{\color{red}
+\textbf{\underline{Propriétés :}}
+
+\vspace{5pt}
+$a$ et $b$ deux nombres positifs.
+
+\begin{center}
+    $\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$ \hspace{1cm} 
+    $\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}} \quad (b \neq 0)$ \hspace{1cm}
+    $(\sqrt{a})^2 = a$ \hspace{1cm}
+    $\sqrt{a^2} = a$
+\end{center}
+
+}
+\end{mdframed}
+
+{\color{red}\fontencoding{U}\fontfamily{futs}\selectfont\char 49\relax} De façon générale : 
+$\sqrt{a} + \sqrt{b} \neq \sqrt{a + b}$ \hspace{1cm} et \hspace{1cm} $\sqrt{a} - \sqrt{b} \neq \sqrt{a-b}$
+
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°4:} Effectuer des calculs sur les racines carrées.}}
+
+\vspace{5pt}
+Écrire le plus simplement possible : 
+
+$A = \sqrt{32} \times \sqrt{2}$ \hspace{1cm} $B = \sqrt{3} \times \sqrt{27}$ 
+\hspace{1cm} $C = \sqrt{3} \times \sqrt{36} \times \sqrt{3}$
+
+\vspace{5pt}
+$D = \dfrac{\sqrt{32}}{\sqrt{2}}$ \hspace{1cm} $E = \dfrac{\sqrt{50}}{\sqrt{72}}$ 
+\hspace{1cm} $F = (4\sqrt{5})^2$ \hspace{1cm} $G = \dfrac{\sqrt{32} \times \sqrt{10}}{\sqrt{80}}$
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{20pt}
+\end{mdframed}
+
+\vspace{10pt}
+
+\subsection*{\hspace{1cm} 3) Extraire un carré parfait et simplifier une expression}
+
+\vspace{5pt}
+{\color{RedOrange}\textbf{\underline{Méthode :} Extraire un carré parfait.}}
+
+\vspace{5pt}
+Écrire sous la forme $a\sqrt{b}$, avec $a$ et $b$ entiers et $b$ étant le plus petit possible.
+
+\vspace{5pt}
+On commence par faire apparaître un carré parfait sous la racine :
+
+\vspace{20pt}
+\hspace{1cm}$\sqrt{32} = $
+
+\vspace{2cm}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°5:} Simplifier des racines.}}
+
+\vspace{5pt}
+Écrire sous la forme $a\sqrt{b}$, avec $a$ et $b$ entiers et $b$ étant le plus petit possible.
+
+\vspace{5pt}
+$A = \sqrt{72}$ \hspace{1cm} $B = \sqrt{45}$ \hspace{1cm} $C = 3\sqrt{125}$
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{10pt}
+
+\subsection*{\hspace{1cm} 4) Simplifier les écritures complexes contenant des racines carrées}
+
+\vspace{5pt}
+{\color{RedOrange}\textbf{\underline{Méthode :} Simplifier une écriture}}
+
+\vspace{5pt}
+On regroue les membres de la même \textbf{« famille de racines irréductibles »} pour réduire l'expression.
+
+\vspace{5pt}
+Les différentes familles sont donc : $\sqrt{2}$, $\sqrt{3}$, $\sqrt{5}$, $\sqrt{6}$, $\sqrt{7}$... 
+
+\vspace{20pt}
+Par exemple : $4\sqrt{2} - 5\sqrt{2} = $
+
+\vspace{2cm}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°6:} Simplifier une écriture}}
+
+\vspace{5pt}
+\hspace{1cm}1) Écrire le plus simplement possible : 
+
+\vspace{5pt}
+$A = 4\sqrt{3} - 2\sqrt{3} + 6\sqrt{2}$ \hspace{1cm} $B = 7\sqrt{2} - 3\sqrt{5} + 8\sqrt{2} - \sqrt{5}$ 
+\hspace{1cm} $C = (3 - 2\sqrt{3}) - (4 - 6\sqrt{3})$
+
+\vspace{10pt}
+\hspace{1cm}2) Écrire les expressions suivantes sous la forme $a\sqrt{b}$, où $a$ et $b$ sont des entiers 
+et $b$ le plus petit possible.
+
+\vspace{5pt}
+$D = \sqrt{12} + 7\sqrt{3} - \sqrt{27}$ \hspace{1cm} $E = \sqrt{125} - 2\sqrt{20} + 6\sqrt{80}$
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{10pt}
+\subsection*{\hspace{1cm} 5) Racines carrées et développements}
+
+\vspace{5pt}
+{\color{RedOrange}\textbf{\underline{Méthode :} Effectuer des développements avec des racines}}
+
+\vspace{5pt}
+On cherche s'il y a une identité remarquable, si oui, on l'applique, sinon on développe normalement.
+
+\vspace{20pt}
+Exemple : $(\sqrt{2} - 3)^2 = $ 
+
+\vspace{3cm}
+
+Exemple : $(2 + \sqrt{3})(\sqrt{2} - 3) = $ 
+
+\vspace{2cm}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°7:} Effectuer des développements avec des racines.}}
+
+\vspace{5pt}
+Développer et réduire les expressions suivantes : 
+
+\vspace{5pt}
+\hspace{1cm}$A = (\sqrt{3} - 4)^2$ \hspace{3.15cm} $B = (3+\sqrt{5})^2$
+
+\vspace{5pt}
+\hspace{1cm}$C = (\sqrt{2} - \sqrt{5})(\sqrt{2}+ \sqrt{5})$ \hspace{1cm} $D = (3+\sqrt{3})(1-\sqrt{2})$
+
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!30}\dotfill}
+
+
+\vspace{20pt}
+\end{mdframed}
+
+\end{document}

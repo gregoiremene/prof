@@ -1,0 +1,524 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+% \usepackage[draft]{graphicx}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{array}
+\usepackage[thinlines]{easytable}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\begin{document}
+
+% ============================
+%   Probabilités conditionnelles
+% ============================
+
+\newpage
+
+\begin{center}
+    {\LARGE \textbf{Loi de Bernoulli}}\\[4mm]
+    {\large 1\up{ère} STMG}
+\end{center}
+
+\vspace{10pt}
+\hrule
+\vspace{0pt}
+
+% ============================
+%   PARTIE 1 : Calculs à l'aide d'un tableau croisé
+% ============================
+
+\section*{\textcolor{red}{I/ Expérience aléatoire à 2 épreuves}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{\underline{Définition :}}}  
+
+Deux épreuves sont dites \textbf{indépendantes} si le résultat de l’une n’a aucune influence sur le
+résultat de l’autre.
+
+\end{mdframed}
+
+{\color{red}\bf{\underline{Exemple et méthode :}} Calculer une probabilité associée à une expérience aléatoire 
+à deux épreuves.}
+
+\vspace{5pt}
+On dispose dans une urne de 4 boules : 2 rouges, 1 jaune et 1 verte. Dans une seconde urne, on dispose de 
+3 boules noires et 1 boule blanche.
+
+\vspace{5pt}
+Alban tire successivement 1 boule dans la première urne puis une boule dans la deuxième.
+
+\vspace{10pt}
+Ces deux épreuves, sont dites \_\_\_\_\_\_\_\_\_\_\_\_.
+
+\vspace{10pt}
+\hspace{1cm} \textbf{1) Représenter la situation à l'aide d'un arbre pondéré.}
+
+\hspace{1cm} \textbf{2) Calculer la probabilité $P_1$ d'obtenir une boule rouge et une boule noire.}
+
+\hspace{1cm} \textbf{3) Calculer la probabilité $P_2$ de ne \underline{pas} obtenir une boule verte et 
+d'obtenir une boule blanche.}
+
+\begin{minipage}[t]{.55\textwidth}%
+    \vspace{0pt}
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    \vspace{0.5cm}
+    {\color{black!50}\dotfill}
+    
+    
+
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    
+\end{minipage}%
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°1:} Exploiter un arbre de probabilités}}
+
+\vspace{5pt}
+On s'intéresse aux personnes ayant les yeux bleus. On note $B$ l'évènement « Avoir l'allèle des yeux 
+bleus ». On choisit au hasard deux personnes dans la population et on regarde si elles possèdent cet allèle. 
+On suppose que 40\% de la population possède l'allèle des yeux bleus.
+
+\vspace{5pt}
+\hspace{1cm}1) La situation correspond-elle à deux épreuves indépendantes ?
+
+\vspace{5pt}
+\hspace{1cm}2) Dessiner un arbre de probabilités qui représente la situation.
+
+\vspace{5pt}
+\hspace{1cm}3) Déterminer la probabilité que les deux personnes aient l'allèle des yeux bleus.
+
+\begin{minipage}[t]{.55\textwidth}%
+    \vspace{0pt}
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+
+    \vspace{0.5cm}
+    {\color{black!40}\dotfill}
+    
+
+    \vspace{20pt}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    
+\end{minipage}%
+
+\end{mdframed}
+
+\section*{\textcolor{red}{II/ Épreuve de Bernoulli }}
+
+\subsection*{\hspace{1cm} 1) Définition }
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}
+\textbf{\underline{Définition :}}}
+
+\vspace{5pt}
+Une \textbf{épreuve de Bernoulli} est une expérience aléatoire à \underline{deux issues} que l'on peut 
+nommer « succès » 
+ou « échec ».
+
+\end{mdframed}
+
+\underline{Exemple :}
+
+\begin{itemize}
+    \item Le jeu du pile ou face : On considère par exemple comme succès "obtenir pile" et
+    comme échec "obtenir face".
+    \item  On lance un dé et on considère par exemple comme succès "obtenir un 1" et
+    comme échec "ne pas obtenir un 1".
+
+    La loi de Bernoulli associée à cette expérience est :
+
+    \vspace{-5pt}
+    \begin{center}
+        \begin{tabular}{|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|
+            >{\centering\arraybackslash}m{3cm}|}
+            \hline
+            \parbox[c][1cm][c]{3cm}{\centering \textbf{Issues}} & 
+            \parbox[c][1cm][c]{3cm}{\centering \textbf{Succès ( S )}} & 
+            \parbox[c][1cm][c]{3cm}{\centering \textbf{Échec ( $\bm{\overline{S}}$ )}} \\
+            \hline
+            \parbox[c][1.5cm][c]{3cm}{\centering \textbf{Probabilités}} & 
+            \parbox[c][1.5cm][c]{3cm}{\centering } 
+            & \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{itemize}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{5pt}
+Une \textbf{loi de Bernoulli} est la loi de probabilité d'une épreuve de Bernoulli qui suit le schéma suivant :
+
+\begin{itemize}
+    \item la probabilité d'obtenir 1 (ou succès) est égale à $p$
+    \item la probabilité d'obtenir 0 (ou échec) est égale à $1-p$
+\end{itemize}
+
+$p$ est appelé le \textbf{paramètre} de la loi de Bernoulli.
+}
+\end{mdframed}
+
+On peut résumer la loi de Bernoulli de paramètre $p$ dans ce tableau : 
+
+\begin{center}
+    \begin{tabular}{|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|
+        >{\centering\arraybackslash}m{3cm}|}
+        \hline
+        \parbox[c][1cm][c]{3cm}{\centering \textbf{$\bm{x_i}$}} & 
+        \parbox[c][1cm][c]{3cm}{\centering \textbf{1 (ou S)}} & 
+        \parbox[c][1cm][c]{3cm}{\centering \textbf{0 (ou $\bm{\overline{S}}$)}} \\
+        \hline
+        \parbox[c][1.5cm][c]{3cm}{\centering \textbf{$\bm{P(X = x_i)}$}} &
+        \parbox[c][1.5cm][c]{3cm}{\centering }
+        & \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\underline{En reprenant les exemples plus haut, déterminer $p$ : }
+
+\begin{itemize}
+    \item Le jeu du pile ou face : On considère par exemple comme succès "obtenir pile" et
+    comme échec "obtenir face".
+
+    \vspace{-10pt}
+    \begin{center}
+        $p =$
+    \end{center}
+
+    \vspace{5pt}
+    \item  On lance un dé et on considère par exemple comme succès "obtenir un 1" et
+    comme échec "ne pas obtenir un 1".
+
+    \vspace{-10pt}
+    \begin{center}
+        $p =$
+    \end{center}
+\end{itemize}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°2:} Savoir reconnaître une situation modélisée par une loi 
+de Bernoulli.}}
+
+\vspace{5pt}
+Après la correction d’un contrôle, le professeur compte que 24 élèves ont obtenu une note
+supérieure ou égale à 10, et 6 ne l’ont pas obtenue.
+Le professeur choisit une copie au hasard.
+
+\hspace{1cm}1) Cette situation peut-elle être modélisée par une loi de Bernoulli ?
+
+\hspace{1cm}2) Si oui, donner son paramètre.
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{10pt}
+\subsection*{\hspace{1cm} 2 Répétition d'épreuves de Bernoulli) }
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}
+\textbf{\underline{Définition :}}}
+
+\vspace{5pt}
+Plusieurs expériences sont identiques et indépendantes si : 
+\begin{itemize}
+    \item elles ont les mêmes issues,
+    \item chaque issue possède la même probabilité.
+\end{itemize}
+
+\end{mdframed}
+
+\vspace{5pt}
+{\color{RedOrange}\textbf{\underline{Méthode :} Calculer une probabilité associé à une succesion d'épreuves 
+de Bernoulli.}}
+
+\vspace{5pt}
+On considère l'expérience suivante :
+
+\vspace{5pt}
+Une urne contient 3 boules blanches et 2 boules rouges. On tire au hasard une boule et on la
+remet dans l'urne. On considère comme succès : « obtenir une boule blanche ».
+
+On répète l'expérience trois fois de suite.
+
+\vspace{5pt}
+\hspace{1cm}\textbf{1) A-t-on bien une situation de répétition d'épreuves de Bernoulli ? De quel paramètre ?}
+
+\vspace{5pt}
+\hspace{1cm}\textbf{2) À l’aide d’un arbre pondéré, calculer la probabilité d’obtenir deux succès.}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!40}\dotfill}
+
+\vspace{20pt}
+
+\newpage
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°3:} Calculer une probabilité associé à une succesion}
+
+\textbf{d'épreuves 
+de Bernoulli.}}
+
+\vspace{5pt}
+On lance 4 fois de suite un dé à six faces et on note à chaque fois le résultat.
+À chaque lancer, on considère comme succès "obtenir un six" et comme échec "ne pas
+obtenir un six".
+
+On répète ainsi 5 fois de suite la même expérience de Bernoulli (lancer un dé) et les
+expériences sont indépendantes l'une de l'autre : un lancer n'influence pas le résultat d'un
+autre lancer.
+
+\vspace{10pt}
+\hspace{1cm}1) Calculer la probabilité d'obtenir 2 six.
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{5pt}
+\subsection*{\hspace{1cm} 3) Espérance }
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=-5pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{5pt}
+Soit $X$ une variable aléatoire qui suit une loi de Bernoulli de paramètre $p$. Alors : 
+\[
+E(X) = p
+\]
+}
+\end{mdframed}
+
+
+
+
+
+
+\end{document}

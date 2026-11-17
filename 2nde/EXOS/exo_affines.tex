@@ -1,0 +1,102 @@
+\documentclass[12pt]{exam}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usetikzlibrary{calc}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\footer{}{\thepage}{\it{G.M.}}
+
+% =====================
+% Document
+% =====================
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Exercices demi groupe}}\\[2mm]
+    {\large 2nde}\\[2mm]
+    \textit{Fonctions affines et vecteurs}
+\end{center}
+
+\textbf{Exercice : Fonctions affines}
+
+On considère la fonction $f$ dont la représentation graphique est donnée ci-dessous.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+% Grille
+\draw[step=1cm, gray!40, very thin] (-2,-4) grid (6,5);
+
+% Axes
+\draw[->] (-2.2,0) -- (6.2,0) node[right] {$x$};
+\draw[->] (0,-4.2) -- (0,5.2) node[above] {$y$};
+
+% Graduations
+\foreach \x in {-2,-1,1,2,3,4,5}
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\small $\x$};
+
+\foreach \y in {-3,-2,-1,1,2,3,4}
+    \draw (0.1,\y) -- (-0.1,\y) node[left] {\small $\y$};
+
+% Fonction f
+\draw[thick, smooth] (-2,-1) -- (6,3);
+\node at (4.6,3.3) {$\mathcal{C}_f$};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{questions}
+
+\question Refaire la figure sur le cahier.
+
+% -----------------------------
+\question Trouver l'expression de $f(x)$.
+
+% -----------------------------
+\question Résoudre graphiquement \textbf{ET} algébriquement l’inéquation :
+\[
+f(x) \geq 1
+\]
+
+% -----------------------------
+\question On considère la fonction $g$ définie par :
+\[
+g(x) = -2x + 5
+\]
+
+\begin{parts}
+\part Tracer la représentation graphique de la fonction $g$ sur le graphique ci-dessus.
+\part Déterminer graphiquement les coordonnées du point d’intersection des droites représentant $f$ et $g$.
+\end{parts}
+
+% -----------------------------
+\question Résoudre graphiquement \textbf{ET} algébriquement l’inéquation :
+\[
+f(x) \leq g(x)
+\]
+
+\end{questions}
+
+
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+\header{}{DS de mathématiques}{1èreSTMG}
+\footer{}{\thepage}{}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Interrogation\\Dérivation}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Dérivées et tangentes (\ \ \ \  / 5 points )}
+\vspace{10pt}
+\noindent\\On considère la fonction $f$ représentée ci-dessous ainsi que deux tangentes à $f$.
+
+\vspace{-5pt}
+\begin{center}
+    \begin{tikzpicture}[scale=1, xscale=1.5]
+
+    % Grille
+    \draw[step=1cm, gray, very thin] (-3,-2) grid (6,7);
+
+    % Axes
+    \draw[->] (-3.2,0) -- (6.2,0) node[right] {$x$};
+    \draw[->] (0,-2.2) -- (0,7.2) node[above] {$y$};
+
+    % Graduations x
+    \foreach \x in {-3,-2,-1,1,2,3,4,5,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\small $\x$};
+
+    % Graduations y
+    \foreach \y in {-1,1,2,3,4,5,6}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\small $\y$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=-0.8:3.8, samples=200, smooth, thick, black]
+        plot (\x, {\x*\x - 3*\x + 4});
+
+    \node at (-1,6.2) {$\mathcal{C}_f$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=-3:5, samples=200, smooth, very thick, black]
+        plot (\x, {-\x + 3});
+
+    \node at (-1.25,4.75) {$\mathcal{T}_A$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=1:4, samples=200, smooth, very thick, black]
+        plot (\x, {3*\x - 5});
+
+    \node at (1.5,-1.5) {$\mathcal{T}_B$};
+
+    \filldraw (1, 2) circle (2pt) node[above right] {A};
+
+    \filldraw (3, 4) circle (2pt) node[below right] {B};
+
+    \end{tikzpicture}
+\end{center}
+
+
+\begin{questions}
+
+\question[2] Déterminer graphiquement $f'(1)$ et $f'(3)$.
+
+\question[3] En déduire les équations des tangentes $\mathcal{T}_A$ et $\mathcal{T}_B$ à 
+la courbe $\mathcal{C}_f$.
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exercice 2
+% ========================================================
+\noindent
+\textbf{Exercice 2 : Calculs de dérivées ( \ \ \ / 5 points )}
+
+\vspace{10pt}
+\noindent
+
+\begin{questions}
+
+\question[2] Déterminer l'expression de la fonction dérivée de chacune des fonctions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $f(x) = -3x^3 + 6x$ \hspace{1cm}b) $g(x) = 2x^2 + x + 5$
+
+\vspace{10pt}
+
+\question On considère la fonction : $f(x) = 3x^2 + 3x - 2$.
+
+\vspace{5pt}
+\hspace{1cm}a) (1 point) Calculer la dérivée $f'(x)$.
+
+\vspace{5pt}
+\hspace{1cm}b) (1 point) Étudier le signe de cette dérivée.
+
+\vspace{5pt}
+\hspace{1cm}c) (1 point) Dresser le tableau de variation de la fonction $f$.
+
+\end{questions}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textit{Fin du devoir}
+\end{center}
+
+\end{document}

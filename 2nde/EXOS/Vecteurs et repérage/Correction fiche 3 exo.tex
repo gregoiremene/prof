@@ -1,0 +1,235 @@
+\documentclass{article}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{mdframed}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{array}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% Pour les coordonnées de vecteurs :
+\newcommand*{\Coord}[2]{%
+  \ensuremath{
+    \begin{pmatrix}
+      #1 \\[10pt]
+      #2
+    \end{pmatrix}}
+}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+% \header{}{}{}
+% \footer{}{\thepage}{}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \Large{\textbf{Correction fiche n°3 exercices}}
+\end{center}
+
+\textbf{Exercice n$^\circ$1}
+
+On considère les points $A(-2; 2)$, $B(1; 0)$, $C(-1; -3)$.
+
+\begin{enumerate}
+    \item Déterminer les coordonnées :
+
+    \begin{enumerate}
+        \item Du point $D$ tel que $ABCD$ soit un parallélogramme.
+
+        Avec la propriété du parallélogramme, $ABCD$ est un parallélogramme si : 
+        $\bm{\overrightarrow{AB} = \overrightarrow{DC}}$ (et non pas $\overrightarrow{CD}$)
+        
+        En appliquant la formule on a : $\overrightarrow{AB}\Coord{3}{-2} = 
+        \overrightarrow{DC}\Coord{-1-x_D}{-3 - y_D}$
+
+        En résolvant, on obtient les coordonnées de $D$ :
+        \[
+        D(-4; -1)
+        \]
+
+        \item Du centre $O$ de $ABCD$.
+
+        Le centre $O$ est le milieu des diagonales. En appliquand la formule pour trouver le milieu d'un segment,
+        on obtient : 
+        \[
+        O\left(-1.5; -0.5\right)
+        \]
+
+    \end{enumerate}
+
+    \item Démontrer qu'il s'agit d'un carré.
+
+    Pour démontrer qu'il s'agit d'un carré, il faut vérifier que les côtés sont de même longueur et que les diagonales sont de même longueur et perpendiculaires.
+
+    Calculons les longueurs des côtés et des diagonales :
+    \[
+    AB = \sqrt{(1 - (-2))^2 + (0 - 2)^2} = \sqrt{9 + 4} = \sqrt{13}
+    \]
+    \[
+    BC = \sqrt{(-1 - 1)^2 + (-3 - 0)^2} = \sqrt{4 + 9} = \sqrt{13}
+    \]
+    \[
+    CD = \sqrt{(-4 - (-1))^2 + (-1 - (-3))^2} = \sqrt{9 + 4} = \sqrt{13}
+    \]
+    \[
+    DA = \sqrt{(-2 - (-4))^2 + (2 - (-1))^2} = \sqrt{4 + 9} = \sqrt{13}
+    \]
+
+    Les côtés sont tous égaux à $\sqrt{13}$.
+
+    On peut également montrer que deux côtés adjascents seulement sont égaux. En effet, un parallélogramme
+    a déjà ses côtés opposés deux à deux de même longueur.
+
+    Calculons maintenant les longueurs des diagonales :
+    \[
+    AC = \sqrt{(-1 - (-2))^2 + (-3 - 2)^2} = \sqrt{1 + 25} = \sqrt{26}
+    \]
+    \[
+    BD = \sqrt{(-4 - 1)^2 + (-1 - 0)^2} = \sqrt{25 + 1} = \sqrt{26}
+    \]
+
+    Les diagonales sont égales à $\sqrt{26}$.
+
+    Donc $ABCD$ est un carré.
+
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ========================================================
+%             exercice 2
+% ========================================================
+\textbf{Exercice n$^\circ$2}
+
+\begin{enumerate}
+
+    \item Que peut-on dire des droites $(BC)$ et $(AD)$ ?
+
+    Calculons les vecteurs $\overrightarrow{BC}$ et $\overrightarrow{AD}$ :
+    \[
+    \overrightarrow{BC} \Coord{-5 - 4}{1 - (-2)} = \overrightarrow{BC} \Coord{-9}{3}
+    \]
+    \[
+    \overrightarrow{AD} \Coord{-1-2}{6-5} = \overrightarrow{AD} \Coord{-3}{1}
+    \]
+
+    On observe que $\overrightarrow{BC} = 3\overrightarrow{AD}$. Les vecteurs sont donc colinéaires, 
+    ce qui signifie que les droites $(BC)$ et $(AD)$ sont parallèles.
+
+    \vspace{5pt}
+    On peut aussi calculer le déterminant et trouver 0.
+
+    \item Déterminer les coordonnées des points $I$ et $K$.
+
+    \begin{itemize}
+        \item \textbf{Point I} :
+        On sait que $\overrightarrow{IB} = -\dfrac{1}{2}\overrightarrow{BC}$.
+        
+        $\overrightarrow{BC}\Coord{-9}{3}$, donc $-\dfrac{1}{2}\overrightarrow{BC}
+        \Coord{\dfrac{9}{2}}{-\dfrac{3}{2}}$
+
+        Et $\overrightarrow{IB}\Coord{4-x_D}{-2-y_D}$
+
+        On a donc :
+        \[
+        -\dfrac{1}{2}\overrightarrow{BC}
+        \Coord{\dfrac{9}{2}}{-\dfrac{3}{2}} = \overrightarrow{IB}\Coord{4-x_D}{-2-y_D}
+        \]
+        
+        En résolvant les équations sur les coordonnées, on trouve : $I\Coord{\dfrac{17}{2}}{-\dfrac{7}{2}}$
+
+        \item \textbf{Point K} :
+        On sait que $2\overrightarrow{BK} = \overrightarrow{BA} + \dfrac{1}{2}\overrightarrow{BC}$.
+        
+        On commence par écrire les coordonnées de $\overrightarrow{BK}\Coord{x_K-4}{y_K+2}$ 
+        puis $2 \overrightarrow{BK}\Coord{2x_K-8}{2y_K + 4}$.
+        
+        Par ailleurs, en calculant $\overrightarrow{BA}$ puis $\dfrac{1}{2}\overrightarrow{BC}$ on trouve que
+        $\overrightarrow{BA} + \dfrac{1}{2}\overrightarrow{BC}\Coord{-\dfrac{13}{2}}{\dfrac{17}{2}}$
+
+        On pose alors les équations : 
+
+        $2x_K-8 = -\dfrac{13}{2}$
+
+        $y_K+2 = \dfrac{17}{2}$.
+
+        Après avoir résolu on trouve : 
+
+        $K\Coord{\dfrac{3}{4}}{\dfrac{9}{4}}$.
+    \end{itemize}
+
+    \item Démontrer que les points $I$, $K$ et $A$ sont alignés.
+
+    Pour démontrer que les points $I$, $K$ et $A$ sont alignés, on vérifie que les vecteurs $\overrightarrow{IK}$ et $\overrightarrow{IA}$ sont colinéaires.
+    
+    Pour cela on utilise le calcul du déterminant : $det(\overrightarrow{IK};\overrightarrow{IA})$.
+
+    \textbf{On peut également prendre d'autres vecteurs} comme $\overrightarrow{KA}$ et $\overrightarrow{AI}$ par exemple.
+
+    Après résolution on trouve bien $0$.
+
+    Donc les vecteurs sont bien colinéaires.
+
+    Donc les points sont bien alignés.
+
+    
+
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ========================================================
+%             Exercice 3
+% ========================================================
+
+\textbf{Exercice n$^\circ$3}
+
+\vspace{5pt}
+Cet exercice étant long, je ne mets ici que la méthode. À vous de faire les calculs associés.
+
+\begin{enumerate}
+    \item Déterminer les coordonnées : 
+    \begin{enumerate}
+        \item de S milieu de $[MP]$ : on utilise la formule du milieu 
+        \item \textbf{faire un schéma pour s'aider!} R étant le symétrique, on a une égalité de vecteur qui peut s'écrire.
+        On pose des inconnues et on résout.
+        \item Ce genre de question nous laisse présumer qu'il s'agit sûrement d'un parallélogramme. 
+        On fait un petit schéma et on écrit la propriété sur les égalités vectorielle.
+        Si l'égalité est vérifiée c'est bien un parallélogramme.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item On utilise la colinéarité. Déterminant !
+        \item On sait que $(MT)\ //\ (PR)$ car $PTMR$ est un parallélogramme. Donc si $M$, $T$ et $U$ sont 
+        alignés, alors forcément $(UT)\ //\ (PR)$.
+        \item On utilise la colinéarité.
+        \item On utilise la formule sur les longueurs.
+        \item On trouve que $TP = UR$. Or on sait aussi que $(UT)\ //\ (PR)$ et $(TR)\ //\ (UP)$. Donc le 
+        quadrilatère est un parallélogramme qui a ses diagonales de même longueur : c'est un rectangle.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item On pose des inconnues, on écrit l'égalité vectorielle et on résout le système d'équation.
+        \item Un point est une intersection à deux droites s'il est aligné avec les points appartenants à ces 
+        deux droites. On montre donc que N, U et P sont alignés et que N, M et R sont alignés (avec la 
+        colinéarité).
+        \item On calcul les longueurs des côtés du triangle et on conclut (isocèle ou équilatéral en fonction 
+        du résultat).
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

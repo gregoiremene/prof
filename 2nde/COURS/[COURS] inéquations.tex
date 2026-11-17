@@ -1,0 +1,516 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\begin{document}
+
+% ============================
+%   INÉQUATIONS
+% ============================
+
+\newpage
+
+\begin{center}
+    {\LARGE \textbf{Inéquations}}\\[4mm]
+    {\large Seconde}
+\end{center}
+
+\hrule
+\vspace{0.4cm}
+
+% ============================
+%   PARTIE 1 : Inéquations du premier degré
+% ============================
+
+\section*{\textcolor{red}{Partie 1 : Inéquations du premier degré}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=ForestGreen,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{Définition :}}  
+Une \textbf{inéquation du premier degré} est une inéquation qui peut se mettre sous la forme :
+\[
+ax + b \ \square \ 0
+\]
+où :
+\begin{itemize}
+    \item $a$ et $b$ sont des nombres réels avec $a \neq 0$
+    \item $\square$ désigne l'un des symboles : $<$, $\le$, $>$ ou $\ge$
+\end{itemize}
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{Exemple :}
+\[
+3x - 7 \ge 5
+\]
+
+\vspace{5pt}
+
+\underline{Résolution :}
+\[
+3x - 7 \ge 5
+\]
+\[
+3x \ge 12
+\]
+\[
+x \ge 4
+\]
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Attention :}
+Lorsque l'on \textbf{multiplie ou divise} une inéquation par un nombre \textbf{négatif},  
+le \textbf{signe de l'inégalité change de sens}.
+}
+\end{mdframed}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :}}}
+\vspace{5pt}
+
+Résoudre les inéquations suivantes et représenter les solutions sur une droite graduée :
+\begin{enumerate}
+    \item $2x + 3 < 4 - 5x$
+    \item $2(x - 4) \leq 4x - 5$
+\end{enumerate}
+\end{mdframed}
+
+\vspace{10pt}
+\newpage
+% ============================
+%   PARTIE 2 : Tableau de signes
+% ============================
+
+\section*{\textcolor{red}{Partie 2 : Tableau de signes}}
+
+\vspace{5pt}
+
+\subsection*{2.1 Expression de la forme $ax+b$}
+
+\underline{Exemple d'introduction :}
+
+\vspace{5pt}
+
+On souhaite déterminer le signe de l'expression :
+\[
+2x - 10
+\]
+
+\vspace{5pt}
+
+\underline{Étape 1 :} Déterminons pour quelle valeur de $x$ l'expression $2x - 10$ s'annule.
+\[
+\text{On résout }2x - 10 = 0
+\]
+\vspace{-20pt}
+{\color{blue}
+\[
+2x = 10
+\]
+\[
+x = \dfrac{10}{2}
+\]
+\[
+x = 5
+\]
+}
+% \\$2x = 10$
+%     \\$x = \dfrac{10}{2}$
+%     \\$x = 5$
+\vspace{5pt}
+
+\underline{Étape 2 :} On dresse le tableau de signes de $2x - 10$
+\vspace{5pt}\\
+Sachant que $x \longmapsto 2x - 10$ est une fonction affine représentée par 
+\textbf{une droite}, 
+on peut 
+déduire le tableau de signe suivant : 
+\[
+\begin{tikzpicture}
+   \tkzTabInit{$x$ / 1 , $2x-10$ / 1}{$-\infty$, ${\color{blue}5}$, $+\infty$}
+   \tkzTabLine{, {\color{red}-}, z, {\color{red}+}, }
+\end{tikzpicture}
+\]
+
+\vspace{5pt}
+
+En traçant le graphique de $x \longmapsto 2x - 10$, on retrouve ce 
+résultat.
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=red
+]
+    {\color{red}\underline{À RETENIR :}}
+    Pour les fonctions de la forme $ax+b$ :
+    \begin{itemize}
+        \item si $\color{red}a>0$, alors on commence avec un $\color{red}-$ dans le 
+        tableau de signe, 
+        puis un $\color{red}+$
+        \item si $\color{red}a<0$, alors on commence avec un $\color{red}+$ dans le 
+        tableau de signe, puis un $\color{red}-$
+    \end{itemize}
+\end{mdframed}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,       % axes au milieu
+    xlabel=$x$, ylabel=$y$,
+    xmin=-1, xmax=7,         % bornes x
+    ymin=-4, ymax=4,         % bornes y
+    width=12cm,               % largeur du graphique
+    height=6cm,               % hauteur du graphique
+]
+
+% tracer la droite
+\addplot[thick,red,domain=-1:7,samples=2]{2*x - 10};
+
+% marquer la racine x=5
+\addplot[blue,mark=*] coordinates {(5,0)};
+\addplot[blue,dashed] coordinates {(5,-4) (5,4)};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\vspace{10pt}
+
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice n°2 :}}}
+\vspace{5pt}
+
+Déterminer le signe d'une expression de la forme $ax+b$
+\vspace{-10pt}
+\begin{multicols}{2}
+    \begin{enumerate}
+        \item $2x + 6$
+        \item $-3x + 12$
+    \end{enumerate}
+\end{multicols}
+
+\end{mdframed}
+
+\vspace{10pt}
+
+\subsection*{\textcolor{red}{2.2 Expression du type $(ax+b)(cx+d)$}}
+
+\vspace{5pt}
+
+\underline{Exemple :}
+\[
+(2x - 1)(x + 3)
+\]
+
+\vspace{5pt}
+
+\underline{But : }
+On cherche le signe de l'expression $(2x - 1)(x + 3)$, c'est-à-dire \textbf{pour quelles
+valeurs de x} elle est positive ou négative.
+\vspace{5pt}\\
+Le signe de $(2x - 1)(x + 3)$ dépend \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{15pt}
+\underline{On résout :}
+\begin{minipage}[t]{.35\textwidth}%
+% \vspace(0pt)
+    \[
+    \begin{aligned}
+        2x - 1 &= 0 \\
+        2x &= 1 \\
+        x &= \dfrac{1}{2}
+    \end{aligned}
+    \]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.55\textwidth}%
+% \vspace(0pt)
+    \[
+    \begin{aligned}
+        x + 3 &= 0 \\
+        x &= -3
+    \end{aligned}
+    \]
+\end{minipage}%
+
+\vspace{15pt}
+
+\underline{On peut 
+déduire le tableau de signe suivant :}
+\[
+\begin{tikzpicture}
+   \tkzTabInit[lgt = 3.5]{$x$ / 1 , $2x - 1$ / 1, $x + 3$ / 1, $(2x-1)(x+3)$ / 1}
+   {$-\infty$, $-3$, $\dfrac{1}{2}$, $+\infty$}
+   \tkzTabLine{, {\color{red}-}, , {\color{red}-}, z, {\color{red}+}, }
+   \tkzTabLine{, {\color{red}-}, z, {\color{red}+}, , {\color{red}+}, }
+   \tkzTabLine{, {\color{red}+}, z, {\color{red}-}, z, {\color{red}+}, }
+\end{tikzpicture}
+\]
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=red,
+    innerbottommargin=10pt,
+    innertopmargin=10pt
+]
+    {\color{red}\underline{À RETENIR :}}
+    Pour la dernière ligne du tableau, on utilise la règle des signes !
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice n°3 :}}}
+\vspace{5pt}
+
+Dresser le tableau de signes de l'expression $(3x-9)(1-2x)$.
+\end{mdframed}
+
+\vspace{20pt}
+\newpage
+
+% ============================
+%   PARTIE 3 : Inéquation produit
+% ============================
+
+\section*{\textcolor{red}{Partie 3 : Inéquation produit}}
+
+\vspace{5pt}
+
+\underline{Exemple :}
+\vspace{5pt}\\On veut résoudre :
+\begin{center}
+    $(x-3)(1-3x) > 0$
+\end{center}
+
+À nouveau, le signe du produit dépend du signe de chaque facteur.
+
+\vspace{10pt}
+\underline{On résout :}\\
+\begin{minipage}[t]{.25\textwidth}%
+% \vspace(0pt)
+    \[
+    \begin{aligned}
+        x-3 &= 0\\
+        x &= 3
+    \end{aligned}
+    \]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.75\textwidth}%
+% \vspace(0pt)
+    \[
+    \begin{aligned}
+        1-3x &= 0\\
+        x &= \dfrac{1}{3}
+    \end{aligned}
+    \]
+\end{minipage}%
+
+\vspace{15pt}
+
+\underline{On peut 
+déduire le tableau de signe suivant :}
+\[
+\begin{tikzpicture}
+   \tkzTabInit[lgt = 3.5]{$x$ / 1 , $x-3$ / 1, $1 - 3x$ / 1, $(x-3)(1-3x)$ / 1}
+   {$-\infty$, $\dfrac{1}{3}$, $3$, $+\infty$}
+   \tkzTabLine{, {\color{blue}-}, , {\color{blue}-}, z, {\color{blue}+}, }
+   \tkzTabLine{, {\color{blue}+}, z, {\color{blue}-}, , {\color{blue}-}, }
+   \tkzTabLine{, {\color{blue}-}, z, {\color{red}+}, z, {\color{blue}-}, }
+\end{tikzpicture}
+\]
+
+On lit facilement dans le tableau que $(x-3)(1-3x) > 0$ lorsque $\dfrac{1}{3} < x < 3$.
+\vspace{5pt}\\L'ensemble des solutions de l'inéquation est donc :
+\[
+S = \left]\dfrac{1}{3};3\right[
+\]
+
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice n°4 :}}}
+\vspace{5pt}
+
+Résoudre dans $\mathbb{R}$ l'inéquation suivante :
+\[
+(3 - 6x)(x+2) \geq 0
+\]
+\end{mdframed}
+
+\vspace{10pt}
+
+% ============================
+%   PARTIE 4 : Inéquation quotient
+% ============================
+
+\section*{\textcolor{red}{Partie 4 : Inéquation quotient}}
+
+\vspace{5pt}
+
+\underline{Exemple :}
+\vspace{5pt}\\On veut résoudre :
+\begin{center}
+    $\dfrac{2x - 3}{1 - 4x} \leq 0$
+\end{center}
+
+Le signe de $\dfrac{2x - 3}{1 - 4x}$ dépend du signe des expressions $2x - 3$ et $1 - 4x$.
+
+\vspace{5pt}{\color{red}\textbf{ATTENTION} : le dénominateur doit être différent de $0$ !}
+
+\vspace{10pt}
+\underline{On résout :}\\
+\begin{minipage}[t]{.25\textwidth}%
+% \vspace(0pt)
+    \[
+    \begin{aligned}
+        2x-3 &= 0\\
+        x &= \dfrac{3}{2}
+    \end{aligned}
+    \]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.75\textwidth}%
+% \vspace(0pt)
+    \[
+    \begin{aligned}
+        1-4x &\neq 0\\
+        x &\neq \dfrac{1}{4}
+    \end{aligned}
+    \]
+\end{minipage}%
+
+\vspace{15pt}
+
+\underline{On peut 
+déduire le tableau de signe suivant :}
+\[
+\begin{tikzpicture}
+    \tkzTabInit[lgt = 3.5]{$x$ / 1 , $2x-3$ / 1, $1 - 4x$ / 1, 
+        $\dfrac{2x-3}{1-4x}$ / 1.5}
+    {$-\infty$, $\dfrac{1}{4}$, $\dfrac{3}{2}$, $+\infty$}
+    \tkzTabLine{, {\color{blue}-}, , {\color{blue}-}, z, {\color{blue}+}, }
+    \tkzTabLine{, {\color{blue}+}, z, {\color{blue}-}, , {\color{blue}-}, }
+    \tkzTabLine{, {\color{red}-}, d, {\color{blue}+}, z, {\color{red}-}, }
+\end{tikzpicture}
+\]
+
+{\color{red}\textbf{\underline{À RETENIR :}} dans la dernière ligne, 
+$\dfrac{1}{4}$ est une 
+\textbf{valeur interdite} ! On ne peut pas diviser par $0$! On place donc deux 
+traits parallèles dans le tableau de 
+signes.}
+
+\vspace{10pt}
+
+On lit facilement dans le tableau que $\dfrac{2x - 3}{1 - 4x} \leq 0$ 
+lorsque $x < \dfrac{1}{4}$ \textbf{ET} $x \geq \dfrac{3}{2}$.
+\vspace{5pt}\\L'ensemble des solutions de l'inéquation est donc :
+\[
+S = \left]-\infty;\dfrac{1}{4}\right[ \bigcup \left[\dfrac{3}{2};+\infty\right[
+\]
+
+
+\begin{mdframed}[
+    linewidth=1pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice n°4 :}}}
+\vspace{5pt}
+
+Résoudre dans $\mathbb{R}$ l'inéquation suivante :
+\[
+\dfrac{2-6x}{3x-2} < 0
+\]
+\end{mdframed}
+
+
+\end{document}

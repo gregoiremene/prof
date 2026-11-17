@@ -1,0 +1,399 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+% \subsectionfont{\color{red}\normalsize\bfseries} % pour \subsection*
+
+\begin{document}
+
+% ============================
+%   ÉQUATIONS
+% ============================
+
+\begin{center}
+    {\LARGE \textbf{Équations}}\\[4mm]
+    {\large Seconde}
+\end{center}
+
+\hrule
+\vspace{0.4cm}
+
+% ============================
+%   PARTIE 1 : Équation du premier degré
+% ============================
+
+\section*{\textcolor{red}{Partie 1 : Équation du premier degré}}
+
+\subsection*{\textcolor{red}{1.1 Définition}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    % roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    % innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{But :} Trouver x !}
+\vspace{5pt}\\
+C'est-à-dire isoler $x$ dans l'équation pour arriver à :
+\begin{center}
+    $x=$ nombre
+\end{center}
+\vspace{0pt}
+}
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{Exemple :}
+\[
+3x - 7 = 5
+\]
+
+\vspace{5pt}
+
+\underline{Résolution :}
+\[
+3x - 7 \textcolor{red}{\ +\ 7} = 5 \textcolor{red}{\ +\ 7}
+\]
+\[
+3x = 12
+\]
+\[
+\dfrac{3x}{\textcolor{red}{3}} = \dfrac{12}{\textcolor{red}{3}}
+\]
+\[
+x = 4
+\]
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red
+]
+{\color{red}
+\underline{Méthode :}
+\begin{itemize}
+    \item On regroupe les termes contenant $x$ d'un côté.
+    \item On regroupe les nombres de l'autre côté.
+\end{itemize}
+}
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :}}}
+\vspace{5pt}
+\\
+Résoudre les équations suivantes :
+\begin{enumerate}
+    \item $7x - 4 = 3x + 8$
+    \item $\dfrac{4}{3}x - 2 = 7 - \dfrac{5}{2}x$
+    \item $3(x+4) = -(x+5) + 2$
+\end{enumerate}
+\end{mdframed}
+
+\newpage
+
+% ============================
+%   PARTIE 2 : Équation produit
+% ============================
+
+\section*{\textcolor{red}{Partie 2 : Équation produit}}
+
+\subsection*{\textcolor{red}{2.1 Définition}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}  
+Une \textbf{équation produit} est une équation de la forme :
+\[
+P(x) \times Q(x) = 0
+\]
+Où $P(x)$ et $Q(x)$ sont des expressions littérales.
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    % innerbottommargin=10pt
+]
+{\color{Red}\textbf{\underline{Propriété fondamentale :}}
+\begin{center}
+    Si $P(x) \times Q(x) = 0$ alors  $P(x)=0 \ \text{ou} \ Q(x)=0$
+\end{center}
+}
+\end{mdframed}
+
+\underline{Autre formulation :}
+\vspace{5pt}
+\\Si un produit de facteurs est nul, alors 
+au moins l'un des facteurs \_\_\_\_\_\_\_\_\_\_\_\_.
+
+\vspace{10pt}
+
+\underline{Exemple :}
+\[
+(x - 3)(2x + 1) = 0
+\]
+
+\vspace{5pt}
+
+\underline{Résolution :}
+\[
+x - 3 = 0 \quad \text{\underline{ou}} \quad 2x + 1 = 0
+\]
+\[
+x = 3 \quad \text{\underline{ou}} \quad x = -\frac{1}{2}
+\]
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :}}}
+\vspace{5pt}
+\\
+Résoudre les équations suivantes :
+\begin{enumerate}
+    \item $(4x + 6)(3 - 7x) = 0$
+    \item $(3x + 1)(1 - 6x) - (3x + 7)(3x + 1) = 0$
+    \item $5x^2 - 4x = 0$
+\end{enumerate}
+\end{mdframed}
+
+% ============================
+%   PARTIE 3 : Équation de la forme x² = a
+% ============================
+
+\section*{\textcolor{red}{Partie 3 : Équation de la forme $x^2 = a$}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}  
+On considère une équation de la forme :
+\[
+x^2 = a
+\]
+où $a$ est un nombre réel.
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}\underline{\textbf{Propriété :}}
+\vspace{5pt}\\
+Les solutions dans $\mathbb{R}$ de l'équation $x^2 = a$ dépendent du signe de $a$ :
+\begin{itemize}
+    \item Si $a > 0$, alors l'équation admet \textbf{deux solutions} :  
+    $x = \sqrt{a}$ et $x = -\sqrt{a}$
+    \item Si $a = 0$, alors l'équation possède une \textbf{unique solution} : $x = 0$
+    \item Si $a < 0$, alors l'équation n'a \textbf{aucune solution}
+\end{itemize}
+}
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{Exemple :}
+\[
+x^2 = 9
+\]
+
+\vspace{5pt}
+
+\underline{Résolution :}
+\[
+x = 3 \quad \text{ou} \quad x = -3
+\]
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :}}}
+\vspace{5pt}
+\\
+Résoudre les équations suivantes :
+\begin{enumerate}
+    \item $x^2 = 16$
+    \item $x^2 = -8$
+    \item $(x+2)^2 = 9$
+\end{enumerate}
+\end{mdframed}
+
+% ============================
+%   PARTIE 4 : Équation quotient
+% ============================
+
+\section*{\textcolor{red}{Partie 4 : Équation quotient}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}  
+Une \textbf{équation quotient} est une équation de la forme :
+\[
+\frac{P(x)}{Q(x)} = 0
+\]
+Où $P(x)$ et $Q(x)$ sont des expressions littérales ($\bm{Q(x) \neq 0}$).
+\end{mdframed}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    % innerbottommargin=10pt
+]
+{\color{red}\underline{Propriété :}
+\begin{center}
+    Si $\dfrac{P(x)}{Q(x)} = 0$ alors $P(x) = 0$ \textbf{\underline{ET}} $Q(x) \neq 0$.
+\end{center}
+}
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{Exemple :}
+\[
+\frac{2x - 4}{x + 1} = 0
+\]
+
+\vspace{5pt}
+
+\underline{Résolution :}
+\[
+2x - 4 = 0 \quad \text{et} \quad x + 1 \neq 0
+\]
+\[
+2x = 4 \quad \text{et} \quad x \neq -1
+\]
+\[
+x = 2 \quad \text{et} \quad x \neq -1
+\]
+\begin{center}
+    $x = 2$ est une solution valide car elle n'est pas égale à $-1$ (valeur interdite)
+\end{center}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°4 :}}}
+\vspace{5pt}
+\\
+Résoudre dans $\mathbb{R}$ les équations suivantes :
+\begin{multicols}{2}
+    \begin{enumerate}
+        \item $\dfrac{3x+5}{x-1} = 0$
+        \vspace{5pt}
+        \item $\dfrac{(2x+1)(x-3)}{x-4} = 0$
+        \vspace{5pt}
+        \item $\dfrac{x^2 - 9}{x+3} = 0$
+        \vspace{5pt}
+        \item $\dfrac{x+3}{x-3} = \dfrac{2}{x-3}$
+        \vspace{5pt}
+        \item (difficile) $1 - \dfrac{x+3}{x-3} = \dfrac{2}{2-x}$
+    \end{enumerate}
+\end{multicols}
+\end{mdframed}
+
+\end{document}

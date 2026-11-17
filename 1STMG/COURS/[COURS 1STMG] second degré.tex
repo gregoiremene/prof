@@ -1,0 +1,740 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+
+\setlength{\parindent}{0pt}
+\sectionfont{\color{red}\Large\bfseries}     
+
+% --- Mise en page ---
+\geometry{margin=2cm}
+
+% --- pointillés -----
+\newcommand{\Pointilles}[2][3]{%
+  \par\nobreak
+  \noindent\rule{0pt}{1.5\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+  \multido{}{#2}{\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf}% ... dotted lines ...
+  \bigskip% Gap between dots and next paragraph
+}
+
+\begin{document}
+
+% ======== TITRE DU COURS ========
+\begin{center}
+    {\LARGE \textbf{Fonctions polynômes de degré 2}}\\[4mm]
+    {\large 1STMG - Lycée Jacques Decour}
+\end{center}
+
+\hrule
+\vspace{0.4cm}
+
+% ============================
+%   PARTIE 1 : Définition
+% ============================
+
+\section*{Partie 1 : Généralités}
+
+\subsection*{1. Exemples et contre-exemples}
+
+\[
+\left.
+\begin{aligned}
+P_1(x) &= 3x^2 - 5x + 2 \\
+P_2(x) &= -x^2 + 7x - 9 \\
+P_3(x) &= (4+x)(5-2x) \\
+\end{aligned}
+\right\}
+\quad
+\text{Ce sont des polynômes de degré : }\_\_\_\_\_
+\]
+
+\[
+\left.
+\begin{aligned}
+P_4(x) &= 5x - 3
+\end{aligned}
+\right\}
+\quad
+\text{C'est un polynôme de degré : }\_\_\_\_\_
+\]
+
+\[
+\left.
+\begin{aligned}
+P_5(x) &= 4x^4 + 3x -2
+\end{aligned}
+\right\}
+\quad
+\text{C'est un polynôme de degré : }\_\_\_\_\_
+\]
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\underline{Définition :}}
+    \\On appelle fonction polynôme de degré 2 toute fonction $f$ définie sur $\mathbb{R}$ par une expression de la forme :
+\[
+    f(x) = ax^2 + bx + c
+\]
+où $a$, $b$ et $c$ sont des réels et $a \neq 0$.
+\end{mdframed}
+
+\underline{Remarques :}
+\vspace{5pt}
+\begin{itemize}
+    \item Une fonction polynôme du second degré s'appelle également \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+\end{itemize}
+
+\subsection*{2. Représentation graphique}
+
+La représentation graphique d’une fonction polynôme du second degré est une \_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+\vspace{1pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=red
+]
+    {\color{red}\underline{Propriétés :}}
+    \vspace{5pt}
+    \\Soit $f$ une fonction polynôme de second degré telle que $f(x) = ax^2+b$.
+    \begin{itemize}
+        \item si $a > 0$, $f$ est d'abord décroissante puis croissante (positif = content)
+        \item si $a < 0$, $f$ est d'abord croissante puis décroissante (négatif = triste)
+    \end{itemize}
+\end{mdframed}
+
+\bigskip
+
+\begin{center}
+\begin{tabular}{cc}
+% --- GRAPHIQUE a > 0 ---
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+    width=8cm,
+    height=8cm,
+    axis lines=center,
+    grid=both,
+    xmin=-4, xmax=4,
+    ymin=-4, ymax=4,
+    xtick={-4,-3,-2,-1,0,1,2,3,4},
+    ytick={-4,-3,-2,-1,0,1,2,3,4},
+    samples=200,
+    title={$a > 0$},
+]
+\addplot[domain=-4:4, thick] {0.5*x^2 - 1};
+\end{axis}
+\end{tikzpicture}
+&
+% --- GRAPHIQUE a < 0 ---
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+    width=8cm,
+    height=8cm,
+    axis lines=center,
+    grid=both,
+    xmin=-4, xmax=4,
+    ymin=-4, ymax=4,
+    xtick={-4,-3,-2,-1,0,1,2,3,4},
+    ytick={-4,-3,-2,-1,0,1,2,3,4},
+    samples=200,
+    title={$a < 0$},
+]
+\addplot[domain=-4:4, thick] {-0.5*x^2 + 1};
+\end{axis}
+\end{tikzpicture}
+\end{tabular}
+\end{center}
+
+\subsection*{3. Racines d'un polynôme}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\underline{Définition :}}
+    \vspace{5pt}
+    \\On considère une fonction polynôme du second degré : $f(x) = ax^2 + bx + c$.
+    \\On appelle \textbf{racines du polynôme} $ax^2 + bx + c$ les solutions de l'équation $f(x) = 0$.
+\end{mdframed}
+
+\begin{mdframed}
+    \underline{Exemple :}
+    \vspace{5pt}
+    \\On considère le polynôme du second degré $f(x) = 2x^2-3x+1$
+    \vspace{5pt}
+    \\On remarque facilement que $f(1) = 0$ car $2 \times 1^2 -3 \times 1 +1 = 0$
+    \vspace{5pt}
+    \\Donc $1$ est une \_\_\_\_\_\_\_\_\_\_\_\_ du polynôme $2x^2-3x+1$.
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\underline{Interprétation graphique :}}
+    \vspace{5pt}
+    \\Les racines d'un polynôme sont les antécédents de $0$, c'est-à-dire \textbf{les points d'intersection} de la \textbf{parabole} avec \textbf{l'axe des abscisses}.
+\end{mdframed}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=14cm,
+    height=12cm,
+    axis lines=center,
+    xmin=-5, xmax=5,
+    ymin=-4, ymax=7,
+    grid=both,
+    samples=300,
+    xlabel={$x$},
+    ylabel={$y$},
+    ytick={-4,-3,-2,-1,0,1,2,3,4,5,6,7},
+    legend style={
+        at={(1.05,1)},
+        anchor=north west,
+        draw=none
+    }
+]
+
+% f1(x) = 3x^2 - 2x + 3
+\addplot[thick, red] {3*x^2 - 2*x + 3};
+\addlegendentry{$3x^2 - 2x + 3$}
+
+% f2(x) = -2x^2 + 3x
+\addplot[thick, blue] {-2*x^2 + 3*x};
+\addlegendentry{$-2x^2 + 3x$}
+
+% f3(x) = 5 - x^2
+\addplot[thick, green!60!black] {5 - x^2};
+\addlegendentry{$5 - x^2$}
+
+% f4(x) = x^2 / 4
+\addplot[thick, purple] {x^2/4};
+\addlegendentry{$\dfrac{x^2}{4}$}
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Le polynôme $3x^2 - 2x + 3$ possède \_\_\_\_\_\_ racine(s), qui sont \_\_\_\_\_\_\_\_\_\_\_\_ .
+\vspace{10pt}
+\\Le polynôme $-2x^2 + 3x$ possède \_\_\_\_\_\_ racine(s), qui sont \_\_\_\_\_\_\_\_\_\_\_\_ .
+\vspace{10pt}
+\\Le polynôme $5 - x^2$ possède \_\_\_\_\_\_ racine(s), qui sont \_\_\_\_\_\_\_\_\_\_\_\_ .
+\vspace{5pt}
+\\Le polynôme $\dfrac{x^2}{4}$ possède \_\_\_\_\_\_ racine(s), qui sont \_\_\_\_\_\_\_\_\_\_\_\_ .
+
+% ============================
+%   PARTIE 2 : Polynômes de la forme ax^2+c
+% ============================
+
+\section*{Partie 2 : Fonction polynômes du second degré de la forme $\bm{f(x) = ax^2+c}$ ($\bm{b=0}$)}
+
+\subsection*{1. Fonction du type $f(x) = ax^2$}
+
+\underline{1\up{er} cas :} {\color{red}$\bm{a>0}$}
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=10cm,
+        height=6cm,
+        axis lines=middle,
+        xmin=-5, xmax=5,
+        ymin=0, ymax=12,
+        grid=both,
+        samples=200,
+        xlabel={$x$},
+        ylabel={$y$},
+        xtick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+        ytick={0,2,4,6,8,10,12},
+        legend pos=north west,
+        legend cell align=left
+    ]
+    
+    
+    % a = 0.5
+    \addplot[thick, blue] {0.3 * x^2};
+    \addlegendentry{$y=0{,}3x^2$}
+    
+    % a = 1
+    \addplot[thick, red] {1 * x^2};
+    \addlegendentry{$y=1x^2$}
+    
+    % a = 2
+    \addplot[thick, green!60!black] {3 * x^2};
+    \addlegendentry{$y=3x^2$}
+    
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+    La parabole est \textbf{tournée vers le haut}.
+    \vspace{5pt}
+    \\Plus $a$ est grand, plus les branches de la parabole se rapprochent.
+    \\Plus $a$ est petit, plus les branches s'écartent.
+    \\Avec $\bm{a>0}$, la fonction $f$ ne prend que des valeurs \textbf{positives}.
+\end{mdframed}
+
+On en déduit le tableau de signe :
+\[
+\begin{tikzpicture}
+\tkzTabInit{$x$/1 , $f(x)$/1}{$-\infty$, , $+\infty$}
+\tkzTabLine{,,,,}
+\end{tikzpicture}
+\]
+
+\vspace{5pt}
+
+\underline{2\up{ème} cas :} {\color{red}$\bm{a<0}$}
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=10cm,
+        height=7cm,
+        axis lines=middle,
+        xmin=-5, xmax=5,
+        ymin=-12, ymax=2,
+        grid=both,
+        samples=200,
+        xlabel={$x$},
+        ylabel={$y$},
+        xtick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+        ytick={-12,-10,-8,-6,-4,-2,0,2},
+        legend pos=south east,
+        legend cell align=left
+    ]
+    
+    
+    % a = 0.5
+    \addplot[thick, blue] {-0.3 * x^2};
+    \addlegendentry{$y=-0{,}3x^2$}
+    
+    % a = 1
+    \addplot[thick, red] {-1 * x^2};
+    \addlegendentry{$y=-1x^2$}
+    
+    % a = 2
+    \addplot[thick, green!60!black] {-3 * x^2};
+    \addlegendentry{$y=-3x^2$}
+    
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+    La parabole est \textbf{tournée vers le bas}.
+    \vspace{5pt}
+    \\On a le même raisonnement pour le rapprochement et l'éloignement des branches.
+    \\Avec $\bm{a<0}$, la fonction $f$ ne prend que des valeurs \textbf{négatives}.
+\end{mdframed}
+
+On en déduit le tableau de signe :
+\[
+\begin{tikzpicture}
+\tkzTabInit{$x$/1 , $f(x)$/1}{$-\infty$, , $+\infty$}
+\tkzTabLine{,,,,}
+\end{tikzpicture}
+\]
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=red
+]
+    {\color{red}\underline{\textbf{À RETENIR :}}}
+    \vspace{5pt}
+    \begin{itemize}
+        \item le \textbf{signe de $\bm{a}$} détermine \textbf{les variations} (l'orientation de la parabole) et \textbf{le signe} de $f(x) = ax^2$.
+        \item la \textbf{valeur de $\bm{a}$} détermine « l'ouverture de la parabole ».
+    \end{itemize}
+\end{mdframed}
+
+\subsection*{2. Fonction du type $f(x) = ax^2 + c$}
+
+\begin{minipage}{.55\textwidth}%
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth,
+    height=9cm,
+    axis lines=center,
+    grid=both,
+    xmin=-3, xmax=3,
+    ymin=-2, ymax=5,
+    samples=200,
+    xlabel={$x$},
+    ylabel={$y$},
+    legend pos=north west,
+    legend cell align=left
+]
+
+% c = -1
+\addplot[thick, blue] {0.3*x^2 - 1};
+\addlegendentry{$y = 0,3x^2 - 1$}
+
+% c = 0
+\addplot[thick, red] {x^2};
+\addlegendentry{$y = x^2$}
+
+% c = 2
+\addplot[thick, green!60!black] {3*x^2 + 2};
+\addlegendentry{$y = 3x^2 + 2$}
+
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth,
+    height=9cm,
+    axis lines=center,
+    grid=both,
+    xmin=-3, xmax=3,
+    ymin=-4, ymax=3,
+    samples=200,
+    xlabel={$x$},
+    ylabel={$y$},
+    legend pos=north west,
+    legend cell align=left
+]
+
+% c = -1
+\addplot[thick, blue] {-3*x^2 - 1};
+\addlegendentry{$y = -3x^2 - 1$}
+
+% c = 0
+\addplot[thick, red] {-x^2};
+\addlegendentry{$y = -x^2$}
+
+% c = 2
+\addplot[thick, green!60!black] {-0.3*x^2 + 2};
+\addlegendentry{$y = -0,3x^2 + 2$}
+
+\end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.45\textwidth}%
+Le sommet de la parabole est le point : $\bm{S(0,c)}$.
+\vspace{5pt}
+\begin{itemize}
+    \item Si $\bm{c > 0}$ alors le polynôme $ax^2 + c$ n'a pas de racines.
+    \item Si $\bm{c = 0}$ alors le polynôme a une
+    \vspace{5pt}
+    \\unique racine : \_\_\_\_\_\_\_\_\_\_.
+    \item Si $\bm{c < 0}$ alors le polynôme $ax^2 + c$ a deux racines : $x_1$ et $x_2$. \textbf{$\bm{f}$ change de signe en $\bm{x_1}$ et $\bm{x_2}$}. On en déduit le tableau de signes suivant :
+\end{itemize}
+\vspace{10pt}
+\[
+\begin{tikzpicture}
+\tkzTabInit[lgt=2, espcl=2.4]{$x$/1 , $f(x)$/1}{$-\infty$, , $+\infty$}
+\tkzTabLine{,,,,}
+\end{tikzpicture}
+\]
+\end{minipage}%
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=blue
+]
+    \underline{\textbf{Exercices d'application :}} 
+    \vspace{10pt}
+    \\\underline{Exercices 1 :}
+    \vspace{5pt}
+    \\Tracer les fonctions suivantes sur le cahier.
+    \begin{enumerate}
+        \item $f(x) = 3x^2+1$
+        \item $g(x) = \dfrac{1}{2}x^2 - 2$
+        \item $h(x) = 9 - x^2$
+        \item $k(x) = -2x^2 - 3$
+    \end{enumerate}
+    \underline{Exercices 2 :}
+    \vspace{5pt}
+    \\On a représenté ci-dessous deux fonctions polynômes du second degré du type $f(x) = ax^2 + c$. Dans les deux cas, déterminer $a$ et $c$ en s'aidant du graphique.
+    
+    \vspace{10pt}
+    
+    \begin{minipage}{.4\textwidth}%
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=\textwidth,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-3, xmax=3,
+        ymin=-5, ymax=6,
+        samples=200,
+        xlabel={$x$},
+        xtick={-3,-2,-1,0,1,2,3},
+        ytick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+        ylabel={$y$},
+    ]
+    
+    % c = 2
+    \addplot[thick, green!60!black] {2*x^2 - 4};
+    
+    \end{axis}
+    \end{tikzpicture}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{.6\textwidth}%
+    \Pointilles[1.5]{8}
+    \vspace{5pt}
+    \end{minipage}%
+
+    \begin{minipage}{.4\textwidth}%
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=\textwidth,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-3, xmax=3,
+        ymin=-4, ymax=4,
+        samples=200,
+        xlabel={$x$},
+        xtick={-3,-2,-1,0,1,2,3},
+        ytick={-4,-3,-2,-1,0,1,2,3,4},
+        ylabel={$y$},
+    ]
+    
+    % c = 2
+    \addplot[thick, red!60!black] {-x^2 +3};
+    
+    \end{axis}
+    \end{tikzpicture}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{.6\textwidth}%
+    \Pointilles[1.5]{8}
+    \vspace{5pt}
+    \end{minipage}%
+    
+\end{mdframed}
+
+\vspace{10pt}
+
+% ============================
+%   PARTIE 3 : Polynômes du second degré sous forme factorisée $$
+% ============================
+
+\section*{Partie 3 : Polynômes du second degré sous forme factorisée $\bm{f(x) = a(x-x_1)(x-x_2)}$}
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\underline{Définition :}}
+\vspace{5pt}
+    \\On considère une fonction polycôme du second degré de la forme : $f(x)=ax^2+bx+c$.
+    \vspace{5pt}
+    \\Si l'équation $f(x) = 0$ a deux solutions, c'est-à-dire si le polynôme $ax^2+bx+c$ a deux racines $x_1$ et $x_2$, alors la fonction $f$ peut s'écrire sous forme factorisée : 
+\[
+    f(x) = a(x-x_1)(x-x_2)
+\]
+\end{mdframed}
+
+\underline{Remarque :}
+\vspace{5pt}
+\\Dans le cas où il n'y a qu'une seule racine $x_1=x_2$, alors la factorisation s'écrit : $f(x) = a(x-x_1)^2$.
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=red
+]
+{\color{red}\underline{Propriétés :} Étude de signes de la fonction $f(x)=a(x-x_1)(x-x_2)$}
+    \vspace{5pt}
+    \\
+    \begin{minipage}{.45\textwidth}%
+        Si $a>0$
+        % \vspace{5pt}
+        \[
+        \begin{tikzpicture}
+        \tkzTabInit[lgt=1.5, espcl=1.5]{$x$/1 , $f(x)$/1}{$-\infty$, $x_1$, $x_2$, $+\infty$}
+        \tkzTabLine{,,z,,z,}
+        \end{tikzpicture}
+        \]
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{.45\textwidth}%
+        Si $a<0$
+        % \vspace{5pt}
+        \[
+        \begin{tikzpicture}
+        \tkzTabInit[lgt=1.5, espcl=1.5]{$x$/1 , $f(x)$/1}{$-\infty$, $x_1$, $x_2$, $+\infty$}
+        \tkzTabLine{,,z,,z,}
+        \end{tikzpicture}
+        \]
+    \end{minipage}%
+    
+    \vspace{10pt}
+    
+    {\color{red}La courbe de la fonction $f(x)=a(x-x_1)(x-x_2)$ est symétrique par rapport à la droite d'équation $x = \dfrac{x_1+x_2}{2}$}
+
+    \begin{minipage}{.45\textwidth}%
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines=center,
+            width=\textwidth,
+            height=8cm,
+            % grid=both,
+            xmin=-6, xmax=3,
+            ymin=-8, ymax=5,
+            samples=200,
+            xlabel={$x$},
+            ylabel={$y$},
+            title={\textbf{Cas $\bm{a>0}$}},
+        ]
+        
+        % Fonction
+        \addplot[thick, blue] {(x+4)*(x-1)};
+        
+        % Zéros
+        \addplot[only marks,mark=*] coordinates {(-4,0) (1,0)};
+        \addplot[only marks, mark=*, color=orange] coordinates {(-1.5,0)};
+        \node[below] at (axis cs:-4.5,1) {$x_1$};
+        \node[below] at (axis cs:0.5,1) {$x_2$};
+        
+        % Droite pointillée : x = (x1+x2)/2 = 0.5
+        \addplot[densely dashed, thick, orange] coordinates {(-1.5,-8) (-1.5,10)};
+        \node[above right, orange] at (axis cs:-3.2,0) {$\frac{x_1+x_2}{2}$};
+        
+        \end{axis}
+        \end{tikzpicture}
+        \vspace{5pt}
+        \\$f$ admet un minimum en $\dfrac{x_1+x_2}{2}$
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{.45\textwidth}%
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines=center,
+            width=\textwidth,
+            height=8cm,
+            % grid=both,
+            xmin=-6, xmax=3,
+            ymin=-5, ymax=8,
+            samples=200,
+            xlabel={$x$},
+            ylabel={$y$},
+            title={\textbf{Cas $\bm{a<0}$}},
+        ]
+        
+        % Fonction
+        \addplot[thick, blue] {-(x+4)*(x-1)};
+        
+        % Zéros
+        \addplot[only marks,mark=*] coordinates {(-4,0) (1,0)};
+        \addplot[only marks, mark=*, color=orange] coordinates {(-1.5,0)};
+        \node[below] at (axis cs:-4.5,1) {$x_1$};
+        \node[below] at (axis cs:0.5,1) {$x_2$};
+        
+        % Droite pointillée : x = (x1+x2)/2 = 0.5
+        \addplot[densely dashed, thick, orange] coordinates {(-1.5,-5) (-1.5,8)};
+        \node[above right, orange] at (axis cs:-3.2,0) {$\frac{x_1+x_2}{2}$};
+        
+        \end{axis}
+        \end{tikzpicture}
+        \vspace{5pt}
+        \\$f$ admet un maximum en $\dfrac{x_1+x_2}{2}$
+    \end{minipage}%
+    
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=blue,
+]
+    \vspace{5pt}
+    \underline{\textbf{Exercices d'application :}} 
+    \vspace{10pt}
+    \\\underline{\textbf{Exercices 3 :}} Étude algébrique de fonctions du type $f(x)=a(x-x_1)(x-x_2)$
+    \vspace{5pt}
+    \begin{enumerate}
+        \item Étudier le signe et les variations de la fonction $f(x) = -2(x-2)(x+3)$.
+        \item On considère la fonction $g$ définie par : $g(x) = 3x^2-9x+6$
+        \begin{enumerate}
+            \item Conjecturer les racines du polynôme $3x^2-9x+6$.
+            \item En déduire la forme factorisée de $g$.
+            \item Étudier le signe de la fonction de $g$.
+            \item Donner les coordonnées du sommet de la parabole qui représente $g$.
+        \end{enumerate}
+    \end{enumerate}
+    \vspace{10pt}
+    \underline{\textbf{Exercices 4 :}} Étude graphique de fonctions du type $f(x)=a(x-x_1)(x-x_2)$\\
+    \vspace{5pt}
+    \begin{minipage}{.45\textwidth}%
+    Déterminer la forme factorisée de la fonction $h$ représentée ci-contre.
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{.5\textwidth}%
+    \begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=\textwidth,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-4, xmax=3,
+        ymin=-5, ymax=4,
+        xlabel={$x$},
+        xtick={-4,-3,-2,-1,1,2,3},
+        ylabel={$y$},
+        ytick={-5,-4,-3,-2,-1,1,2,3,4},
+        samples=300,
+    ]
+    
+    % Fonction f(x) = 2(x-1)(x+2)
+    \addplot[thick, blue] {2*(x-1)*(x+2)};
+
+    \node[below, blue] at (axis cs:1.7,2) {$\mathcal{C}_h$};
+    
+    \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}%
+    
+\end{mdframed}
+
+\end{document}

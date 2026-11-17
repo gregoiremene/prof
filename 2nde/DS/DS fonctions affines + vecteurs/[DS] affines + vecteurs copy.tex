@@ -1,0 +1,226 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+\header{}{DS de mathématiques}{2\up{nde} générale}
+\footer{}{\thepage}{\it{G.M.}}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Devoir surveillé\\Fonctions affines et vecteurs}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Vecteurs et parallélogramme (\ \ \ \  / 5 points )}
+\vspace{5pt}
+
+On considère la figure suivante :
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+        
+    % Grille
+    \draw[step=1cm, gray, very thin] (-8,-6) grid (14,6);
+
+    % Points
+    \coordinate (R) at (-1,-2);
+    \coordinate (S) at (5,-2);
+    \coordinate (T) at (7,2);
+    \coordinate (U) at (1,2);
+
+    % Centre (intersection des diagonales)
+    \coordinate (O) at (3,0);
+
+    % Parallélogramme
+    \draw[thick] (R) -- (S) -- (T) -- (U) -- cycle;
+
+    % Diagonales
+    \draw[dashed] (R) -- (T);
+    \draw[dashed] (S) -- (U);
+
+    % Points
+    \fill (R) circle (2pt) node[below left] {$R$};
+    \fill (S) circle (2pt) node[below right] {$S$};
+    \fill (T) circle (2pt) node[above right] {$T$};
+    \fill (U) circle (2pt) node[above left] {$U$};
+    \fill (O) circle (2pt) node[above] {$O$};
+
+    \end{tikzpicture}
+\end{center}
+
+\begin{questions}
+
+\question[1,5] \textbf{Sur le graphique}, placer le point $F$, image du point $R$ par la translation de 
+vecteur $\overrightarrow{TU}$.
+
+\question[1,5] \textbf{Sur le graphique}, placer le point $E$, image du point $F$ par la translation de 
+vecteur $\overrightarrow{RU}$.
+
+\question[2] À l'aide des propriétés vectorielles, démontrer que $RSUE$ est un parallélogramme.
+
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 2 : Étude de fonctions (\ \ \ \  / 10 points )}
+
+\vspace{5pt}
+On considère la fonction $f$ définie sur $\mathbb{R}$ dont la représentation graphique est donnée ci-dessous.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xmin = -4, xmax = 4,
+    ymin = -2, ymax = 5,
+    xlabel = {$x$},
+    xtick distance=1,
+    ytick distance=1,
+    ylabel = {$y$},
+    grid = both,
+    width=14cm,
+    height=8cm
+]
+
+\addplot[thick,domain=-10:10] {-1/2*x + 2};
+\node at (axis cs:2.5,2.5) {$\mathcal{C}_f$};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{center}
+
+\begin{questions}
+
+% -----------------------------
+\question[1] Quelle est la nature de la fonction $f$ ?
+
+% -----------------------------
+\question[2] \underline{En justifiant \textbf{soigneusement}}, trouver l'expression de $f(x)$.
+
+% -----------------------------
+\question[2] Résoudre \underline{graphiquement} l’inéquation :
+\[
+f(x) \geq 3
+\]
+
+% -----------------------------
+\question On considère la fonction $g$ définie par :
+\[
+g(x) = 2x + 2
+\]
+
+\begin{parts}
+\part[2] \textbf{Sur le graphique}, tracer la représentation graphique de la fonction $g$.
+\part[1] Déterminer graphiquement les coordonnées du point d’intersection des 
+droites représentant $f$ et $g$.
+\end{parts}
+
+\vspace{5pt}
+
+% -----------------------------
+\question[2] Résoudre \underline{graphiquement} l’inéquation :
+\[
+f(x) < g(x)
+\]
+
+\end{questions}
+
+\vspace{10pt}
+
+% ======================================================
+\noindent
+\textbf{Exercice 3 : Vecteurs et colinéarité (\ \ \ \  / 5 points )}
+
+\vspace{5pt}
+
+On considère le graphique suivant : 
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+
+    % Grille
+    \draw[step=1cm, gray, very thin] (-8,-4) grid (8,4);
+
+    % Origine
+    \coordinate (O) at (0,0);
+
+    % Vecteurs
+    \draw[->, ultra thick, black] (-4,2) -- (-5,4) node[midway, above right] {$\overrightarrow{u}$};
+    \draw[->, ultra thick, black] (4,-3) -- (6,-2) node[midway, above] {$\overrightarrow{a}$};
+    \draw[<-, ultra thick, black]  (-1,2) -- (3,4) node[midway, above] {$\overrightarrow{w}$};
+
+    % Point d'origine
+    % \fill (O) circle (2pt);
+
+    \end{tikzpicture}
+\end{center}
+
+\begin{questions}
+    \question[3] \underline{\textbf{Sur le graphique}}, tracer le vecteur :
+    \[2\overrightarrow{w}
+    - 2\overrightarrow{u}\]
+
+    \question[2] Quels vecteurs semblent être colinéaires ? \textbf{Justifier en revenant 
+    à la définition.}
+\end{questions}
+
+\vspace{20pt}
+
+
+% ======================================================
+\noindent
+\textbf{Exercice 4 (BONUS) : Vers la 1\up{ère} (\ \ \ \  / 2 points )}
+
+\vspace{5pt}
+
+\underline{Point cours :}
+\vspace{5pt}
+
+Pour $h \neq 0$, le taux d'accroissement de la fonction $f$ entre $a$ et $a + h$ est donné 
+par la formule :
+\[
+\dfrac{f(a+h)-f(a)}{h}
+\]
+On considère la fonction carré $f(x) = x^2$.
+
+\begin{questions}
+    \question Calculer $f(a+h)$ en fonction de $a$ et $h$.
+
+    \question Montrer que le taux d'accroissement vaut $2a + h$.
+\end{questions}
+
+\vspace{20pt}
+
+\begin{center}
+    \textit{Fin du devoir}
+\end{center}
+
+\end{document}

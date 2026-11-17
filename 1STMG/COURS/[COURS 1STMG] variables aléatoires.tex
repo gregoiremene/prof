@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+% \subsectionfont{\color{red}\normalsize\bfseries} % pour \subsection*
+
+\begin{document}
+
+% ============================
+%   Variables aléatoires
+% ============================
+
+\begin{center}
+    {\LARGE \textbf{Variables aléatoires}}\\[4mm]
+    {\large 1ère STMG}
+\end{center}
+
+\hrule
+\vspace{0.4cm}
+
+% ============================
+%   PARTIE 1 : Variable aléatoire et loi de probabilité
+% ============================
+
+\section*{\textcolor{red}{Partie 1 : Variable aléatoire et loi de probabilité}}
+
+\subsection*{\textcolor{red}{1.1 Variable aléatoire}}
+
+\vspace{5pt}
+
+\underline{Exemple :}
+\vspace{10pt}
+\\Soit l'expérience aléatoire : \textbf{« On lance un dé à six faces et on regarde le résultat. »}
+
+L'ensemble de toutes les issues possibles $E = \{1, 2, 3, 4, 5, 6\}$ s'appelle l'univers des possibles.  
+
+On considère le jeu suivant :  
+\begin{itemize}
+    \item Si le résultat est 5 ou 6, on gagne 2 €.
+    \item Sinon, on perd 1 €.
+\end{itemize}
+
+On peut définir ainsi une variable aléatoire $X$ sur $E = \{1, 2, 3, 4, 5, 6\}$ qui donne le gain et qui 
+peut prendre les valeurs $2$ ou $-1$.  
+
+\[
+X = 
+\begin{cases}
+2 & \text{si l'issue est \_\_\_\_\_\_\_\_\_\_\_}, \\[4mm]
+-1 & \text{si l'issue est \_\_\_\_\_\_\_\_\_\_\_}.
+\end{cases}
+\]
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Une \textbf{variable aléatoire} $X$ est une \underline{fonction} qui, à chaque issue d'une expérience 
+aléatoire, associe un nombre réel.
+\end{mdframed}
+
+% \vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :} Calculer une probabilité à l’aide 
+d’une variable aléatoire.}}
+\vspace{5pt}
+\\
+Soit l'expérience aléatoire : « On tire une carte au hasard dans un jeu de 32 cartes. »  
+\begin{itemize}
+    \item Si cette carte est un cœur, on gagne 5 €.
+    \item Si cette carte est un carreau, on gagne 2 €.
+    \item Dans les autres cas, on perd 1 €.
+\end{itemize}
+
+Soit $X$ la variable aléatoire qui associe le gain du jeu.  
+\vspace{5pt}
+\\
+Calculer : $P(X = 5)$, $P(X = -1)$ et $P(X \le 2)$.
+
+\end{mdframed}
+
+\vspace{20pt}
+
+\subsection*{\textcolor{red}{1.2 Loi de probabilité}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Définir la loi de probabilité d'une variable aléatoire $X$, c'est associer une 
+probabilité à chaque valeur que peut prendre $X$.
+\vspace{10pt}
+\\La loi de probabilité d'une variable aléatoire est donnée, en général, 
+dans un tableau à deux lignes :
+\begin{itemize}
+    \item la première donne les valeurs prises par $X$ (souvent rangées dans l'ordre 
+    croissant)
+    \item la seconde donne la probabilité que $X$ prenne chacune de ces valeurs
+\end{itemize}
+\vspace{10pt}
+\[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{c|c|c|c|c}
+x_i            & x_1 & x_2 & \cdots & x_n \\ \hline
+P(X = x_i)     & p_1 & p_2 & \cdots & p_n
+\end{array}
+\]
+\end{mdframed}
+
+\underline{Remarque :} Les « $x_i$ » sont toutes les valeurs prises par $X$.
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :} Déterminer une loi de probabilité 
+d’une variable aléatoire.}}
+\vspace{5pt}
+\\
+On lance simultanément deux dés à 6 faces et on note les valeurs
+obtenues.
+\\Soit $X$ la variable aléatoire égale à la plus grande des deux valeurs.
+\vspace{5pt}
+\\Établir la loi de probabilité de $X$.
+
+\end{mdframed}
+
+\vspace{5pt}
+
+% ============================
+%   PARTIE 2 : Espérance
+% ============================
+
+\section*{\textcolor{red}{Partie 2 : Espérance}}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Soit une variable aléatoire $X$ prenant les valeurs $x_1, x_2, \dots, x_n$.\\
+La loi de probabilité de $X$ associe à toute valeur $x_i$ la probabilité $p_i = P(X = x_i)$.\\
+L'\textbf{espérance} de $X$ est :
+\[
+E(X) = p_1 x_1 + p_2 x_2 + \dots + p_n x_n
+\]
+\end{mdframed}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :}
+L'espérance d'une variable aléatoire est la valeur moyenne obtenue, par expérience,
+au bout d'un \textbf{grand nombre de répétitions} de l'expérience.
+}
+\end{mdframed}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :} Calculer d'une variable aléatoire.}}
+\vspace{5pt}
+\\
+    On tire une carte dans un jeu de 32 cartes.
+    \begin{itemize}
+        \item Si on tire un cœur, on gagne 2 €.
+        \item Si on tire un roi, on gagne 5 €.
+        \item Si on tire une autre carte, on perd 1 €.
+    \end{itemize}
+    \vspace{5pt}
+    $X$ est la variable aléatoire donnant le gain du jeu.
+    \begin{enumerate}
+        \item Calculer l'espérance de $X$.
+        \item Donner une interprétation du résultat.
+    \end{enumerate}
+\end{mdframed}
+
+\end{document}

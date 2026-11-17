@@ -1,0 +1,507 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usetikzlibrary{calc}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour les normes : 
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+
+\usetikzlibrary{shapes.misc}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={4pt}}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+% \subsectionfont{\color{red}\normalsize\bfseries} % pour \subsection*
+
+\begin{document}
+
+% ============================
+%   VECTEURS
+% ============================
+
+% \begin{center}
+%     {\LARGE \textbf{Vecteurs}}\\[4mm]
+%     {\large 2nde générale}
+% \end{center}
+
+% \hrule
+% \vspace{0.4cm}
+
+% ============================
+%   PARTIE 3 : Notions de vecteurs
+% ============================
+
+\section*{\textcolor{red}{Partie 3 : Produit d'un vecteur par un réel}}
+
+\vspace{5pt}
+
+\underline{\textbf{Exemple 1 :}}
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{5pt}
+    $5\overrightarrow{u}$ est la somme de 5 vecteurs $\overrightarrow{u}$
+    \vspace{5pt}\\On a :
+    \vspace{5pt}\\$5\overrightarrow{u}$ = $\overrightarrow{u} + \overrightarrow{u} + \overrightarrow{u}
+    + \overrightarrow{u} + \overrightarrow{u}$
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+
+        % --- Vecteur u seul ---
+        \draw[->,very thick,blue] (0,0) -- (1,0.6);
+        \node[below right] at (0.3,0.3) {$\overrightarrow{u}$};
+
+        % --- 5 vecteurs u mis bout à bout (à côté) ---
+        \draw[->,very thick,blue] (2,0) -- (3,0.6);
+        \draw[->,very thick,blue] (3,0.6) -- (4,1.2);
+        \draw[->,very thick,blue] (4,1.2) -- (5,1.8);
+        \draw[->,very thick,blue] (5,1.8) -- (6,2.4);
+        \draw[->,very thick,blue] (6,2.4) -- (7,3);
+
+        % \node[below right] at (4.5,1.2) {$5 \times \vec u$};
+
+        % --- Vecteur 5u ---
+        \draw[->,very thick,red] (3,-0.5) -- (8,2.5);
+        \node[below right] at (5.5,1) {$5\overrightarrow{u}$};
+
+        \end{tikzpicture}
+
+    \end{center}
+\end{minipage}%
+
+\vspace{10pt}
+
+\underline{Remarques :} 
+\vspace{5pt}
+\begin{itemize}
+    \item Les vecteurs $5\overrightarrow{u}$ et 
+    $\overrightarrow{u}$ ont la même direction et le même sens.
+    \item La norme du vecteur $5\overrightarrow{u}$ est égale à 5 fois la norme du 
+    vecteur $\overrightarrow{u}$.
+\end{itemize}
+
+\vspace{20pt}
+
+\underline{\textbf{Exemple 2 :}}
+
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{5pt}
+    $-3\overrightarrow{u}$ est la somme de 3 vecteurs $-\overrightarrow{u}$
+    \vspace{5pt}\\On a :
+    \vspace{5pt}\\$-3\overrightarrow{u}$ = $(-\overrightarrow{u}) + (-\overrightarrow{u}) 
+    + (-\overrightarrow{u})$
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.45\textwidth}%
+    \vspace{0pt}
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+
+        % --- Vecteur u seul ---
+        \draw[->,very thick,blue] (0,0) -- (1,0.6);
+        \node[below right] at (0.3,0.3) {$\overrightarrow{u}$};
+
+        % --- 5 vecteurs u mis bout à bout (à côté) ---
+        \draw[<-,very thick,blue] (2,0) -- (3,0.6);
+        \draw[<-,very thick,blue] (3,0.6) -- (4,1.2);
+        \draw[<-,very thick,blue] (4,1.2) -- (5,1.8);
+
+        \node[below right] at (2.7,1.5) {$-\overrightarrow{u}$};
+        \node[below right] at (1.7,0.9) {$-\overrightarrow{u}$};
+        \node[below right] at (3.7,2.1) {$-\overrightarrow{u}$};
+
+        % --- Vecteur 5u ---
+        \draw[<-,very thick,red] (3,-0.5) -- (6,1.3);
+        \node[below right] at (4.4,0.5) {$-3\overrightarrow{u}$};
+
+        \end{tikzpicture}
+
+    \end{center}
+\end{minipage}%
+
+\vspace{10pt}
+
+\underline{Remarques :} 
+\vspace{5pt}
+\begin{itemize}
+    \item Les vecteurs $\overrightarrow{u}$ et 
+    $-\overrightarrow{u}$ ont la même direction et même norme mais de \textbf{sens contraire}.
+    \item La norme du vecteur $-3\overrightarrow{u}$ est égale à 3 fois la norme du 
+    vecteur $\overrightarrow{u}$.
+\end{itemize}
+
+\vspace{10pt}
+
+% =============================================
+% ================ EXERCICE 1 =================
+% =============================================
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :} Représenter un vecteur
+défini comme un produit et somme de vecteurs.}}
+\vspace{10pt}
+
+a)\vspace{5pt}\\
+\begin{minipage}{.55\textwidth}%
+    \begin{tikzpicture}[scale=0.5]
+
+    % Grille seule
+    \draw[step=1cm, gray, thin] (0,0) grid (17,8);
+
+    % Vecteurs
+    \draw[->,very thick,blue] (7,1) -- (14,1);
+    \node[below right, blue] at (9.9,2.2) {$\overrightarrow{v}$};
+    \draw[->,very thick,red] (7,1) -- (9,4);
+    \node[below right, red] at (6.7,3.2) {$\overrightarrow{u}$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.45\textwidth}%
+    Soient deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$. Représenter les 
+    vecteurs suivants :
+    \begin{center}
+        $2\overrightarrow{u}$
+        \vspace{5pt}\\
+        $-\overrightarrow{v}$
+        \vspace{5pt}\\
+        $2\overrightarrow{u} - \overrightarrow{v}$
+    \end{center}
+\end{minipage}%
+
+\vspace{10pt}
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item On commence par représenter le vecteur $2\overrightarrow{u}$ : on place 
+    bout-à-bout \textbf{deux vecteurs $\bm{\overrightarrow{u}}$}.
+    \item Le vecteur $-\overrightarrow{v}$ a la même direction et la même longueur que 
+    $\overrightarrow{v}$ mais il est de sens contraire.
+    \item Pour représenter le vecteur $2\overrightarrow{u} - \overrightarrow{v} = 
+    2\overrightarrow{u}+(-\overrightarrow{v})$, on place bout-à-bout les vecteurs 
+    $2\overrightarrow{u}$ et $-\overrightarrow{v}$ et on relit les extrémités du chemin 
+    construit.
+\end{itemize}
+
+\vspace{20pt}
+
+b)\vspace{5pt}\\
+\begin{minipage}{.45\textwidth}%
+    \begin{tikzpicture}[scale=0.5]
+
+    % Grille seule
+    \draw[step=1cm, gray, thin] (0,0) grid (13,12);
+
+    % Points
+    \coordinate (A) at (7,7);
+    \coordinate (B) at (7,9);
+    \coordinate (C) at (9,10);
+
+    % Points
+    \fill (A) circle (3pt) node[below right] {$A$};
+    \fill (B) circle (3pt) node[above left] {$B$};
+    \fill (C) circle (3pt) node[above right] {$C$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.55\textwidth}%
+    Soient 3 points $A$, $B$ et $C$.
+    \vspace{5pt}\\Représenter le vecteur $\overrightarrow{BC} - 3\overrightarrow{AC}$.
+\end{minipage}%
+
+\vspace{10pt}
+
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item Pour représenter le vecteur $\overrightarrow{BC} - 3\overrightarrow{AC} = 
+    \overrightarrow{BC} + (-3\overrightarrow{AC})$, on place bout-à-bout les vecteurs 
+    $\overrightarrow{BC}$ et $-3\overrightarrow{AC}$
+\end{itemize}
+
+\end{mdframed}
+
+% =============================================
+% ================ EXERCICE 2 =================
+% =============================================
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :} Construire un point 
+vérifiant une égalité vectorielle.}}
+\vspace{10pt}
+
+a)\vspace{5pt}\\
+\begin{minipage}{.45\textwidth}%
+    \begin{tikzpicture}[scale=0.5]
+
+    % Grille seule
+    \draw[step=1cm, gray, thin] (0,0) grid (13,12);
+
+    % Point
+    \coordinate (O) at (3,7);
+
+    % Vecteurs
+    \draw[->,very thick,blue] (7,11) -- (8,9);
+    \node[below right, blue] at (6.1,10.5) {$\overrightarrow{u}$};
+    \draw[->,very thick,red] (12,11) -- (9,10);
+    \node[below right, red] at (10,10.5) {$\overrightarrow{v}$};
+
+    \fill (O) circle (3pt) node[above left] {$O$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.55\textwidth}%
+    Soient deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ et un point $O$.
+    \vspace{5pt}\\Construire le point $A$ tel que $\overrightarrow{OA} = 3\overrightarrow{u} - 
+    \overrightarrow{v}$.
+\end{minipage}%
+
+\vspace{10pt}
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item Pour représeter le vecteur $\overrightarrow{OA} = 3\overrightarrow{u} - \overrightarrow{v}$, 
+    on place bout-à-bout les vecteurs $3\overrightarrow{u}$ et $-\overrightarrow{v}$ en partant 
+    de $O$.
+    \item Le point $A$ se trouve à l'extrémité du vecteur $-\overrightarrow{v}$ dans le chemin 
+    construit.
+\end{itemize}
+
+\newpage
+
+b)\vspace{5pt}\\
+\begin{minipage}{.45\textwidth}%
+    \begin{tikzpicture}[scale=0.5]
+
+    % Grille seule
+    \draw[step=1cm, gray, thin] (0,0) grid (13,12);
+
+    % Points
+    \coordinate (A) at (9,6);
+    \coordinate (B) at (9,10);
+    \coordinate (C) at (7,7);
+
+    % Points
+    \fill (A) circle (3pt) node[below right] {$A$};
+    \fill (B) circle (3pt) node[above left] {$B$};
+    \fill (C) circle (3pt) node[above right] {$C$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.55\textwidth}%
+    Soient 3 points $A$, $B$ et $C$ du plan.
+    \vspace{5pt}\\Construire le point $M$ tel que $\overrightarrow{AM} = -\overrightarrow{AB} + 
+    3\overrightarrow{AC}$.
+\end{minipage}%
+
+\vspace{10pt}
+
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item Pour représenter le vecteur $\overrightarrow{AM} = -\overrightarrow{AB} + 
+    3\overrightarrow{AC}$, on place bout-à-bout les vecteurs 
+    $-\overrightarrow{AB}$ et $3\overrightarrow{AC}$ en partant de $A$.
+    \item Le point $M$ se trouve à l'extrémité du vecteur $3\overrightarrow{AC}$ dans le chemin 
+    construit.
+\end{itemize}
+
+\end{mdframed}
+
+% =============================================
+% ================ EXERCICE 3 =================
+% =============================================
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :} Exprimer par une lecture 
+graphique un vecteur en fonction d'autres vecteurs.}}
+\vspace{10pt}
+
+\begin{minipage}{.35\textwidth}%
+    \begin{tikzpicture}[scale=0.5]
+
+    % Grille seule
+    \draw[step=1cm, gray, thin] (0,0) grid (9,5);
+
+    % Vecteurs
+    \draw[->,very thick,blue] (2,1) -- (4,1);
+    \node[below right, blue] at (2.2,1) {$\overrightarrow{a}$};
+
+    \draw[->,very thick,red] (2,1) -- (2,2);
+    \node[below right, red] at (0.5,2) {$\overrightarrow{b}$};
+
+    \draw[->,very thick,black] (2,1) -- (8,4);
+    \node[below right, black] at (5,2.7) {$\overrightarrow{u}$};
+
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}{.65\textwidth}%
+    Par lecture graphique, exprimer le vecteur $\overrightarrow{u}$ en fonction des
+    vecteurs $\overrightarrow{a}$ et $\overrightarrow{b}$.
+\end{minipage}%
+
+\vspace{10pt}
+\underline{Méthode :}
+\vspace{5pt}
+\begin{itemize}
+    \item On construit un chemin formé de vecteurs $\overrightarrow{a}$ et $\overrightarrow{b}$ 
+    mis bout-à-bout reliant l’origine 
+    et l’extrémité du vecteur $\overrightarrow{u}$.
+    \item On compte ainsi le nombre de vecteurs $\overrightarrow{a}$ et $\overrightarrow{b}$ 
+    formant ce chemin.
+\end{itemize}
+
+\end{mdframed}
+
+\newpage
+
+% ============================
+%   PARTIE 4 : Notions de vecteurs
+% ============================
+
+\section*{\textcolor{red}{Partie 4 : Notion de colinéarité}}
+
+\vspace{5pt}
+
+\underline{\textbf{Exemple :}}
+
+\begin{minipage}[t]{.40\textwidth}%
+    \vspace{5pt}
+    Les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont la \textbf{même direction}, 
+    on dit qu'ils sont
+    \textbf{colinéaires}.
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.55\textwidth}%
+    \vspace{0pt}
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+
+        % --- Vecteur u seul ---
+        \draw[->,very thick,blue] (0,0) -- (2,2);
+        \node[below right] at (1,1) {$\overrightarrow{u}$};
+
+        % --- 5 vecteurs u mis bout à bout (à côté) ---
+        % \draw[->,very thick,blue] (2,0) -- (3,0.6);
+        % \draw[->,very thick,blue] (3,0.6) -- (4,1.2);
+        % \draw[->,very thick,blue] (4,1.2) -- (5,1.8);
+        % \draw[->,very thick,blue] (5,1.8) -- (6,2.4);
+        % \draw[->,very thick,blue] (6,2.4) -- (7,3);
+
+        % \node[below right] at (4.5,1.2) {$5 \times \vec u$};
+
+        % --- Vecteur 5u ---
+        \draw[<-,very thick,red] (2,-1) -- (6,3);
+        \node[below right] at (4,1) {$\overrightarrow{v} = -2\overrightarrow{u}$};
+
+        \end{tikzpicture}
+
+    \end{center}
+\end{minipage}%
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innerbottommargin=10pt,
+    innertopmargin=10pt
+]
+{\color{ForestGreen}\textbf{Définition :}}
+Deux vecteurs non nuls $\overrightarrow{u}$ et $\overrightarrow{v}$ sont \textbf{colinéaires} signifie 
+qu'ils ont la même direction (les vecteurs sont « portés » par des droites parallèles).
+\vspace{5pt}\\C'est-à-dire qu'il existe un nombre réel $k$ tel que :
+\[
+\overrightarrow{u} = k\overrightarrow{v}
+\]
+\end{mdframed}
+
+\vspace{10pt}
+
+\underline{Remarque :} Le vecteur nul $\overrightarrow{0}$ est colinéaire à tout vecteur du plan.
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°4 :} Démontrer que des vecteurs 
+sont colinéaires.}}
+\vspace{10pt}
+
+On donne deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$, tel que :
+\[
+-4\overrightarrow{u} + 3\overrightarrow{v} = \overrightarrow{0}
+\]
+
+Démontrer que les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires.
+
+\end{mdframed}
+
+
+\end{document}

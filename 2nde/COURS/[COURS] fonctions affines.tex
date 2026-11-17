@@ -1,0 +1,345 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tkz-tab}
+\usepackage{multido}
+
+% mettre dans le préambule, après \usepackage{xcolor}
+\usepackage{sectsty} % gère facilement la couleur des titres
+\setlength{\parindent}{0pt}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+% \subsectionfont{\color{red}\normalsize\bfseries} % pour \subsection*
+
+
+% --- Page ---
+\geometry{margin=2cm}
+
+\begin{document}
+
+% \begin{center}
+%     {\LARGE \textbf{Fonctions de référence}}\\[4mm]
+%     {\large Poly à compléter – Seconde}
+% \end{center}
+
+% \hrule
+% \vspace{0.4cm}
+
+% ============================
+%   PARTIE 6 : fonctions affines
+% ============================
+
+\section*{\textcolor{red}{Partie 6 : Fonctions affines}}
+
+\subsection*{\textcolor{red}{6.1 Définition d'une fonction affine}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen
+]
+{\color{ForestGreen}\textbf{Définition :}}
+$a$ et $b$ sont deux réels fixés. Une \textbf{fonction affine}
+est une fonction définie sur $\mathbb{R}$ par :
+\[
+f(x) = ax + b
+\]
+\end{mdframed}
+
+\underline{Exemples :}
+\vspace{5pt}
+\begin{itemize}
+    \item $f(x) = 2x - 3$ est une fonction affine avec $a = ......$ et $b = ......$.
+    \vspace{10pt}
+    \item $g(x) = 3(5 - 7x) - 2(5x - 1) = $
+    \dotfill
+    \vspace{10pt}
+    \\Donc $g$ est une fonction ................. avec $a = ......$ et $b = ......$.
+    \vspace{10pt}
+    \item $k(x) = -9x$ est une fonction affine avec $a = ......$ et $b = ......$.
+    \vspace{10pt}
+    \item $i(x) = \dfrac{-7}{2}$ est une fonction affine avec $a = ......$ et $b = ......$.
+\end{itemize}
+
+\vspace{10pt}
+
+\underline{Remarques :}
+\vspace{5pt}
+\begin{itemize}
+    \item Toutes les fonctions affines telles que $b = 0$ sont appelées \textbf{fonctions linéaires}.
+    Elles sont de la forme $f(x) = ax$.
+    \item Toutes les fonctions affines telles que $a = 0$ sont appelées \textbf{fonctions constantes}.
+    Elles sont de la forme $f(x) = b$.
+\end{itemize}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\underline{Propriété :} \textbf{Taux d'accroissement d'une fonction affine}
+\vspace{5pt}
+\\Soient $a$ et $b$ deux réels.
+\\Si $f$ est une fonction affine telle que $f(x) = ax + b$, alors pour tout $x_1$, $x_2$, on peut
+déterminer le coefficient directeur $a$ :
+\[
+a = \dfrac{f(x_1) - f(x_2)}{x_1 - x_2}
+\]
+C'est le \textbf{taux d'accroissement} de la fonction $f$ entre $x_1$ et $x_2$.
+}
+\end{mdframed}
+
+\underline{Démonstration :}
+\vspace{5pt}
+\\$\dfrac{f(x_1) - f(x_2)}{x_1 - x_2} = \dfrac{(ax_1 + b) - (ax_2 + b)}{x_1 - x_2}
+= \dfrac{ax_1 + b - ax_2 - b}{x_1 - x_2} = \dfrac{a(x_1 - x_2)}{x_1 - x_2} = a$
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°1 :} Savoir déterminer l'expression d'une fonction
+affine}
+\vspace{5pt}
+\begin{enumerate}
+    \item Déterminer la fonction linéaire $f$ telle que : $f(-15) = 5$.
+    \item Déterminer la fonction affine $g$ telle que $g(-1) = 4$ et $g(2) = -5$.
+\end{enumerate}
+}
+\end{mdframed}
+
+\newpage
+\subsection*{\textcolor{red}{6.2 Représentation graphique d'une fonction affine}}
+
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=ForestGreen,
+    innerbottommargin=10pt
+]
+{\color{ForestGreen}\textbf{Définition :}}
+    \vspace{5pt}
+    \\La représentation graphique d'une fonction affine $f(x) = ax + b$ est \textbf{une droite}.
+    \vspace{5pt}
+    \\On dit que cette droite a pour équation $\bm{y = ax + b}$.
+    \vspace{5pt}
+    \\$\bm{a}$ est appelé \textbf{coefficient directeur} de la droite.
+    \vspace{5pt}
+    \\$\bm{b}$ est appelé \textbf{l'ordonnée à l'origine} : $f(0) = b$ donc la droite passe par le point
+    $(0;b)$.
+\end{mdframed}
+
+\underline{Remarques :}
+\vspace{5pt}
+\begin{itemize}
+    \item La représentation graphique d’une \textbf{fonction linéaire} est une droite d’équation 
+    $y = ax$ qui \underline{passe par l’origine du repère}.
+    \vspace{5pt}
+    \item La représentation graphique d’une \textbf{fonction constante} est une droite d’équation
+    $y = b$ \underline{parallèle à l’axe des abscisses}.
+\end{itemize}
+
+\vspace{10pt}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°2 :} Savoir déterminer l'équation
+d'une droite tracée (l'expression algébrique d'une fonction affine)}}
+\vspace{5pt}
+
+\begin{mdframed}[
+    linewidth=0.5pt,
+    roundcorner=5pt,
+    linecolor=black,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    backgroundcolor=black!6
+]
+\underline{Méthode :}
+\vspace{5pt}
+\\On lit sur le graphique la valeur de $b$ : \textbf{l'ordonnée à l'origine}.
+\vspace{10pt}
+\\
+$a = \dfrac{f(x_1) - f(x_2)}{x_1 - x_2} = \dfrac{accroissement\ vertical}{accroissement\ horizontal}
+ = \dfrac{\Delta y}{\Delta x}$ : c'est le taux de variation de $f$ entre $x_1$ et $x_2$, \textbf{on lit
+ donc la valeur de $a$ grâce au quadrillage}.
+\end{mdframed}
+
+\begin{center}
+    \begin{tabular}{cc}
+    % --- GRAPHIQUE 1 ---
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        width=8cm,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-4, xmax=4,
+        ymin=-4, ymax=4,
+        xtick={-4,-3,-2,-1,0,1,2,3,4},
+        ytick={-4,-3,-2,-1,0,1,2,3,4},
+        samples=200,
+        title={fonction n°1},
+    ]
+    \addplot[domain=-4:4, thick, red] {3*x - 2};
+    \end{axis}
+    \end{tikzpicture}
+    &
+    % --- GRAPHIQUE 2 ---
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        width=8cm,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-4, xmax=4,
+        ymin=-4, ymax=4,
+        xtick={-4,-3,-2,-1,0,1,2,3,4},
+        ytick={-4,-3,-2,-1,0,1,2,3,4},
+        samples=200,
+        title={fonction n°2},
+    ]
+    \addplot[domain=-4:4, thick, red] {-2*x + 1};
+    \end{axis}
+    \end{tikzpicture}
+    \end{tabular}
+
+    % ----------------------- %
+    \begin{tabular}{cc}
+    % --- GRAPHIQUE 3 ---
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        width=8cm,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-4, xmax=4,
+        ymin=-4, ymax=4,
+        xtick={-4,-3,-2,-1,0,1,2,3,4},
+        ytick={-4,-3,-2,-1,0,1,2,3,4},
+        samples=200,
+        title={fonction n°3},
+    ]
+    \addplot[domain=-4:4, thick, red] {4*x};
+    \end{axis}
+    \end{tikzpicture}
+    &
+    % --- GRAPHIQUE 4 ---
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        width=8cm,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-4, xmax=4,
+        ymin=-4, ymax=4,
+        xtick={-4,-3,-2,-1,0,1,2,3,4},
+        ytick={-4,-3,-2,-1,0,1,2,3,4},
+        samples=200,
+        title={fonction n°4},
+    ]
+    \addplot[domain=-4:4, thick, red] {(1/2)*x - 1};
+    \end{axis}
+    \end{tikzpicture}
+    \end{tabular}
+    % --- GRAPHIQUE 5 ---
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        width=8cm,
+        height=8cm,
+        axis lines=center,
+        grid=both,
+        xmin=-4, xmax=4,
+        ymin=-2, ymax=6,
+        xtick={-4,-3,-2,-1,0,1,2,3,4},
+        ytick={-2,-1,0,1,2,3,4,5,6},
+        samples=200,
+        title={fonction n°5},
+    ]
+    \addplot[domain=-4:4, thick, red] {(-1/4)*x + 3};
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    % innertopmargin=10pt,
+    % innerbottommargin=10pt
+]
+{\color{RoyalBlue}\textbf{\underline{Exercice d'application n°3 :} Tracer la représentation graphique
+d'une fonction affine}}
+% \vspace{5pt}
+\\Représenter graphiquement les fonctions suivantes :
+\begin{center}
+    \setlength{\tabcolsep}{15pt}
+    \begin{tabular}{ccc}
+        $f_1(x) = 2x - 2$
+        &
+        $f_2(x) = -5x + 3$
+        &
+        $f_3(x) = 2 - \dfrac{3}{2}x$
+    \end{tabular}
+\end{center}
+
+\begin{mdframed}[
+    linewidth=0.5pt,
+    roundcorner=5pt,
+    linecolor=black,
+    % innertopmargin=10pt,
+    % innerbottommargin=10pt,
+    backgroundcolor=black!6
+]
+\underline{Méthode 1 :}
+\vspace{5pt}
+\\On calcule l'image de deux nombres, ce qui nous donne les coordonnées de deux points, suffisants
+pour tracer la droite que l'on veut représenter.
+\vspace{5pt}
+\\
+\underline{Méthode 2 :}
+\vspace{5pt}
+\\On place l'ordonnée à l'origine et on place un second point en utilisant le quadrillage et le 
+coefficient $a$.
+\end{mdframed}
+
+\end{mdframed}
+
+\end{document}

@@ -1,0 +1,212 @@
+\documentclass[12pt,a4paper]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\usepackage{xcolor}
+
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+\header{}{Interrogation de mathématiques}{2nde10}
+\footer{}{\thepage}{\it{G.M.}}
+
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Correction interrogation\\Équations et inéquations}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+
+\vspace{0.5cm}
+
+% ======================================================
+
+\underline{Remarques générales :}
+\vspace{5pt}
+{\color{red}
+\begin{itemize}
+    \item Pensez à simplifier vos fractions \textbf{dès que c'est possible}. Par exemple dans 
+l'exercice 1 question b) j'ai eu beaucoup de $\dfrac{20}{12}$ ou de $\dfrac{10}{6}$. Ce 
+n'est pas simplifié au maximum.
+\vspace{5pt}
+    \item pour la f) du même exercice, j'ai eu beaucoup de : $x^2 \neq -3$ donc pas de solution 
+    et $x = \emptyset$. Ce n'est pas le cas. Il y a des solutions ! $x = 0$ ou $x = \dfrac{-2}{3}$. En 
+    revanche, $x^2 \neq -3$ est \textbf{tout le temps vrai} ($x^2$ est forcément positif).
+    \\On dit alors qu'il n'y a pas \textbf{pas de valeur interdite}.
+    \vspace{5pt}
+    \item J'ai vu pas mal de fois dans l'exercice bonus une simplification de la fraction avec 
+    des sommes et des différence : 
+    \[
+        \left.
+        \begin{aligned}
+        \dfrac{9x^2-42x+49}{9x^2-49} = 0 & \\
+        \dfrac{\cancel{9x^2}-42x+49}{\cancel{9x^2}-49} = 0
+        \end{aligned}
+        \right\}
+        \text{Ceci est \textbf{strictement faux}}
+    \]
+    On ne simplifie les fractions que lorsqu'il y a un produit
+    au numérateur et dénominateur. On peut le faire apparaître en trouvant un \textbf{facteur commun}
+    par exemple.
+    \vspace{5pt}
+    \item Je ne mets pas les tableaux de signes dans la correction, à vous de les refaire pour retrouver 
+    les bons résultats
+\end{itemize}
+}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Équations (\ \ \ \  / 9 points )}
+\vspace{5pt}
+
+\begin{questions}
+
+\question[1] Résoudre les équations suivantes dans $\mathbb{R}$ :
+\begin{multicols}{2}
+    \begin{parts}
+        \part $4x + 3 = 3x$
+        \textcolor{red}{$S = \{-3\}$}
+
+        \part $\dfrac{4}{3} -\dfrac{4}{5}x = 0$
+        \textcolor{red}{$S = \{\dfrac{5}{3}\}$}
+    \end{parts}
+\end{multicols}
+\begin{multicols}{2}
+    \begin{parts}
+        \setcounter{partno}{2}
+        \part $x^2 - 5 = 0$
+        \textcolor{red}{$S = \{-\sqrt{5}; \sqrt{5}\}$}
+
+        \part $(4x + 2)(3x - 4) = 0$
+        \textcolor{red}{$S = \left\{-\dfrac{1}{2}; \dfrac{4}{3}\right\}$}
+    \end{parts}
+\end{multicols}
+\begin{multicols}{2}
+    \begin{parts}
+        \setcounter{partno}{4}
+        \part $\dfrac{2x - 1}{x+7} = 0$
+        \textcolor{red}{$S = \left\{\dfrac{1}{2}\right\}$ avec $x \neq -7$}
+
+        \part $\dfrac{x(3x+2)}{x^2+3} = 0$
+        \textcolor{red}{$S = \left\{0; -\dfrac{2}{3}\right\}$, pas de valeur interdite}
+    \end{parts}
+\end{multicols}
+
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 2 : Inéquations (\ \ \ \  / 9 points )}
+\vspace{5pt}
+
+\begin{questions}
+
+\question[4] Résoudre les inéquations suivantes dans $\mathbb{R}$ et indiquer les solutions sous forme d'intervalles : $S = ...$
+\begin{multicols}{2}
+    \begin{parts}
+        \part $8x + 3 > 3x - 5$
+        \textcolor{red}{$S = \left]-\dfrac{8}{5}; +\infty\right[$}
+
+        \part $-3x \geq 3x - 1$
+        \textcolor{red}{$S = \left]-\infty; \dfrac{1}{6}\right]$}
+    \end{parts}
+\end{multicols}
+    \begin{parts}
+        \setcounter{partno}{2}
+        \part $(1-2x)(4x+2) \leq 0$
+        \textcolor{red}{$S = \left]-\infty; -\dfrac{1}{2}\right] \cup \left[\dfrac{1}{2}; +\infty\right[$}
+
+        \part $\dfrac{-8x+16}{2x} < 0$
+        \textcolor{red}{$S = \left]-\infty; 0\right[ \cup \left]2; +\infty\right[$}
+    \end{parts}
+
+\end{questions}
+
+\vspace{10pt}
+
+% ======================================================
+\noindent
+\textbf{Exercice 3 : Approfondissement (\ \ \ \  / 2 points )}
+\vspace{5pt}
+
+\begin{questions}
+
+\question[1] On considère la fonction $g$ suivante :
+\[
+g(x) = \dfrac{1}{x} - \dfrac{2}{5-x} \quad \text{pour tout $x \neq 0$ et $x \neq 5$}
+\]
+Résoudre $g(x) \leq 0$.
+\textcolor{red}{
+\vspace{5pt}
+\\
+Ici, il faut mettre sous le même dénominateur pour n'avoir qu'une seule fraction. On sait ensuite comment 
+résoudre une fraction $\leq 0$.\\
+$S = \left]-\infty; 0\right[ \cup \left[2; 5\right[$}
+
+\vspace{5pt}
+
+\question[1] Résoudre dans $\mathbb{R}$ :
+\begin{parts}
+    \part $(1-2x)(3x+1) > (1-x)(3+9x)$
+    \textcolor{red}{
+    \\
+    \vspace{5pt}Il faut remarquer ici que $(3 + 9x) = 3(1+3x)$. On obtient alors un facteur commun 
+    : $(1+3x)$. Il faut tout passer d'un seul côté et résoudre l'inéquation produit obtenue.
+    \\
+    $S = \left]-\infty; -\dfrac{1}{3}\right[ \cup \left]2; +\infty\right[$}
+
+    \part $(11x-3)^2 = 11$
+    \textcolor{red}{
+    \\
+    \vspace{5pt}Ici plus compliqué et plusieurs façons de résoudre. La plus simple est de passer 
+    le 11 de l'autre côté, puis de remarquer l'identité $a^2 - b^2$ avec $a = 11x - 3$ et 
+    $b = \sqrt{11}$. On factorise alors et on résoud.
+    \\
+    $S = \left\{\dfrac{3-\sqrt{11}}{11}; \dfrac{3+\sqrt{11}}{11}\right\}$}
+\end{parts}
+
+\end{questions}
+
+\vspace{10pt}
+
+% ======================================================
+\noindent
+\textbf{Exercice 4 : BONUS (\ \ \ \  / 2 points )}
+\vspace{5pt}
+
+\begin{questions}
+
+\question Résoudre dans $\mathbb{R}$ :
+\[
+\dfrac{9x^2-42x+49}{9x^2-49} = 0
+\]
+\textcolor{red}{
+\\
+\vspace{5pt}Ici, il faut remarquer deux identités remarquables : au numérateur $(a-b)^2$ et au 
+dénominateur $a^2 - b^2$. On factorise alors. On a deux valeurs interdite et une seule solution 
+\textbf{qui est également une valeur interdite}.
+\\Donc $S = \emptyset$ (pas de solutions)}
+
+\end{questions}
+
+\vspace{10pt}
+
+\begin{center}
+    \textit{Fin du devoir}
+\end{center}
+
+\end{document}

@@ -1,0 +1,200 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% Pour les coordonnées de vecteurs :
+\newcommand*{\Coord}[2]{%
+  \ensuremath{
+    \begin{pmatrix}
+      #1 \\[0pt]
+      #2
+    \end{pmatrix}}
+}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+\header{\textbf{NOM Prénom : }}{}{2\up{nde}}
+\footer{}{\thepage}{}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Devoir Surveillé\\Informations chiffrées et calculs}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} autorisée
+
+\vspace{0.5cm}
+
+% ========================================================
+%             Exo : graphique
+% ========================================================
+\noindent
+\textbf{Exercice 1 (\ \ \ \  / 2 points )}
+
+\vspace{10pt}
+Dans un lycée, 400 élèves sont en Seconde. 30\% des élèves s'orientent en filière 
+technologique en fin de 
+Seconde.
+
+Parmi eux, 40\% vont en série STMG.
+
+\begin{questions}
+
+\question[2] Déterminer combien d'élèves vont en STMG.
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exo : graphique
+% ========================================================
+\noindent
+\textbf{Exercice 2 (\ \ \ \  / 3 points )}
+
+\vspace{10pt}
+Le prix du litre d'essence est passé de 1,67 euros en janvier 2022 à 2,15 euros en juin 2022.
+
+\begin{questions}
+
+\question[1] Calculer le taux d'évolution d'un tel changement. Arrondir à $10^-2$ près.
+
+\question[2] Quelle différence de prix cette variation représente-t-elle sur un plein de 30 litres ?
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exo : graphique
+% ========================================================
+\noindent
+\textbf{Exercice 3 (\ \ \ \  / 3 points )}
+
+\vspace{10pt}
+Lors de la première démarque des soldes, un magasin annonce -30\% sur toutes les chemises. 
+
+Lors de la deuxième démarque, il annonce -10\% supplémentaires sur tous les produits soldés.
+
+\begin{questions}
+
+\question[2] Quel est le taux d'évolution global en pourcentage du prix d'une chemise ?
+
+\question[1] Avant la première démarque, le prix d'une chemise était de 60€. Quel est alors son prix final ?
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exo : graphique
+% ========================================================
+\noindent
+\textbf{Exercice 4 (\ \ \ \  / 2 points )}
+
+\vspace{10pt}
+Dans une réserve naturelle, la population de tigres diminue de 18\%. 
+
+\begin{questions}
+
+\question[2] De quel pourcentage faut-il qu'elle augmente pour revenir à sa valeur initiale ?
+Arrondir à 0,01\% près.
+
+\end{questions}
+
+\vspace{1cm}
+
+% ========================================================
+%             Exercice 2
+% ========================================================
+\noindent
+\textbf{Exercice 5 : Du calcul ( \ \ \ / 6 points )}
+
+\vspace{10pt}
+\textbf{\underline{Les prochaines question sont à faire sans calculatrice, en détaillant vos calculs.}}
+
+\vspace{5pt}
+\textbf{\underline{ATTENTION :}} si vous ne détaillez pas vos étapes de calculs, je saurai que vous avez 
+utilisé la calculatrice.
+  
+\vspace{10pt}
+\begin{questions}
+
+\question[4] Mettre sous forme simplifiée les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1.85cm} a) $\dfrac{13}{30} - \dfrac{7}{15} + \dfrac{5}{3}$ \hspace{2cm} b) $\dfrac{2}{11} + 2$
+
+\vspace{10pt}
+\hspace{1.85cm} c) $\dfrac{2}{3}\left(2+\dfrac{3}{4}\right)$ \hspace{2.3cm} 
+d) $\dfrac{7}{4} \div 2 - \dfrac{1}{6} \times \dfrac{2}{-3}$
+
+\vspace{10pt}
+\question[1] Écrire sous la forme $a\sqrt{b}$ où $a$ et $b$ sont des nombres entiers positifs, $b$ étant le plus 
+\textbf{petit possible}.
+
+\vspace{5pt}
+\hspace{1.85cm} a) $\sqrt{50}$ \hspace{2cm} b) $\sqrt{54}$
+
+\vspace{10pt}
+\question[1] Écrire les nombres suivants en notation scientifique :
+
+\vspace{5pt}
+\hspace{1.85cm} a) $232$ \hspace{2cm} b) $0,958$
+
+\vspace{10pt}
+\question[2] Écrire sous la forme $a^n$, où $a$ est un nombre relatif et $n$ un entier relatif :
+
+\vspace{5pt}
+\hspace{1.85cm} a) $\dfrac{3^8}{3^{-4}}$ \hspace{2cm} b) $\dfrac{(-6)^4}{3^4}$
+
+\vspace{5pt}
+\hspace{1.85cm} c) $8 \times 8^{-3}$ \hspace{1.4cm} d) $((-3,7)^{-2})^4$
+
+\vspace{10pt}
+\question[1] Montrer que pour tout entier naturel $n \neq 0$,
+
+\vspace{5pt}
+\hspace{4cm} $\dfrac{1}{n+1} - \dfrac{1}{n} = \dfrac{-1}{n(n+1)}$
+
+\vspace{10pt}
+\question[1] Écrire sous la forme $a + b\sqrt{c}$ où $c$ est le plus \textbf{petit possible} :
+
+\vspace{5pt}
+\hspace{1.85cm} a) $5\sqrt{7}(-2 + 4\sqrt{7})$ \hspace{2cm} b) $(-9\sqrt{11} + 12)(4 - 3\sqrt{11})$
+
+\vspace{40pt}
+\begin{center}
+    \textit{-- Fin du devoir --}
+\end{center}
+
+\vspace{40pt}
+\question[2] \textbf{\underline{BONUS}} Soit $E = \dfrac{5}{\sqrt{2}+\sqrt{18}} + \dfrac{3}{\sqrt{2} - \sqrt{18}}$.
+
+\vspace{5pt}
+Écrire le nombre $E$ sous la forme $a\sqrt{b}$ où $a$ est une fraction irréductible et $b$ est un nombre entier.
+
+\end{questions}
+
+
+\end{document}

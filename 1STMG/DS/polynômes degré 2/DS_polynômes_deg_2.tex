@@ -1,0 +1,142 @@
+\documentclass[12pt,a4paper]{exam}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\geometry{margin=2cm}
+
+% --------------------
+% En-tête / pied (exam)
+% --------------------
+\header{}{DS de mathématiques}{1ère STMG}
+\footer{}{\thepage}{}
+
+% --------------------
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Devoir surveillé\\Fonctions polynômes de degré 2}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Durée :} 1h \hfill
+\textbf{Calculatrice :} \underline{NON} autorisée
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 1 : Étude d’une fonction (\ \ \ \  / 5 points )}
+\vspace{5pt}
+\noindent\\On représente ci-dessous la courbe de la fonction $f(x) = ax^2+c$.
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+
+    % Grille
+    \draw[step=1cm, gray, very thin] (-3,-5) grid (3,5);
+
+    % Axes
+    \draw[->] (-3.2,0) -- (3.2,0) node[right] {$x$};
+    \draw[->] (0,-5.2) -- (0,5.2) node[above] {$y$};
+
+    % Graduations x
+    \foreach \x in {-3,-2,-1,1,2,3}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\small $\x$};
+
+    % Graduations y
+    \foreach \y in {-4,-2,2,4}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\small $\y$};
+
+    % Courbe y = 3x^2 - 4 (limitée à y ≤ 5)
+    \draw[domain=-sqrt(2.7):sqrt(2.7), samples=200, smooth, thick, red]
+        plot (\x, {3*\x*\x - 3});
+
+    \end{tikzpicture}
+\end{center}
+
+
+\begin{questions}
+
+\question[2] Déterminer graphiquement les valeurs de $f(0)$ et $f(1)$.
+
+\question[3] Retrouver les valeurs de $a$ et $c$ à l'aide de la question
+précédente.
+
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 2 : Étudier et tracer ( \ \ \ / 8 points )}
+
+\vspace{5pt}
+\noindent
+On considère la fonction définie sur $\mathbb{R}$ suivante :
+\[
+f(x) = -2(x+1)(x-5)
+\]
+
+\begin{questions}
+
+\question Trouver les caractéristiques suivantes du polynôme 
+$-2(x+1)(x-5)$ :
+\begin{parts}
+    \part[2] Racines
+    \part[1] Équation de l'axe de symétrie 
+    \part[1] Coordonnées du sommet 
+    \part[1] Le sommet sera-t-il un maximum ou un minimum ? 
+    \textbf{\underline{Justifier}}
+\end{parts}
+
+\question[1] Tracer l'allure de la courbe représentative de $f$.
+
+% \question Construire le tableau de signes de $f$.
+
+\question[2] Construire le tableau de \underline{variations} de $f$. On fera 
+apparaître les valeurs au sommet.
+
+\end{questions}
+
+\vspace{0.5cm}
+
+% ======================================================
+\noindent
+\textbf{Exercice 3 : Problème ( \ \ \ / 7 points )}
+
+\vspace{5pt}
+\noindent
+Pour tout réel $x$, on pose $f(x) = -2x^2 + 2x + 4$.
+
+\begin{questions}
+
+\question[1] Montrer que $2$ est une racine du 
+polynôme $-2x^2 + 2x + 4$.
+
+\question[1] Calculer $f(-1)$. Que peut-on en déduire ?
+
+\question[2] En déduire une forme factorisée de $f(x)$.
+
+\question[2] Construire le tableau de signes de $f$ sur $\mathbb{R}$.
+
+\question[1] Résoudre l'inéquation $f(x) \leq 0$ sur $\mathbb{R}$.
+
+\end{questions}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textit{Fin du devoir}
+\end{center}
+
+\end{document}
