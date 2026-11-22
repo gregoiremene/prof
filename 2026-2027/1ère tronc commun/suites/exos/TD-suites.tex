@@ -1,0 +1,121 @@
+% !TEX program = pdflatex
+% TD - Les suites (Première, tronc commun) -- SQUELETTE
+% Compilation : pdflatex TD-suites.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{graphicx}       % pour insérer les captures
+% \graphicspath{{images/}}  % décommenter si les captures sont dans un sous-dossier
+
+%------------------------------------------------------------
+% Mise en forme
+%------------------------------------------------------------
+\definecolor{bleu}{RGB}{30,80,140}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Mathématiques -- Première}
+\rhead{\small TD1 : Les suites}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Environnement "exercice" numéroté avec titre
+\newcounter{exo}
+\newcommand{\exo}[1]{%
+  \refstepcounter{exo}%
+  \vspace{0.8cm}
+  \noindent{\color{bleu}\large\bfseries Exercice \theexo\ -- #1}\par
+  \nopagebreak\smallskip
+}
+
+% Raccourci pour insérer une capture (légende optionnelle en 2e argument)
+% Utilisation :  \capture{nom-fichier.png}{0.6}
+\newcommand{\capture}[2]{%
+  \begin{center}\includegraphics[width=#2\textwidth]{#1}\end{center}}
+
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=4pt,topsep=4pt}
+
+%------------------------------------------------------------
+\begin{document}
+
+%------------------- En-tête -------------------
+\begin{center}
+  {\color{bleu}\LARGE\bfseries TD -- Les suites}\\[4pt]
+  {\large Première -- tronc commun}
+\end{center}
+
+\vspace{6pt}
+\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+  \small \textbf{Objectifs du TD :} Comprendre les bases des suites et les cas particuliers
+  des suites arithmétiques.}}
+
+%============================================================
+%  EXERCICE 1
+%============================================================
+\exo{Représentation graphique d'une suite}
+% --- Énoncé ---
+\capture{exo1.png}{0.5}   % <-- insérer une capture ici
+\begin{enumerate}
+  \item Parmis les représentations graphiques suivantes, lesquelles représentent
+  des modèles discrets à croissance linéaire ? Justifier.
+\end{enumerate}
+
+%============================================================
+%  EXERCICE 2
+%============================================================
+\exo{Calculs de termes}
+% --- Énoncé ---
+Pour chacune de ces suites arithmétiques, calculer $u_{10}$.
+\begin{enumerate}
+  \item $u_n = 5n - 12$
+  \item $\begin{cases} u_0 = 2 \\ u_{n+1} = u_n + 4 \end{cases}$
+  \item La raison vaut $3$ et $u_8 = -4$
+\end{enumerate}
+
+%============================================================
+%  EXERCICE 3
+%============================================================
+\exo{Raison et variations d'une suite arithmétique}
+% --- Énoncé ---
+% \capture{capture-2.png}{0.6}
+Précuser la raison de chacune des suites arithmétiques suivantes dont on donne les premiers
+termes.
+
+Indiquer le sens de variation de cette suite.
+\begin{enumerate}
+  \item $1$ ; $-1$ ; $-3$ ; ...
+  \item $\dfrac{3}{5}$ ; $1$ ; $\dfrac{7}{5}$ ; $\dfrac{9}{5}$ ; ...
+\end{enumerate}
+
+%============================================================
+%  EXERCICE 4
+%============================================================
+\exo{Modélisation}
+% --- Énoncé ---
+
+La réserve de noisettes d'un écureuil diminue chaque jour de l'hiver.
+
+\vspace{5pt}
+Elle débute à 156 noisettes. Chaque mois, la réserve diminue de 23 noisettes.
+
+\begin{enumerate}
+  \item Peut-on modéliser cette situation par une suite arithmétique ?
+  \item Donner les éléments caractéristiques de cette suite.
+  \item La réserve tiendra-t-elle l'hiver ?
+\end{enumerate}
+
+%============================================================
+%  (dupliquer un bloc \exo{...} pour ajouter un exercice)
+%============================================================
+
+\end{document}
