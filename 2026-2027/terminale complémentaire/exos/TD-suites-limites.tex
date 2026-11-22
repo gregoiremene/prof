@@ -1,0 +1,124 @@
+% !TEX program = pdflatex
+% TD1 - Suites et limites de suites (Terminale, maths complémentaires) -- SQUELETTE
+% Compilation : pdflatex TD-suites-limites.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{graphicx}       % pour insérer les captures
+% \graphicspath{{images/}}  % décommenter si les captures sont dans un sous-dossier
+
+%------------------------------------------------------------
+% Mise en forme
+%------------------------------------------------------------
+\definecolor{bleu}{RGB}{30,80,140}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Mathématiques -- Terminale}
+\rhead{\small TD1 : Suites et limites de suites}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Environnement "exercice" numéroté avec titre
+\newcounter{exo}
+\newcommand{\exo}[1]{%
+  \refstepcounter{exo}%
+  \vspace{0.8cm}
+  \noindent{\color{bleu}\large\bfseries Exercice \theexo\ -- #1}\par
+  \nopagebreak\smallskip
+}
+
+% Raccourci pour insérer une capture (fichier + largeur en fraction de page)
+% Utilisation :  \capture{nom-fichier.png}{0.6}
+\newcommand{\capture}[2]{%
+  \begin{center}\includegraphics[width=#2\textwidth]{#1}\end{center}}
+
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=4pt,topsep=4pt}
+
+%------------------------------------------------------------
+\begin{document}
+
+%------------------- En-tête -------------------
+\begin{center}
+  {\color{bleu}\LARGE\bfseries TD1 -- Suites et limites de suites}\\[4pt]
+  {\large Terminale -- Mathématiques complémentaires}
+\end{center}
+
+\vspace{6pt}
+\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+  \small \textbf{Objectifs du TD :} s'entraîner sur les calculs de limites avec différents
+  outils.
+  
+  \vspace{5pt}
+  \textbf{Ces exercices sont extraits du manuel en ligne sésamaths : page 31.}
+  
+  \vspace{5pt}
+  \textbf{\underline{Exercices à faire sur une feuille ou un cahier séparé.}}}}
+
+%============================================================
+%  EXERCICE 1  -- révisions de première
+%============================================================
+\exo{Représentation graphique et calculs de limites}
+% --- Énoncé ---
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+    \capture{exo1TD1.png}{1}   % <-- insérer une capture ici
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+    \capture{exo2TD1.png}{1}   % <-- insérer une capture ici
+
+    \vspace{10pt}
+    \capture{exo3TD1.png}{1}   % <-- insérer une capture ici
+
+\end{minipage}%
+
+
+%============================================================
+%  EXERCICE 2  -- conjecturer une limite (tableau / graphique)
+%============================================================
+\exo{Calculs de limites avec les théorèmes}
+% --- Énoncé ---
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+    \capture{exo4TD1.png}{1}   % <-- insérer une capture ici
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+    \capture{exo5TD1.png}{1}   % <-- insérer une capture ici
+\end{minipage}%
+
+
+%============================================================
+%  EXERCICE 2  -- conjecturer une limite (tableau / graphique)
+%============================================================
+\exo{Une suite pas comme les autres}
+% --- Énoncé ---
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+    \capture{exo6.png}{1}   % <-- insérer une capture ici
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.5\textwidth}%
+    \vspace{0pt}
+    % \capture{exo5TD1.png}{1}   % <-- insérer une capture ici
+\end{minipage}%
+
+
+%============================================================
+%  (dupliquer un bloc \exo{...} pour ajouter un exercice)
+%============================================================
+
+\end{document}
