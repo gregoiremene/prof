@@ -1,0 +1,56 @@
+# Copie automatiquement le dépôt dans Google Drive à chaque envoi sur main.
+#
+# Prérequis : un secret de dépôt RCLONE_CONF contenant la configuration rclone
+# (remote nommé "gdrive"). Optionnel : une variable de dépôt DRIVE_FOLDER pour
+# changer le dossier de destination dans le Drive (par défaut : "prof").
+#
+# Les fichiers sont copiés (rclone copy) : rien n'est jamais supprimé du Drive.
+
+name: Envoi vers Google Drive
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: drive
+  cancel-in-progress: false
+
+jobs:
+  drive:
+    runs-on: ubuntu-latest
+    env:
+      RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+      DRIVE_FOLDER: ${{ vars.DRIVE_FOLDER || 'prof' }}
+    steps:
+      - name: Vérifier la configuration
+        id: check
+        run: |
+          if [ -z "$RCLONE_CONF" ]; then
+            echo "::warning::Secret RCLONE_CONF absent : envoi vers Google Drive ignoré."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.ok == 'true'
+
+      - name: Installer rclone
+        if: steps.check.outputs.ok == 'true'
+        run: curl -fsSL https://rclone.org/install.sh | sudo bash
+
+      - name: Copier vers Google Drive
+        if: steps.check.outputs.ok == 'true'
+        run: |
+          mkdir -p ~/.config/rclone
+          printf '%s\n' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
+          rclone copy . "gdrive:$DRIVE_FOLDER" \
+            --exclude ".git/**" \
+            --exclude ".github/**" \
+            --exclude ".gitignore" \
+            --exclude ".DS_Store" \
+            --exclude "*.aux" --exclude "*.log" --exclude "*.out" \
+            --exclude "*.synctex.gz" --exclude "*.fls" --exclude "*.fdb_latexmk" \
+            --stats-one-line -v
