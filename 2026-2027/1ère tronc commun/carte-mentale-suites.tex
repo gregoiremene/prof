@@ -1,0 +1,139 @@
+% !TEX program = pdflatex
+% Carte mentale - Les suites (Première)
+% Compilation : pdflatex carte-mentale-suites.tex
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[a4paper,landscape,margin=1.1cm]{geometry}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usetikzlibrary{arrows.meta,fit,backgrounds}
+
+%------------------------------------------------------------
+% Couleurs
+%------------------------------------------------------------
+\definecolor{cCentre}{RGB}{30,80,140}
+% Bulles
+\definecolor{c1}{RGB}{200,70,60}
+\definecolor{c2}{RGB}{210,130,40}
+\definecolor{c3}{RGB}{40,150,110}
+\definecolor{c4}{RGB}{70,110,200}
+\definecolor{c5}{RGB}{150,90,170}
+\definecolor{c6}{RGB}{200,90,130}
+% Grands blocs
+\definecolor{cQ}{RGB}{120,100,60}
+\definecolor{cA}{RGB}{55,90,135}
+\definecolor{cG}{RGB}{60,140,90}
+
+\pagestyle{empty}
+
+%------------------------------------------------------------
+\begin{document}
+
+\begin{center}
+  {\color{cCentre}\LARGE\bfseries Carte mentale -- Les suites}\\[3pt]
+  {\itshape Première -- synthèse de ce qui a été vu}
+\end{center}
+
+\vspace{0.1cm}
+
+\begin{center}
+\begin{tikzpicture}[
+  every node/.style={align=left},
+  branch/.style={rounded corners=5pt, draw=#1, line width=0.9pt,
+                 fill=#1!8, text width=4.1cm, inner sep=6pt, font=\small},
+  banner/.style={rounded corners=5pt, fill=#1, text=white,
+                 font=\bfseries, inner sep=5pt, align=center},
+  panel/.style={rounded corners=11pt, draw=#1, line width=1.4pt,
+                fill=#1!4, inner sep=11pt},
+  link/.style={line width=1.3pt}
+]
+
+%====================== NOEUD CENTRAL ======================
+\node[fill=cCentre, text=white, rounded corners=12pt, inner sep=12pt,
+      font=\large\bfseries, align=center] (C) at (0,2.2) {LES\\ SUITES};
+
+%====================== BLOC « QUELCONQUE » (gauche) ======================
+\node[branch=c1, text width=6.4cm] (b1) at (-8.6,4.2) {%
+  \begin{center}
+    $u_n$ et $u(n)$ veulent dire la même chose.
+  \end{center}  
+
+  \vspace{5pt}
+  {\color{c1}\bfseries Deux façons de définir}\\[2pt]
+  $\bullet$ \textbf{Explicite} : 
+  \\\underline{exemple :} $u_n = 6n + 2$\\
+  \textbf{$\bm{u_n}$ est définie en fonction de $\bm{n}$.}
+
+  \vspace{5pt}
+  $\bullet$ \textbf{Récurrence} : $u_0$ donné,\\
+  \phantom{$\bullet$ }\underline{exemple :} $u_{n+1} = \dfrac{1}{2}u_n - 2$};
+
+\node[branch=c2, text width=6.4cm] (b2) at (-8.6,0.3) {%
+  {\color{c2}\bfseries Calculer un terme}\\[3pt]
+  $\bullet$ \textbf{Explicite} : remplacer $n$ par sa valeur\\
+  $\bullet$ \textbf{Récurrence} : de proche en proche $u_0, u_1, u_2, \dots$};
+
+%====================== BLOC « ARITHMÉTIQUE » (droite) ======================
+\node[branch=c3] (b3) at (5.6,4.2) {%
+  {\color{c3}\bfseries Définition}\\[3pt]
+  On \textbf{ajoute} toujours le même nombre $r$ (\textbf{raison}) au terme précédent :\\[2pt]
+  \hspace*{0.3cm}$u_{n+1} = u_n + r$};
+
+\node[branch=c4, text width=5cm] (b4) at (10.8,4.2) {%
+  {\color{c4}\bfseries Formules}\\[3pt]
+  $\bullet$ \textbf{Récurrence :} $u_{n+1} = u_n + r$\\
+
+  \vspace{5pt}
+  $\bullet$ \textbf{Explicite :} $u_n = u_0 + nr$\\
+
+  \vspace{5pt}
+  $\bullet$ \it{ou cas particulier} 
+  \\$u_n = u_p + (n-p)\,r$};
+
+\node[branch=c5, text width=5cm] (b5) at (5.6,0.3) {%
+  {\color{c5}\bfseries Représentation}\\[3pt]
+  $\bullet$ $n$ en abscisses, $u_n$ en ordonnées\\
+  $\bullet$ Les points sont alignés et forment une \textbf{droite}.};
+
+\node[branch=c6] (b6) at (11.3,0.3) {%
+  {\color{c6}\bfseries Sens de variation}\\[3pt]
+  Signe de la raison $r$ :\\
+  $\bullet$ $r>0$ : \textbf{croissante}\\
+  $\bullet$ $r<0$ : \textbf{décroissante}\\
+  $\bullet$ $r=0$ : \textbf{constante}};
+
+%====================== BLOC « GÉOMÉTRIQUE » (bas, à compléter) ======================
+\node[panel=cG, dashed, fill=cG!4, text width=6cm, align=center,
+      font=\normalsize] (pG) at (0,-4.1) {%
+  \vspace{2pt}{\Huge\color{cG!85!black}\bfseries ?}\\[6pt]
+  \itshape (dernier bloc à compléter)\\[2pt]};
+
+%====================== PANNEAUX + BANNIÈRES (arrière-plan) ======================
+\begin{scope}[on background layer]
+  \node[panel=cQ, fit=(b1)(b2)] (pQ) {};
+  \node[panel=cA, fit=(b3)(b4)(b5)(b6)] (pA) {};
+
+  % Liens depuis le centre
+  \draw[link, cQ] (C) -- (pQ.east);
+  \draw[link, cA] (C) -- (pA.west);
+  \draw[link, cG] (C) -- (pG.north);
+\end{scope}
+
+% Bannières de titre
+\node[banner=cQ, anchor=south] at ([yshift=4pt]pQ.north)
+     {Suites quelconques\\[1pt]{\footnotesize\mdseries vrai pour \emph{toute} suite}};
+\node[banner=cA, anchor=south] at ([yshift=4pt]pA.north)
+     {Suites arithmétiques};
+\node[banner=cG, anchor=south] at ([yshift=4pt]pG.north)
+     {Suites géométriques};
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
