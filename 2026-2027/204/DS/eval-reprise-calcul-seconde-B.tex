@@ -1,0 +1,96 @@
+% !TEX program = pdflatex
+% Mini-évaluation de reprise - Seconde -- SUJET B (outils de calcul, fractions, puissances)
+% Compilation : pdflatex eval-reprise-calcul-seconde-B.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{array}
+
+%------------------------------------------------------------
+% Mise en forme
+%------------------------------------------------------------
+\definecolor{bleu}{RGB}{30,80,140}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Mathématiques}
+\rhead{\small Seconde \textbullet\ Sujet B}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Environnement "exercice" numéroté avec titre (+ barème à droite)
+\newcounter{exo}
+\newcommand{\exo}[1]{%
+  \refstepcounter{exo}%
+  \vspace{0.7cm}
+  \noindent{\color{bleu}\large\bfseries Exercice \theexo\ -- #1}\par
+  \nopagebreak\smallskip
+}
+
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=4pt,topsep=4pt}
+
+%------------------------------------------------------------
+\begin{document}
+
+%------------------- En-tête -------------------
+\begin{center}
+  {\color{bleu}\LARGE\bfseries Évaluation de reprise}\\[4pt]
+  {\large Seconde}\\[6pt]
+  {\itshape Outils de calcul, fractions et puissances}
+\end{center}
+
+\vspace{6pt}
+\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+  \small \textbf{Durée : 20 minutes.}
+
+  \textbf{Calculatrice interdite.} \quad
+
+  \vspace{5pt}
+  Détaillez vos calculs \underline{\textbf{sur une copie séparée}} et donnez chaque résultat sous sa forme la plus simple.}}
+
+%================= FRACTIONS =================
+
+\exo{Fractions\hfill\normalfont\normalsize (4 points)}
+Donner chaque résultat sous forme de fraction \textbf{irréductible}.
+\begin{enumerate}
+  \item $A = \dfrac{5}{6} - \dfrac{3}{4}$ \qquad ; \qquad $B = \dfrac{4}{5} \times \dfrac{15}{8}$
+  \qquad ; \qquad $C = \dfrac{7}{10} \div \dfrac{14}{5}$
+  \item Simplifier : $D = \dfrac{45}{18}$
+\end{enumerate}
+
+%================= PUISSANCES =================
+
+\exo{Puissances\hfill\normalfont\normalsize (6 points)}
+\begin{enumerate}
+  \item Écrire sous la forme d'une seule puissance :
+
+  \vspace{5pt}
+  \hspace{1cm} $A = 3^4 \times 3^2$ \hspace{1.2cm} $B = (5^3)^2$ \hspace{1.2cm} $C = \dfrac{2^9}{2^6}$
+  \item Écrire sous forme d'une fraction (sans exposant négatif) : $D = 5^{-2}$
+  \item Écrire en notation scientifique : $27\,800$ \quad et \quad $0{,}00054$
+\end{enumerate}
+
+%================= OUTILS DE CALCUL =================
+
+\exo{Outils de calcul\hfill\normalfont\normalsize (4 points)}
+\begin{enumerate}
+  \item Développer et réduire :
+
+  \vspace{5pt}
+  \hspace{1cm} $A = (x - 2)(x + 6)$ \hspace{1.5cm} $B = (3x + 1)^2$
+  \item Factoriser :
+
+  \vspace{5pt}
+  \hspace{1cm} $A = 25x^2 - 4$ \hspace{1.5cm} $B = 7x^2 + 14x$
+\end{enumerate}
+
+\end{document}

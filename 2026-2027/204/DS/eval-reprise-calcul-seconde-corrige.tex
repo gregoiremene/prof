@@ -1,0 +1,107 @@
+% !TEX program = pdflatex
+% CORRIGÉ - Mini-évaluation de reprise - Seconde -- SUJET A
+% (feuille d'éval reprise à l'identique + résultats encadrés en rouge)
+% Compilation : pdflatex eval-reprise-calcul-seconde-corrige.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{array}
+
+%------------------------------------------------------------
+% Mise en forme
+%------------------------------------------------------------
+\definecolor{bleu}{RGB}{30,80,140}
+\definecolor{rouge}{RGB}{205,30,30}
+
+% Résultat encadré en rouge (uniquement le résultat)
+\newcommand{\res}[1]{{\setlength{\fboxsep}{2pt}\,\fcolorbox{rouge}{rouge!6}{\textcolor{rouge}{$#1$}}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Mathématiques -- \textbf{Corrigé}}
+\rhead{\small Seconde \textbullet\ Sujet A}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Environnement "exercice" numéroté avec titre (+ barème à droite)
+\newcounter{exo}
+\newcommand{\exo}[1]{%
+  \refstepcounter{exo}%
+  \vspace{0.7cm}
+  \noindent{\color{bleu}\large\bfseries Exercice \theexo\ -- #1}\par
+  \nopagebreak\smallskip
+}
+
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=4pt,topsep=4pt}
+
+%------------------------------------------------------------
+\begin{document}
+
+%------------------- En-tête -------------------
+\begin{center}
+  {\color{bleu}\LARGE\bfseries Évaluation de reprise}\\[4pt]
+  {\large Seconde}\\[6pt]
+  {\itshape Outils de calcul, fractions et puissances}
+\end{center}
+
+\vspace{6pt}
+\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+  \small \textbf{Durée : 20 minutes.}
+
+  \textbf{Calculatrice interdite.} \quad
+
+  \vspace{5pt}
+  Détaillez vos calculs \underline{\textbf{sur une copie séparée}} et donnez chaque résultat sous sa forme la plus simple.}}
+
+%================= FRACTIONS =================
+
+\exo{Fractions\hfill\normalfont\normalsize (4 points)}
+Donner chaque résultat sous forme de fraction \textbf{irréductible}.
+\begin{enumerate}
+  \item $A = \dfrac{3}{4} - \dfrac{1}{6}$ \res{\dfrac{7}{12}} \quad ; \quad
+        $B = \dfrac{2}{5} \times \dfrac{10}{9}$ \res{\dfrac{4}{9}} \quad ; \quad
+        $C = \dfrac{3}{8} \div \dfrac{9}{4}$ \res{\dfrac{1}{6}}
+  \item Simplifier : $D = \dfrac{54}{24}$ \res{\dfrac{9}{4}}
+\end{enumerate}
+
+%================= PUISSANCES =================
+
+\exo{Puissances\hfill\normalfont\normalsize (6 points)}
+\begin{enumerate}
+  \item Écrire sous la forme d'une seule puissance :
+
+  \vspace{5pt}
+  \hspace{1cm} $A = 2^5 \times 2^3$ \res{2^{8}} \hspace{0.6cm}
+               $B = (7^2)^4$ \res{7^{8}} \hspace{0.6cm}
+               $C = \dfrac{3^8}{3^5}$ \res{27}
+  \item Écrire sous forme d'une fraction (sans exposant négatif) : $D = 4^{-3}$ \res{\dfrac{1}{64}}
+  \item Écrire en notation scientifique : $34\,500$ \res{3{,}45 \times 10^{4}} \quad et \quad
+        $0{,}0027$ \res{2{,}7 \times 10^{-3}}
+\end{enumerate}
+
+%================= OUTILS DE CALCUL =================
+
+\exo{Outils de calcul\hfill\normalfont\normalsize (4 points)}
+\begin{enumerate}
+  \item Développer et réduire :
+
+  \vspace{5pt}
+  \hspace{1cm} $A = (x - 3)(x + 5)$ \res{x^2 + 2x - 15} \hspace{1cm}
+               $B = (2x + 1)^2$ \res{4x^2 + 4x + 1}
+  \item Factoriser :
+
+  \vspace{5pt}
+  \hspace{1cm} $A = 9x^2 - 16$ \res{(3x - 4)(3x + 4)} \hspace{1cm}
+               $B = 5x^2 + 10x$ \res{5x(x + 2)}
+\end{enumerate}
+
+\end{document}

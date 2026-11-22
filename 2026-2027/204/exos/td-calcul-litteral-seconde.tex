@@ -1,0 +1,452 @@
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+% \usepackage[draft]{graphicx}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mdframed}
+\usepackage{array}
+\usepackage[thinlines]{easytable}
+\usepackage{tkz-tab}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[inline]{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multido}
+% --- Page ---
+\geometry{margin=2cm}
+
+% Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\rfoot{\textit{G.M.}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+
+% Les cadres ne sont jamais coupés entre deux pages
+\mdfsetup{nobreak=true}
+
+\sectionfont{\color{red}\Large\bfseries}     % pour \section*
+\subsectionfont{\color{red}\large\bfseries\hspace{1cm}}
+
+\begin{document}
+
+% ============================
+%   Calcul littéral
+% ============================
+
+\begin{center}
+    {\LARGE \textbf{TD1 - Calcul littéral}}\\[4mm]
+\end{center}
+
+% ============================
+%   Partie 1 : Développer
+% ============================
+
+\section*{\textcolor{red}{I/ Développer une expression}}
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété (simple distributivité) :}}
+
+\vspace{5pt}
+Soient $k$, $a$ et $b$ trois nombres. Alors :
+
+\vspace{10pt}
+\begin{center}
+    $\bm{k(a+b) = }$ \_\_\_\_\_\_\_\_\_\_\_\_ \hspace{2cm} $\bm{k(a-b) = }$ \_\_\_\_\_\_\_\_\_\_\_\_
+\end{center}
+}
+\end{mdframed}
+
+\vspace{5pt}
+\underline{Exemple :} $3(x+5) =$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{10pt}
+\underline{Remarque :} Un signe $-$ devant une parenthèse change \textbf{tous} les signes à l'intérieur.
+
+\vspace{10pt}
+\hspace{1cm}$-(a+b) = $ \_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°1:} Développer avec la simple distributivité.}}
+
+\vspace{5pt}
+Développer puis réduire les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $A = 4(x+2)$ \hspace{3cm}b) $B = -3(2x-5)$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété (double distributivité) :}}
+
+\vspace{5pt}
+Soient $a$, $b$, $c$ et $d$ quatre nombres. Alors :
+
+\vspace{10pt}
+\begin{center}
+    $\bm{(a+b)(c+d) = }$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{center}
+}
+\end{mdframed}
+
+\vspace{5pt}
+\underline{Exemple :} $(x+2)(x+3) = $ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°2:} Développer avec la double distributivité.}}
+
+\vspace{5pt}
+Développer puis réduire les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $E = (x+3)(x+5)$ \hspace{2cm}b) $F = (3-x)(2x+1)$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{5pt}
+% ============================
+%   Partie 2 : Factoriser
+% ============================
+\section*{\textcolor{red}{II/ Factoriser une expression}}
+
+\vspace{5pt}
+\underline{Remarque :} Factoriser, c'est l'opération \textbf{inverse} de {\color{black!45}\dotfill}
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{5pt}
+Soient $k$, $a$ et $b$ trois nombres. Le nombre $k$ est appelé \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+\vspace{5pt}
+\begin{center}
+    $\bm{ka + kb = }$ \_\_\_\_\_\_\_\_\_\_\_\_ \hspace{2cm} $\bm{ka - kb = }$ \_\_\_\_\_\_\_\_\_\_\_\_
+\end{center}
+}
+\end{mdframed}
+
+\vspace{5pt}
+\underline{Exemples :}
+
+\vspace{5pt}
+\textbullet \ $5x + 15 = $ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{5pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°3:} Factoriser avec un facteur commun simple.}}
+
+\vspace{5pt}
+Factoriser les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $A = 10x - 15$ \hspace{3cm}b) $B = 8x^2 - 12x$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{5pt}
+\textbf{Le facteur commun peut aussi être une parenthèse :}
+
+\vspace{5pt}
+\underline{Exemple :}
+
+\vspace{-10pt}
+\begin{align*}
+    (x+1)(2x+3) + (x+1)(x-5) &= (x+1)\big[\ \dots\dots\dots\dots\ + \ \dots\dots\dots\dots\ \big] \\[6pt]
+    &= (x+1)(\dots\dots\dots\dots)
+\end{align*}
+
+\underline{Remarque :} Attention au facteur « caché » : $(2x+1) = (2x+1) \times $ \_\_\_\_\_\_
+
+\vspace{10pt}
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°4:} Factoriser avec une parenthèse en facteur commun.}}
+
+\vspace{5pt}
+Factoriser puis réduire les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}b) $A = (2x-3)(x+1) - (2x-3)(4x+5)$
+
+\vspace{5pt}
+\hspace{1cm}c) $B = (x-4)^2 + (x-4)(2x+1)$
+
+\vspace{5pt}
+\hspace{1cm}d) $C = (3x+1) + (3x+1)(x-2)$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+% ============================
+%   Partie 3 : Identités remarquables
+% ============================
+
+\section*{\textcolor{red}{III/ Identités remarquables}}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Red,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{red}
+\textbf{\underline{Propriété :}}
+
+\vspace{5pt}
+Soient $a$ et $b$ deux nombres. Alors :
+
+\vspace{-20pt}
+\begin{center}
+    \vspace{20pt}
+    $\bm{(a+b)^2 = }$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+    \vspace{20pt}
+    $\bm{(a-b)^2 = }$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+    \vspace{20pt}
+    $\bm{(a-b)(a+b) = }$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{center}
+}
+\end{mdframed}
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=Plum,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{Plum}
+\textbf{\underline{Démonstration :}}}
+
+\vspace{5pt}
+Démontrons la première égalité à l'aide de la double distributivité.
+
+\vspace{0.5cm}
+$(a+b)^2 = ${\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{10pt}
+
+\end{mdframed}
+
+\vspace{5pt}
+\underline{Exemple :} $(x+3)^2 = $ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°5:} Développer avec les identités remarquables.}}
+
+\vspace{5pt}
+Développer puis réduire les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $A = (x+4)^2$ \hspace{2cm}b) $B = (3x-2)^2$ \hspace{2cm} $T = (x+7)(x-7)$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{20pt}
+
+\end{mdframed}
+
+\vspace{5pt}
+\textbf{Les identités remarquables se lisent aussi de droite à gauche : elles permettent alors }
+
+\vspace{10pt}
+\textbf{de \_\_\_\_\_\_\_\_\_\_\_\_.}
+
+\vspace{5pt}
+\underline{Exemples :}
+
+\vspace{5pt}
+\textbullet \ $x^2 - 6x + 9 =$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\begin{mdframed}[
+    linewidth=1pt,
+    roundcorner=5pt,
+    linecolor=RoyalBlue,
+    innertopmargin=10pt,
+    innerbottommargin=10pt
+]
+{\color{RoyalBlue}
+\textbf{\underline{Exercice d'application n°6:} Factoriser avec les identités remarquables.}}
+
+\vspace{5pt}
+Factoriser les expressions suivantes :
+
+\vspace{5pt}
+\hspace{1cm}a) $A = 9x^2 - 16$ \hspace{1cm}b) $B = x^2 + 10x + 25$ \hspace{1cm}e) \textit{Pour aller plus loin :} $C = (x+1)^2 - 9$
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{0.5cm}
+{\color{black!45}\dotfill}
+
+\vspace{10pt}
+
+\end{mdframed}
+
+\end{document}
