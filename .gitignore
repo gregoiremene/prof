@@ -21,3 +21,5 @@
 # On garde le .pdf suivi (pratique pour le consulter depuis le téléphone).
 # Pour l'exclure aussi, décommentez :
 # *.pdf
+*.png
+*.jpg
